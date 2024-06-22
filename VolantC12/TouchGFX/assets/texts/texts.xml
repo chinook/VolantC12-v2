@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.23.2">
+  <Languages>
+    <Language Id="GB" />
+  </Languages>
+  <Texts>
+    <TextGroup Id="Group1" />
+    <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_IQPW" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">p.1/1</Translation>
+      </Text>
+      <Text Id="__SingleUse_OIHV" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_IQLU" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">title.</Translation>
+      </Text>
+      <Text Id="__SingleUse_DTB9" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_VJH6" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_LEP2" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="tsr_text" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.00</Translation>
+      </Text>
+      <Text Id="__SingleUse_MU00" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="efficiency_text" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.00</Translation>
+      </Text>
+      <Text Id="__SingleUse_DIBQ" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;0&gt;%</Translation>
+      </Text>
+      <Text Id="power_text" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">0.00</Translation>
+      </Text>
+      <Text Id="__SingleUse_4N8U" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_T5F8" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Empty.</Translation>
+      </Text>
+      <Text Id="__SingleUse_9JZ7" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Empty.</Translation>
+      </Text>
+      <Text Id="__SingleUse_Y1FV" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Empty.</Translation>
+      </Text>
+      <Text Id="__SingleUse_QAY6" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">TSR.</Translation>
+      </Text>
+      <Text Id="__SingleUse_V5U8" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Efficiency.</Translation>
+      </Text>
+      <Text Id="__SingleUse_CG1O" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Power.</Translation>
+      </Text>
+      <Text Id="__SingleUse_1F1N" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">p.2/2</Translation>
+      </Text>
+      <Text Id="turb_rpm_text" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_YY7I" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="wheel_rpm_text" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_8FJJ" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="wind_dir_text" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_APA4" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_RSWZ" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Turbine RPM.</Translation>
+      </Text>
+      <Text Id="__SingleUse_HW5F" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Wheel RPM.</Translation>
+      </Text>
+      <Text Id="__SingleUse_OVCS" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Wind Direction.</Translation>
+      </Text>
+      <Text Id="wind_speed_text" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_P7XC" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_PRUK" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Wind Speed.</Translation>
+      </Text>
+      <Text Id="pitch_text" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_KMLK" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_A6ZH" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Pitch.</Translation>
+      </Text>
+      <Text Id="mast_angle_text" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_2589" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_OSUO" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Mast angle.</Translation>
+      </Text>
+      <Text Id="__SingleUse_V6AU" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">p.1/2</Translation>
+      </Text>
+    </TextGroup>
+  </Texts>
+  <Typographies>
+    <Typography Id="Default" Font="verdana.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="32-126" />
+    <Typography Id="Large" Font="verdana.ttf" Size="60" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="32-126" />
+    <Typography Id="Small" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="32-126" />
+  </Typographies>
+</TextDatabase>
