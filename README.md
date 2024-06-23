@@ -11,7 +11,7 @@ To successfully complete this mandate, we need to use our previous engineering k
 >
 > When opening the .ioc (in CubeMX or CubeIDE), you will be prompted to migrate the .ioc to a newer version. (see image below)
 > 
-> <img src="WARNING.png" width="400" height="200">
+> <img src="assets/WARNING.png" width="400" height="200">
 >
 > ALWAYS ANSWER <ins>**NO**</ins> (or "Continue to stay compatible blah blah blah...").
 >
