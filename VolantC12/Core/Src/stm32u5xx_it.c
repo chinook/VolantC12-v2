@@ -45,6 +45,13 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
+//uint8_t mast_angle_flag = MAST_ANGLE_FLAG;
+//uint8_t pitch_flag = PITCH_FLAG;
+//uint8_t wind_sp_flag = WIND_SP_FLAG;
+//uint8_t wind_dir_flag = WIND_DIR_FLAG;
+//uint8_t wheel_rpm_flag = WHEEL_RPM_FLAG;
+//uint8_t turb_rpm_flag = TURB_RPM_FLAG;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -310,28 +317,28 @@ void EXTI5_IRQHandler(void)
 
 void EXTI7_IRQHandler(void)
 {
-	static float test = 0.0f;
-	test += 0.1f;
-	memcpy(&canRx_wind_dir, test, sizeof(float));
-	osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
+//	static float test = 0.0f;
+//	test += 0.1f;
+//	memcpy(&canRx_wind_dir, &test, sizeof(float));
+//	osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
 }
 
 void EXTI8_IRQHandler(void)
 {
-	static float test = 0.0f;
-	test += 0.1f;
-	memcpy(&canRx_wind_speed, test, sizeof(float));
-	osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
+//	static float test = 0.0f;
+//	test += 0.1f;
+//	memcpy(&canRx_wind_speed, &test, sizeof(float));
+//	osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
 }
 
 void EXTI10_IRQHandler(void)
 {
-	static float test = 0.0f;
-	test += 0.1f;
-	memcpy(&canRx_pitch, test, sizeof(float));
-	osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
+//	static float test = 0.0f;
+//	test += 0.1f;
+//	memcpy(&canRx_pitch, &test, sizeof(float));
+//	osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
 }
 
@@ -339,8 +346,8 @@ void EXTI15_IRQHandler(void)
 {
   static float test = 0.0f;
   test += 0.1f;
-  memcpy(&canRx_mast_angle, test, sizeof(float));
-  osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
+  memcpy(&canRx_mast_angle, &test, sizeof(float));
+  osMessageQueuePut(screen1_isr_queue, &MAST_ANGLE_FLAG, 0, 0);
 
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
 }
