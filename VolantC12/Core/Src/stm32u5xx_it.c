@@ -312,7 +312,7 @@ void EXTI7_IRQHandler(void)
 {
 	static float test = 0.0f;
 	test += 0.1f;
-	memcpy(&canRx_wind_dir, rxData, sizeof(float));
+	memcpy(&canRx_wind_dir, test, sizeof(float));
 	osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
 }
@@ -321,7 +321,7 @@ void EXTI8_IRQHandler(void)
 {
 	static float test = 0.0f;
 	test += 0.1f;
-	memcpy(&canRx_wind_speed, rxData, sizeof(float));
+	memcpy(&canRx_wind_speed, test, sizeof(float));
 	osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
 }
@@ -330,7 +330,7 @@ void EXTI10_IRQHandler(void)
 {
 	static float test = 0.0f;
 	test += 0.1f;
-	memcpy(&canRx_pitch, rxData, sizeof(float));
+	memcpy(&canRx_pitch, test, sizeof(float));
 	osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
 }
