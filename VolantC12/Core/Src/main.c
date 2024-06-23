@@ -45,7 +45,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "screen_tasks.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -66,7 +66,27 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+osThreadId_t screen1_task_handle;
+const osThreadAttr_t screen1_task_attr = {
+		.name = "screen1_task",
+		.stack_size = 8192*4,
+		.priority = (osPriority_t)osPriorityNormal,
+};
 
+osThreadId_t screen2_task_handle;
+const osThreadAttr_t screen2_task_attr = {
+		.name = "screen2_task",
+		.stack_size = 8192*4,
+		.priority = (osPriority_t)osPriorityNormal,
+};
+
+/* Task used for development */
+osThreadId_t test_task_handle;
+const osThreadAttr_t test_task_attr = {
+		.name = "test_task",
+		.stack_size = 1024,
+		.priority = (osPriority_t)osPriorityNormal,
+};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -161,6 +181,17 @@ int main(void)
       /* PWM Generation Error */
       Error_Handler();
     }
+
+  /* Start FDCAN controller */
+  if (HAL_FDCAN_Start(&hfdcan1) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+  screen1_task_handle = osThreadNew(screen1_task, NULL, &screen1_task_attr);
+  screen2_task_handle = osThreadNew(screen2_task, NULL, &screen2_task_attr);
+  /* Task used for development */
+  // test_task_handle = osThreadNew(test_task, NULL, &test_task_attr);
 
   /*Configure GPIO pin Output Level */
 

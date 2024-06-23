@@ -81,7 +81,7 @@ void Error_Handler(void);
 #define R_INT_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
-
+#define PALE_RADIUS 0.918
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

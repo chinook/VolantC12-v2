@@ -21,6 +21,38 @@
 #include "fdcan.h"
 
 /* USER CODE BEGIN 0 */
+static void configure_fdcan_filters(void);
+static void process_can_message(void);
+
+FDCAN_RxHeaderTypeDef 	rxHeader;
+FDCAN_TxHeaderTypeDef 	txHeader;
+uint8_t 				rxData[8U];		// 8 bytes
+
+float 	canRx_mast_angle 	= 0.0;
+float 	canRx_pitch			= 0.0;
+float 	canRx_wind_speed	= 0.0;
+float 	canRx_wind_dir		= 0.0;
+float 	canRx_wheel_rpm		= 0.0;
+float 	canRx_turbine_rpm	= 0.0;
+
+float	canRx_torque		= 0.0;
+
+float 	canRx_power			= 0.0;
+float 	canRx_efficiency	= 0.0;
+float 	canRx_tsr			= 0.0;
+
+/* Screen 1 */
+uint8_t mast_angle_flag = MAST_ANGLE_FLAG;
+uint8_t pitch_flag = PITCH_FLAG;
+uint8_t wind_sp_flag = WIND_SP_FLAG;
+uint8_t wind_dir_flag = WIND_DIR_FLAG;
+uint8_t wheel_rpm_flag = WHEEL_RPM_FLAG;
+uint8_t turb_rpm_flag = TURB_RPM_FLAG;
+
+/* Screen 2 */
+uint8_t power_flag = POWER_FLAG;
+uint8_t eff_flag = EFF_FLAG;
+uint8_t tsr_flag = TSR_FLAG;
 
 /* USER CODE END 0 */
 
@@ -60,6 +92,8 @@ void MX_FDCAN1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN FDCAN1_Init 2 */
+
+  configure_fdcan_filters();
 
   /* USER CODE END FDCAN1_Init 2 */
 
@@ -138,5 +172,247 @@ void HAL_FDCAN_MspDeInit(FDCAN_HandleTypeDef* fdcanHandle)
 }
 
 /* USER CODE BEGIN 1 */
+
+/**
+  * @brief
+  *
+  * @param Unused
+  * @return None
+  */
+void configure_fdcan_filters(void)
+{
+//	/* Configure reception filter to Rx FIFO 0 */
+//	FDCAN_FilterTypeDef        sFilterConfig;
+//	sFilterConfig.IdType       = FDCAN_STANDARD_ID;
+//	sFilterConfig.FilterIndex  = 0U;
+//	sFilterConfig.FilterType   = FDCAN_FILTER_MASK;
+//	sFilterConfig.FilterConfig = FDCAN_FILTER_TO_RXFIFO0;
+//	sFilterConfig.FilterID1    = 0x40;	// 0x40 to
+//	sFilterConfig.FilterID2    = 0x5F;	// 0x5F (inclusive)
+//	if (HAL_FDCAN_ConfigFilter(&hfdcan1, &sFilterConfig) != HAL_OK)
+//	{
+//	  Error_Handler();
+//	}
+
+	/* Activate Rx FIFO 0 new message notification */
+	if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0U) != HAL_OK)
+	{
+	  Error_Handler();
+	}
+
+	/**
+	*  Configure global filter:
+	*    - Filter all remote frames with STD and EXT ID
+	*    - Reject non matching frames with STD ID and EXT ID
+	*/
+//	if (HAL_FDCAN_ConfigGlobalFilter(&hfdcan1,
+//									 FDCAN_REJECT, FDCAN_REJECT,
+//									 FDCAN_FILTER_REMOTE, FDCAN_FILTER_REMOTE) != HAL_OK)
+//	{
+//	  Error_Handler();
+//	}
+}
+
+/**
+  * @brief  Rx FIFO 0 callback.
+  * @param  hfdcan pointer to an FDCAN_HandleTypeDef structure that contains
+  *         the configuration information for the specified FDCAN.
+  * @param  RxFifo0ITs indicates which Rx FIFO 0 interrupts are signaled.
+  *         This parameter can be any combination of @arg FDCAN_Rx_Fifo0_Interrupts.
+  */
+void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
+{
+  if ((RxFifo0ITs & FDCAN_IT_RX_FIFO0_NEW_MESSAGE) != 0U)
+  {
+    /* Retrieve Rx messages from RX FIFO0 */
+    if (HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &rxHeader, rxData) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    HAL_GPIO_TogglePin(USR_LED_1_GPIO_Port, USR_LED_1_Pin);
+
+    process_can_message();
+
+  }
+}
+
+/**
+ * @brief
+ *
+ * @param Unused
+ * @return None
+ */
+void process_can_message(void)
+{
+	// Technically CAN data can be 8+ bytes but we only send 4-bytes data to the motor driver
+	// uint32_t upper_can_data = rxData[4] | (rxData[5] << 8) | (rxData[6] << 16) | (rxData[7] << 24);
+//	uint32_t can_data = rxData[0] | (rxData[1] << 8) | (rxData[2] << 16) | (rxData[3] << 24);
+
+	switch (rxHeader.Identifier) {
+
+	    case MARIO_MAST_ANGLE:
+	    	// Check if the received message data length is correct
+	    	if (rxHeader.DataLength != 4) {
+	    	    Error_Handler();
+	    	} else {
+	    	    // Interpret the received bytes as a float
+	    	    memcpy(&canRx_mast_angle, rxData, sizeof(float));
+	    	    osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
+	    	}
+	        break;
+
+	    case MARIO_PITCH_ANGLE:
+	    	// Check if the received message data length is correct
+			if (rxHeader.DataLength != 4) {
+				Error_Handler();
+			} else {
+				// Interpret the received bytes as a float
+				memcpy(&canRx_pitch, rxData, sizeof(float));
+				osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
+			}
+	        break;
+
+	    case MARIO_WIND_SPEED:
+	    	// Check if the received message data length is correct
+			if (rxHeader.DataLength != 4) {
+				Error_Handler();
+			} else {
+				// Interpret the received bytes as a float
+				memcpy(&canRx_wind_speed, rxData, sizeof(float));
+				osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
+			}
+	        break;
+
+	    case MARIO_WIND_DIRECTION:
+	    	// Check if the received message data length is correct
+			if (rxHeader.DataLength != 4) {
+				Error_Handler();
+			} else {
+				// Interpret the received bytes as a float
+				memcpy(&canRx_wind_dir, rxData, sizeof(float));
+				osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
+			}
+	        break;
+
+	    case MARIO_WHEEL_RPM:
+	    	// Check if the received message data length is correct
+			if (rxHeader.DataLength != 4) {
+				Error_Handler();
+			} else {
+				// Interpret the received bytes as a float
+				memcpy(&canRx_wheel_rpm, rxData, sizeof(float));
+				osMessageQueuePut(screen1_isr_queue, &wheel_rpm_flag, 0, 0);
+			}
+	        break;
+
+	    case MARIO_ROTOR_RPM:
+	    	// Check if the received message data length is correct
+			if (rxHeader.DataLength != 4) {
+				Error_Handler();
+			} else {
+				// Interpret the received bytes as a float
+				memcpy(&canRx_turbine_rpm, rxData, sizeof(float));
+				osMessageQueuePut(screen1_isr_queue, &turb_rpm_flag, 0, 0);
+			}
+	    	break;
+
+	    case MARIO_TIP_SPEED_RATIO:
+	    	// Check if the received message data length is correct
+			if (rxHeader.DataLength != 4) {
+				Error_Handler();
+			} else {
+				// Interpret the received bytes as a float
+				memcpy(&canRx_tsr, rxData, sizeof(float));
+				osMessageQueuePut(screen2_isr_queue, &tsr_flag, 0, 0);
+			}
+	        break;
+
+	    case MARIO_TORQUE:
+	    	// Check if the received message data length is correct
+			if (rxHeader.DataLength != 4) {
+				Error_Handler();
+			} else {
+				// Interpret the received bytes as a float
+				memcpy(&canRx_torque, rxData, sizeof(float));
+				osMessageQueuePut(screen2_isr_queue, &eff_flag, 0, 0);
+				osMessageQueuePut(screen2_isr_queue, &tsr_flag, 0, 0);
+			}
+			break;
+
+	    default:
+	        // Unknown CAN ID
+	        break;
+	}
+
+}
+
+/**
+ * @brief
+ *
+ * @param Unused
+ * @return None
+ */
+
+//void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin)	//TODO: Define the GPIO buttons
+//{
+//	/* Prepare Tx message Header */
+//	txHeader.IdType              = FDCAN_STANDARD_ID;
+//	txHeader.TxFrameType         = FDCAN_DATA_FRAME;
+//	txHeader.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
+//	txHeader.BitRateSwitch       = FDCAN_BRS_OFF;
+//	txHeader.FDFormat            = FDCAN_CLASSIC_CAN;
+//	txHeader.TxEventFifoControl  = FDCAN_NO_TX_EVENTS;
+//	txHeader.MessageMarker       = 0U;
+//
+//	// Button rising edge interrupt occurred, handle it here
+//	switch (GPIO_Pin) {
+//		case BUTTON_PITCH_MODE:
+//			txHeader.Identifier          = VOLANT_PITCH_MODE_CMD;
+//			txHeader.DataLength          = 4U;
+//
+//			uint8_t pitch_mode = 0x71;
+//
+//			/* Add message to TX FIFO */
+//			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_mode) != HAL_OK)
+//			{
+//			  Error_Handler();
+//			}
+//
+//			break;
+//
+//		case BUTTON_PITCH_LEFT:
+//			txHeader.Identifier          = VOLANT_MANUAL_PITCH_CMD;
+//			txHeader.DataLength          = 4U;
+//
+//			uint8_t pitch_left = 0x01;	// pitch left
+//
+//			/* Add message to TX FIFO */
+//			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_left) != HAL_OK)
+//			{
+//			  Error_Handler();
+//			}
+//
+//			break;
+//
+//		case BUTTON_PITCH_RIGHT:
+//			txHeader.Identifier          = VOLANT_MANUAL_PITCH_CMD;
+//			txHeader.DataLength          = 4U;
+//
+//			uint8_t pitch_right = 0x80;	// pitch right TODO: Check 0x200 value, because overflow
+//
+//			/* Add message to TX FIFO */
+//			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_right) != HAL_OK)
+//			{
+//			  Error_Handler();
+//			}
+//
+//			break;
+//
+//		//TODO: Continue the rest of the commands
+//		default:
+//			break;
+//	}
+//}
 
 /* USER CODE END 1 */

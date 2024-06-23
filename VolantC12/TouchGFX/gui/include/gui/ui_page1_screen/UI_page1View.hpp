@@ -11,6 +11,14 @@ public:
     virtual ~UI_page1View() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+
+    virtual void change_screen(uint8_t screen);
+    virtual void update_mast_angle(float angle);
+    virtual void update_pitch(float pitch);
+    virtual void update_wind_speed(float speed);
+    virtual void update_wind_dir(float dir);
+    virtual void update_wheel_rpm(float rpm);
+    virtual void update_turb_rpm(float rpm);
 protected:
 };
 

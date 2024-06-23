@@ -61,7 +61,7 @@ extern LTDC_HandleTypeDef hltdc;
 extern TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN EV */
-
+extern volatile uint8_t desired_screen;
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -168,7 +168,11 @@ void DebugMon_Handler(void)
 void EXTI3_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI3_IRQn 0 */
-
+  if (desired_screen) {
+	desired_screen = 0;
+  } else {
+	desired_screen = 1;
+  }
   /* USER CODE END EXTI3_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(SCREEN_CHANGE_Pin);
   /* USER CODE BEGIN EXTI3_IRQn 1 */

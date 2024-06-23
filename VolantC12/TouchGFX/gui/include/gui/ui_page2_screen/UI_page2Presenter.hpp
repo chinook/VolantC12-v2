@@ -6,6 +6,10 @@
 
 using namespace touchgfx;
 
+extern "C" {
+	#include "..\..\..\..\..\STM32CubeIDE\Application\User\application\screen_tasks.h"
+}
+
 class UI_page2View;
 
 class UI_page2Presenter : public touchgfx::Presenter, public ModelListener
@@ -26,6 +30,10 @@ public:
     virtual void deactivate();
 
     virtual ~UI_page2Presenter() {}
+
+    virtual void change_screen(uint8_t screen);
+
+    virtual void update_ui(void* screen);
 
 private:
     UI_page2Presenter();

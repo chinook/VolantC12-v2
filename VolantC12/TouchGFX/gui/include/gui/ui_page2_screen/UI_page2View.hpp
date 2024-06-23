@@ -11,6 +11,11 @@ public:
     virtual ~UI_page2View() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+
+    virtual void change_screen(uint8_t screen);
+    virtual void update_power(float power);
+    virtual void update_efficiency(float eff);
+    virtual void update_tsr(float tsr);
 protected:
 };
 
