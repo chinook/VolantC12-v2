@@ -324,7 +324,9 @@ void EXTI10_IRQHandler(void)
 
 void EXTI15_IRQHandler(void)
 {
-  memcpy(&canRx_mast_angle, data, sizeof(float));
+  static float test = 0.0f;
+  test += 0.1f;
+  memcpy(&canRx_mast_angle, test, sizeof(float));
   osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
 
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
