@@ -45,12 +45,12 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
-uint8_t mast_angle_flag = MAST_ANGLE_FLAG;
-uint8_t pitch_flag = PITCH_FLAG;
-uint8_t wind_sp_flag = WIND_SP_FLAG;
-uint8_t wind_dir_flag = WIND_DIR_FLAG;
-uint8_t wheel_rpm_flag = WHEEL_RPM_FLAG;
-uint8_t turb_rpm_flag = TURB_RPM_FLAG;
+//uint8_t mast_angle_flag = MAST_ANGLE_FLAG;
+//uint8_t pitch_flag = PITCH_FLAG;
+//uint8_t wind_sp_flag = WIND_SP_FLAG;
+//uint8_t wind_dir_flag = WIND_DIR_FLAG;
+//uint8_t wheel_rpm_flag = WHEEL_RPM_FLAG;
+//uint8_t turb_rpm_flag = TURB_RPM_FLAG;
 
 /* USER CODE END PV */
 
