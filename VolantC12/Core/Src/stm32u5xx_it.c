@@ -23,8 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "../../STM32CubeIDE/Application/User/application/screen_tasks.h"
-#include <string.h>
-#include "fdcan.h"
+//#include <string.h>
+//#include "fdcan.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
