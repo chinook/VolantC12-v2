@@ -55,6 +55,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern FDCAN_HandleTypeDef hfdcan1;
 extern GPU2D_HandleTypeDef hgpu2d;
 extern LTDC_HandleTypeDef hltdc;
 extern TIM_HandleTypeDef htim2;
@@ -162,6 +163,20 @@ void DebugMon_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles EXTI Line3 interrupt.
+  */
+void EXTI3_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI3_IRQn 0 */
+
+  /* USER CODE END EXTI3_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(SCREEN_CHANGE_Pin);
+  /* USER CODE BEGIN EXTI3_IRQn 1 */
+
+  /* USER CODE END EXTI3_IRQn 1 */
+}
+
+/**
   * @brief This function handles EXTI Line6 interrupt.
   */
 void EXTI6_IRQHandler(void)
@@ -176,17 +191,31 @@ void EXTI6_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles TIM2 global interrupt.
+  * @brief This function handles FDCAN1 interrupt 0.
   */
-void TIM2_IRQHandler(void)
+void FDCAN1_IT0_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM2_IRQn 0 */
+  /* USER CODE BEGIN FDCAN1_IT0_IRQn 0 */
 
-  /* USER CODE END TIM2_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim2);
-  /* USER CODE BEGIN TIM2_IRQn 1 */
+  /* USER CODE END FDCAN1_IT0_IRQn 0 */
+  HAL_FDCAN_IRQHandler(&hfdcan1);
+  /* USER CODE BEGIN FDCAN1_IT0_IRQn 1 */
 
-  /* USER CODE END TIM2_IRQn 1 */
+  /* USER CODE END FDCAN1_IT0_IRQn 1 */
+}
+
+/**
+  * @brief This function handles FDCAN1 interrupt 1.
+  */
+void FDCAN1_IT1_IRQHandler(void)
+{
+  /* USER CODE BEGIN FDCAN1_IT1_IRQn 0 */
+
+  /* USER CODE END FDCAN1_IT1_IRQn 0 */
+  HAL_FDCAN_IRQHandler(&hfdcan1);
+  /* USER CODE BEGIN FDCAN1_IT1_IRQn 1 */
+
+  /* USER CODE END FDCAN1_IT1_IRQn 1 */
 }
 
 /**

@@ -119,11 +119,11 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(CTP_RST_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PJPin PJPin */
-  GPIO_InitStruct.Pin = USR_BTN_1_Pin|USB_OVERCURRENT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOJ, &GPIO_InitStruct);
+  /*Configure GPIO pin : PtPin */
+  GPIO_InitStruct.Pin = SCREEN_CHANGE_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(SCREEN_CHANGE_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PI6 */
   GPIO_InitStruct.Pin = GPIO_PIN_6;
@@ -160,6 +160,12 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
+  GPIO_InitStruct.Pin = USB_OVERCURRENT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(USB_OVERCURRENT_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = R_RST_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
@@ -177,6 +183,10 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(R_INT_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI3_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(EXTI3_IRQn);
 
 }
 

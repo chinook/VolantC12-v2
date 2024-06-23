@@ -61,8 +61,9 @@ void Error_Handler(void);
 #define LCD_DISP_RESET_GPIO_Port GPIOH
 #define CTP_RST_Pin GPIO_PIN_3
 #define CTP_RST_GPIO_Port GPIOE
-#define USR_BTN_1_Pin GPIO_PIN_3
-#define USR_BTN_1_GPIO_Port GPIOJ
+#define SCREEN_CHANGE_Pin GPIO_PIN_3
+#define SCREEN_CHANGE_GPIO_Port GPIOJ
+#define SCREEN_CHANGE_EXTI_IRQn EXTI3_IRQn
 #define USR_LED_1_Pin GPIO_PIN_5
 #define USR_LED_1_GPIO_Port GPIOE
 #define CTP_INT_Pin GPIO_PIN_6

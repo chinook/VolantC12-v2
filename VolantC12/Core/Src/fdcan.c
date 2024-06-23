@@ -39,17 +39,17 @@ void MX_FDCAN1_Init(void)
   /* USER CODE END FDCAN1_Init 1 */
   hfdcan1.Instance = FDCAN1;
   hfdcan1.Init.ClockDivider = FDCAN_CLOCK_DIV1;
-  hfdcan1.Init.FrameFormat = FDCAN_FRAME_FD_BRS;
+  hfdcan1.Init.FrameFormat = FDCAN_FRAME_CLASSIC;
   hfdcan1.Init.Mode = FDCAN_MODE_NORMAL;
   hfdcan1.Init.AutoRetransmission = DISABLE;
   hfdcan1.Init.TransmitPause = DISABLE;
   hfdcan1.Init.ProtocolException = DISABLE;
-  hfdcan1.Init.NominalPrescaler = 16;
+  hfdcan1.Init.NominalPrescaler = 40;
   hfdcan1.Init.NominalSyncJumpWidth = 1;
-  hfdcan1.Init.NominalTimeSeg1 = 2;
-  hfdcan1.Init.NominalTimeSeg2 = 2;
+  hfdcan1.Init.NominalTimeSeg1 = 11;
+  hfdcan1.Init.NominalTimeSeg2 = 4;
   hfdcan1.Init.DataPrescaler = 1;
-  hfdcan1.Init.DataSyncJumpWidth = 1;
+  hfdcan1.Init.DataSyncJumpWidth = 3;
   hfdcan1.Init.DataTimeSeg1 = 1;
   hfdcan1.Init.DataTimeSeg2 = 1;
   hfdcan1.Init.StdFiltersNbr = 0;
@@ -100,6 +100,11 @@ void HAL_FDCAN_MspInit(FDCAN_HandleTypeDef* fdcanHandle)
     GPIO_InitStruct.Alternate = GPIO_AF9_FDCAN1;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+    /* FDCAN1 interrupt Init */
+    HAL_NVIC_SetPriority(FDCAN1_IT0_IRQn, 5, 0);
+    HAL_NVIC_EnableIRQ(FDCAN1_IT0_IRQn);
+    HAL_NVIC_SetPriority(FDCAN1_IT1_IRQn, 5, 0);
+    HAL_NVIC_EnableIRQ(FDCAN1_IT1_IRQn);
   /* USER CODE BEGIN FDCAN1_MspInit 1 */
 
   /* USER CODE END FDCAN1_MspInit 1 */
@@ -123,6 +128,9 @@ void HAL_FDCAN_MspDeInit(FDCAN_HandleTypeDef* fdcanHandle)
     */
     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_9|GPIO_PIN_8);
 
+    /* FDCAN1 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(FDCAN1_IT0_IRQn);
+    HAL_NVIC_DisableIRQ(FDCAN1_IT1_IRQn);
   /* USER CODE BEGIN FDCAN1_MspDeInit 1 */
 
   /* USER CODE END FDCAN1_MspDeInit 1 */
