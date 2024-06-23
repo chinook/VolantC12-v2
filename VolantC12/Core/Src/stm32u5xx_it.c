@@ -22,6 +22,8 @@
 #include "stm32u5xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "../../STM32CubeIDE/Application/User/application/screen_tasks.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -322,6 +324,9 @@ void EXTI10_IRQHandler(void)
 
 void EXTI15_IRQHandler(void)
 {
+  memcpy(&canRx_mast_angle, data, sizeof(float));
+  osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
+
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
 }
 
