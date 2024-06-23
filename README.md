@@ -88,6 +88,65 @@ Main config file of the MCU for the project. Can be opened in CubeMX or will be 
 - Don't forget to set External Debugger to the .stldr file
 - CAN baud rate is 250 kbit/s
 
+# Developer Changelogs
+
+Files that has code made by human (me). So it'll be easier to find bugs when build/compile fails.
+
+- main.c / main.h
+    - inclure screen_tasks en haut du fichier
+	- déclaration des task_handle
+	- création des threads (osThreadNew)
+- fdcan.c / fdcan.h
+    - init fdcan
+    - process_can
+    - RX_Callback
+    - EXTI_TX
+    - variables globales
+- stm32u5xx_it.c
+    - Déclaration variable desired_screen
+	- Bloc if-else dans EXTI3_IRQHandler
+- screen_task.c / screen_task.h
+    - Se trouve dans STM32CubeIDE/Application/User/application
+- Model.cpp
+    - Se trouve dans TouchGFX/gui/src
+	- Copier tout le fichier
+- UI_page1Presenter.cpp
+	- Se trouve dans TouchGFX/gui/src
+	- Tout ce qui est apres UI_page1Presenter::deactivate
+- UI_page1View.cpp
+	- Se trouve dans TouchGFX/gui/src
+	- Tout ce qui est apres UI_page1View::tearDownScreen
+- UI_page2Presenter.cpp
+	- Se trouve dans TouchGFX/gui/src
+	- Tout ce qui est apres UI_page2Presenter::deactivate
+- UI_page2View.cpp
+	- Se trouve dans TouchGFX/gui/src
+	- Tout ce qui est apres UI_page2View::tearDownScreen
+- Model.hpp
+	- Se trouve dans TouchGFX/gui/include/gui/model
+	- include stdint
+	- variable curr_screen
+- ModelListener.hpp
+	- Se trouve dans TouchGFX/gui/include/gui/model
+	- Deux fonctions virtual
+- UI_page1Presenter.hpp
+	- Se trouve dans TouchGFX/gui/include/gui/ui_page1_screen
+	- Inclure screen tasks avec extern C
+	- Deux fonctions virtual
+- UI_page1View.hpp
+	-  Se trouve dans TouchGFX/gui/include/gui/ui_page1_screen
+	- Inclure screen tasks avec extern C
+	- Les 7 fonctions virtual à partir de change_screen
+- UI_page2Presenter.hpp
+	- Se trouve dans TouchGFX/gui/include/gui/ui_page2_screen
+	- Inclure screen tasks avec extern C
+	- Deux fonctions virtual
+- UI_page1View.hpp
+	- Se trouve dans TouchGFX/gui/include/gui/ui_page2_screen
+	- Inclure screen tasks avec extern C
+	- Les 4 fonctions virtual à partir de change_screen
+
+
 # TODO (Enhancements/Fixes)
 - [ ] Skip polling for screen and push data directly to the queue from the callback
 - [ ] Use callback for the screen change EXTI3
