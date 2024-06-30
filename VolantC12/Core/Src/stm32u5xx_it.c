@@ -175,7 +175,7 @@ void DebugMon_Handler(void)
 /**
   * @brief This function handles EXTI Line3 interrupt.
   */
-void EXTI3_IRQHandler(void)
+void EXTI3_IRQHandler(void) // PA3
 {
   /* USER CODE BEGIN EXTI3_IRQn 0 */
   if (desired_screen) {
@@ -185,6 +185,7 @@ void EXTI3_IRQHandler(void)
   }
   /* USER CODE END EXTI3_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(SCREEN_CHANGE_Pin);
+//  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
   /* USER CODE BEGIN EXTI3_IRQn 1 */
 
   /* USER CODE END EXTI3_IRQn 1 */
@@ -193,12 +194,13 @@ void EXTI3_IRQHandler(void)
 /**
   * @brief This function handles EXTI Line6 interrupt.
   */
-void EXTI6_IRQHandler(void)
+void EXTI6_IRQHandler(void) // PA6
 {
   /* USER CODE BEGIN EXTI6_IRQn 0 */
 
   /* USER CODE END EXTI6_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(CTP_INT_Pin);
+//  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
   /* USER CODE BEGIN EXTI6_IRQn 1 */
 
   /* USER CODE END EXTI6_IRQn 1 */
@@ -290,7 +292,7 @@ void LTDC_IRQHandler(void)
 
 /* USER CODE BEGIN 1 */
 
-void EXTI0_IRQHandler(void)
+void EXTI0_IRQHandler(void) // PB0
 {
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
 }
@@ -300,57 +302,75 @@ void EXTI1_IRQHandler(void)
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
 }
 
-void EXTI2_IRQHandler(void)
+void EXTI2_IRQHandler(void) // PG2
 {
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
 }
 
-void EXTI4_IRQHandler(void)
+void EXTI4_IRQHandler(void) // PA4
 {
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
+	static float test6 = 0.0f;
+	test6 += 0.1f;
+	memcpy(&canRx_turbine_rpm, &test6, sizeof(float));
+	static int turb_rpm_flag = TURB_RPM_FLAG;
+	osMessageQueuePut(screen1_isr_queue, &turb_rpm_flag, 0, 0);
+
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
 }
 
-void EXTI5_IRQHandler(void)
+void EXTI5_IRQHandler(void) // PB5
 {
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
+	static float test5 = 0.0f;
+	test5 += 0.1f;
+	memcpy(&canRx_wheel_rpm, &test5, sizeof(float));
+	static int wheel_rpm_flag = WHEEL_RPM_FLAG;
+	osMessageQueuePut(screen1_isr_queue, &wheel_rpm_flag, 0, 0);
+
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
 }
 
-void EXTI7_IRQHandler(void)
+void EXTI7_IRQHandler(void) // PA7
 {
-//	static float test = 0.0f;
-//	test += 0.1f;
-//	memcpy(&canRx_wind_dir, &test, sizeof(float));
-//	osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
+	static float test4 = 0.0f;
+	test4 += 0.1f;
+	memcpy(&canRx_wind_dir, &test4, sizeof(float));
+	static int wind_dir_flag = WIND_DIR_FLAG;
+	osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
+
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
 }
 
-void EXTI8_IRQHandler(void)
+void EXTI8_IRQHandler(void) // BOUTON 6 - Milieu droit - PA8
 {
-//	static float test = 0.0f;
-//	test += 0.1f;
-//	memcpy(&canRx_wind_speed, &test, sizeof(float));
-//	osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
+	static float test3 = 0.0f;
+	test3 += 0.1f;
+	memcpy(&canRx_wind_speed, &test3, sizeof(float));
+	static int wind_sp_flag = WIND_SP_FLAG;
+	osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
+
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
 }
 
-void EXTI10_IRQHandler(void)
+void EXTI10_IRQHandler(void) // PB10
 {
-//	static float test = 0.0f;
-//	test += 0.1f;
-//	memcpy(&canRx_pitch, &test, sizeof(float));
-//	osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
+	static float test2 = 0.0f;
+	test2 += 0.1f;
+	memcpy(&canRx_pitch, &test2, sizeof(float));
+	static int pitch_flag = PITCH_FLAG;
+	osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
+
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
 }
 
-void EXTI15_IRQHandler(void)
+void EXTI15_IRQHandler(void) // BOUTON 7 - Range bas, gauche, premier bouton - PA15
 {
-  static float test = 0.0f;
-  test += 0.1f;
-  memcpy(&canRx_mast_angle, &test, sizeof(float));
-  static int mast_angle_flag = MAST_ANGLE_FLAG;
-  osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
+	static float test1 = 0.0f;
+	test1 += 0.1f;
+	memcpy(&canRx_mast_angle, &test1, sizeof(float));
+	static int mast_angle_flag = MAST_ANGLE_FLAG;
+	osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
 
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
 }
 
 /* USER CODE END 1 */
