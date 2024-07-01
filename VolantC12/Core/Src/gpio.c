@@ -102,9 +102,9 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA15 PA8 PA4 PA6
+  /*Configure GPIO pins : PAPin PAPin PA4 PA6
                            PA7 */
-  GPIO_InitStruct.Pin = GPIO_PIN_15|GPIO_PIN_8|GPIO_PIN_4|GPIO_PIN_6
+  GPIO_InitStruct.Pin = BOUTON_7_Pin|BOUTON_6_Pin|GPIO_PIN_4|GPIO_PIN_6
                           |GPIO_PIN_7;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;

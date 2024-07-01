@@ -347,6 +347,72 @@ void process_can_message(void)
 
 }
 
+
+/**
+ * @brief For testing buttons
+ *
+ * @param Unused
+ * @return None
+ */
+void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin) {
+
+	switch (GPIO_Pin) {
+
+		    case GPIO_PIN_3:
+
+		    	static float test1 = 0.0f;
+				test1 += 0.1f;
+				memcpy(&canRx_mast_angle, &test1, sizeof(float));
+				osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
+
+		        break;
+
+		    case GPIO_PIN_4:
+
+		    	static float test2 = 0.0f;
+				test2 += 0.1f;
+				memcpy(&canRx_pitch, &test2, sizeof(float));
+				osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
+
+		        break;
+
+		    case GPIO_PIN_6:
+
+		    	static float test3 = 0.0f;
+		    	test3 += 0.1f;
+		    	memcpy(&canRx_wind_speed, &test3, sizeof(float));
+		    	osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
+
+		        break;
+
+		    case GPIO_PIN_7:
+
+		    	static float test4 = 0.0f;
+		    	test4 += 0.1f;
+		    	memcpy(&canRx_wind_dir, &test4, sizeof(float));
+		    	osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
+
+		        break;
+
+		    case GPIO_PIN_8:
+
+		    	static float test5 = 0.0f;
+		    	test5 += 0.1f;
+		    	memcpy(&canRx_wheel_rpm, &test5, sizeof(float));
+		    	osMessageQueuePut(screen1_isr_queue, &wheel_rpm_flag, 0, 0);
+
+		    	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
+
+		        break;
+
+		    default:
+		        break;
+		}
+}
+
+
+
+
 /**
  * @brief
  *
