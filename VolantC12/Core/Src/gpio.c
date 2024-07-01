@@ -38,7 +38,6 @@
      PG9   ------> USART1_TX
      PA14 (JTCK/SWCLK)   ------> DEBUG_JTCK-SWCLK
      PC14-OSC32_IN (PC14)   ------> RCC_OSC32_IN
-     PB5   ------> PWR_WKUP6
      PG10   ------> USART1_RX
      PH5   ------> I2C2_SDA
      PA12   ------> USB_OTG_HS_DP
@@ -116,6 +115,12 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB5 PB0 PB10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_0|GPIO_PIN_10;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = LCD_DISP_RESET_Pin;
@@ -206,12 +211,6 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PB10 */
-  GPIO_InitStruct.Pin = GPIO_PIN_10;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = SCREEN_CHANGE_Pin;
