@@ -1,2 +1,3 @@
 # Files and directories to ignore
 Debug/
+language.settings.xml
