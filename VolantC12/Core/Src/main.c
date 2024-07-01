@@ -269,10 +269,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-
-  /** MCO configuration
-  */
-  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_SYSCLK, RCC_MCODIV_1);
 }
 
 /**
