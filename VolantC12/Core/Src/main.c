@@ -158,7 +158,6 @@ int main(void)
   MX_TIM6_Init();
   MX_TIM8_Init();
   MX_TIM15_Init();
-  MX_USART3_UART_Init();
   MX_USART6_UART_Init();
   MX_USB_OTG_HS_USB_Init();
   MX_TouchGFX_Init();
