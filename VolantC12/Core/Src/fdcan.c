@@ -181,18 +181,18 @@ void HAL_FDCAN_MspDeInit(FDCAN_HandleTypeDef* fdcanHandle)
   */
 void configure_fdcan_filters(void)
 {
-//	/* Configure reception filter to Rx FIFO 0 */
-//	FDCAN_FilterTypeDef        sFilterConfig;
-//	sFilterConfig.IdType       = FDCAN_STANDARD_ID;
-//	sFilterConfig.FilterIndex  = 0U;
-//	sFilterConfig.FilterType   = FDCAN_FILTER_MASK;
-//	sFilterConfig.FilterConfig = FDCAN_FILTER_TO_RXFIFO0;
-//	sFilterConfig.FilterID1    = 0x40;	// 0x40 to
-//	sFilterConfig.FilterID2    = 0x5F;	// 0x5F (inclusive)
-//	if (HAL_FDCAN_ConfigFilter(&hfdcan1, &sFilterConfig) != HAL_OK)
-//	{
-//	  Error_Handler();
-//	}
+	/* Configure reception filter to Rx FIFO 0 */
+	FDCAN_FilterTypeDef        sFilterConfig;
+	sFilterConfig.IdType       = FDCAN_STANDARD_ID;
+	sFilterConfig.FilterIndex  = 0U;
+	sFilterConfig.FilterType   = FDCAN_FILTER_MASK;
+	sFilterConfig.FilterConfig = FDCAN_FILTER_TO_RXFIFO0;
+	sFilterConfig.FilterID1    = 0x40;	// 0x40 to
+	sFilterConfig.FilterID2    = 0x5F;	// 0x5F (inclusive)
+	if (HAL_FDCAN_ConfigFilter(&hfdcan1, &sFilterConfig) != HAL_OK)
+	{
+	  Error_Handler();
+	}
 
 	/* Activate Rx FIFO 0 new message notification */
 	if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0U) != HAL_OK)
@@ -205,12 +205,12 @@ void configure_fdcan_filters(void)
 	*    - Filter all remote frames with STD and EXT ID
 	*    - Reject non matching frames with STD ID and EXT ID
 	*/
-//	if (HAL_FDCAN_ConfigGlobalFilter(&hfdcan1,
-//									 FDCAN_REJECT, FDCAN_REJECT,
-//									 FDCAN_FILTER_REMOTE, FDCAN_FILTER_REMOTE) != HAL_OK)
-//	{
-//	  Error_Handler();
-//	}
+	if (HAL_FDCAN_ConfigGlobalFilter(&hfdcan1,
+									 FDCAN_REJECT, FDCAN_REJECT,
+									 FDCAN_FILTER_REMOTE, FDCAN_FILTER_REMOTE) != HAL_OK)
+	{
+	  Error_Handler();
+	}
 }
 
 /**
@@ -348,69 +348,6 @@ void process_can_message(void)
 }
 
 
-/**
- * @brief For testing buttons
- *
- * @param Unused
- * @return None
- */
-void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin) {
-
-	switch (GPIO_Pin) {
-
-		    case GPIO_PIN_3:
-
-		    	static float test1 = 0.0f;
-				test1 += 0.1f;
-				memcpy(&canRx_mast_angle, &test1, sizeof(float));
-				osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
-
-		        break;
-
-		    case GPIO_PIN_4:
-
-		    	static float test2 = 0.0f;
-				test2 += 0.1f;
-				memcpy(&canRx_pitch, &test2, sizeof(float));
-				osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
-
-		        break;
-
-		    case GPIO_PIN_6:
-
-		    	static float test3 = 0.0f;
-		    	test3 += 0.1f;
-		    	memcpy(&canRx_wind_speed, &test3, sizeof(float));
-		    	osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
-
-		        break;
-
-		    case GPIO_PIN_7:
-
-		    	static float test4 = 0.0f;
-		    	test4 += 0.1f;
-		    	memcpy(&canRx_wind_dir, &test4, sizeof(float));
-		    	osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
-
-		        break;
-
-		    case GPIO_PIN_8:
-
-		    	static float test5 = 0.0f;
-		    	test5 += 0.1f;
-		    	memcpy(&canRx_wheel_rpm, &test5, sizeof(float));
-		    	osMessageQueuePut(screen1_isr_queue, &wheel_rpm_flag, 0, 0);
-
-		    	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
-
-		        break;
-
-		    default:
-		        break;
-		}
-}
-
-
 
 
 /**
@@ -479,6 +416,75 @@ void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin) {
 //		default:
 //			break;
 //	}
+//}
+
+/**
+ * @brief For testing buttons
+ *
+ * @param Unused
+ * @return None
+ */
+//void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+//
+//	switch (GPIO_Pin) {
+//
+//		    case BOUTON_1_Pin:
+//
+//		    	static float test1 = 0.0f;
+//				test1 += 0.1f;
+//				memcpy(&canRx_mast_angle, &test1, sizeof(float));
+//				osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
+//
+//		        break;
+//
+//		    case BOUTON_2_Pin:
+//
+//		    	static float test2 = 0.0f;
+//				test2 += 0.1f;
+//				memcpy(&canRx_pitch, &test2, sizeof(float));
+//				osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
+//
+//		        break;
+//
+//		    case BOUTON_3_Pin:
+//
+//		    	static float test3 = 0.0f;
+//		    	test3 += 0.1f;
+//		    	memcpy(&canRx_wind_speed, &test3, sizeof(float));
+//		    	osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
+//
+//		        break;
+//
+//		    case BOUTON_4_Pin:
+//
+//		    	static float test4 = 0.0f;
+//		    	test4 += 0.1f;
+//		    	memcpy(&canRx_wind_dir, &test4, sizeof(float));
+//		    	osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
+//
+//		        break;
+//
+//		    case BOUTON_5_Pin:
+//
+//		    	static float test5 = 0.0f;
+//		    	test5 += 0.1f;
+//		    	memcpy(&canRx_wheel_rpm, &test5, sizeof(float));
+//		    	osMessageQueuePut(screen1_isr_queue, &wheel_rpm_flag, 0, 0);
+//
+//		        break;
+//
+//		    case BOUTON_6_Pin:
+//
+//		    	static float test6 = 0.0f;
+//		    	test6 += 0.1f;
+//		    	memcpy(&canRx_turbine_rpm, &test6, sizeof(float));
+//		    	osMessageQueuePut(screen1_isr_queue, &turb_rpm_flag, 0, 0);
+//
+//		        break;
+//
+//		    default:
+//		        break;
+//		}
 //}
 
 /* USER CODE END 1 */

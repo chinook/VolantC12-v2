@@ -22,6 +22,8 @@
 #include "stm32u5xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "../../STM32CubeIDE/Application/User/application/screen_tasks.h"
+#include "fdcan.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -163,14 +165,34 @@ void DebugMon_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles EXTI Line0 interrupt.
+  */
+void EXTI0_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI0_IRQn 0 */
+
+  /* USER CODE END EXTI0_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(BOUTON_8_Pin);
+  /* USER CODE BEGIN EXTI0_IRQn 1 */
+
+  /* USER CODE END EXTI0_IRQn 1 */
+}
+
+/**
   * @brief This function handles EXTI Line2 interrupt.
   */
 void EXTI2_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI2_IRQn 0 */
+	uint8_t flag1 = MAST_ANGLE_FLAG;
+
+	static float test1 = 0.0f;
+	test1 += 0.1f;
+	memcpy(&canRx_mast_angle, &test1, sizeof(float));
+	osMessageQueuePut(screen1_isr_queue, &flag1, 0, 0);
 
   /* USER CODE END EXTI2_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
+  HAL_GPIO_EXTI_IRQHandler(BOUTON_1_Pin);
   /* USER CODE BEGIN EXTI2_IRQn 1 */
 
   /* USER CODE END EXTI2_IRQn 1 */
@@ -182,13 +204,13 @@ void EXTI2_IRQHandler(void)
 void EXTI3_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI3_IRQn 0 */
-  if (desired_screen) {
-	desired_screen = 0;
-  } else {
-	desired_screen = 1;
-  }
+//  if (desired_screen) {                                                       // Code for screen change
+//	desired_screen = 0;
+//  } else {
+//	desired_screen = 1;
+//  }
   /* USER CODE END EXTI3_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(SCREEN_CHANGE_Pin);
+  HAL_GPIO_EXTI_IRQHandler(BOUTON_10_Pin);
   /* USER CODE BEGIN EXTI3_IRQn 1 */
 
   /* USER CODE END EXTI3_IRQn 1 */
@@ -202,10 +224,30 @@ void EXTI4_IRQHandler(void)
   /* USER CODE BEGIN EXTI4_IRQn 0 */
 
   /* USER CODE END EXTI4_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
+  HAL_GPIO_EXTI_IRQHandler(BOUTON_9_Pin);
   /* USER CODE BEGIN EXTI4_IRQn 1 */
 
   /* USER CODE END EXTI4_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI Line5 interrupt.
+  */
+void EXTI5_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI5_IRQn 0 */
+	uint8_t flag5 = WHEEL_RPM_FLAG;
+
+	static float test5 = 0.0f;
+	test5 += 0.1f;
+	memcpy(&canRx_wheel_rpm, &test5, sizeof(float));
+	osMessageQueuePut(screen1_isr_queue, &flag5, 0, 0);
+
+  /* USER CODE END EXTI5_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(BOUTON_5_Pin);
+  /* USER CODE BEGIN EXTI5_IRQn 1 */
+
+  /* USER CODE END EXTI5_IRQn 1 */
 }
 
 /**
@@ -214,9 +256,15 @@ void EXTI4_IRQHandler(void)
 void EXTI6_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI6_IRQn 0 */
+	uint8_t flag4 = WIND_DIR_FLAG;
+
+	static float test4 = 0.0f;
+	test4 += 0.1f;
+	memcpy(&canRx_wind_dir, &test4, sizeof(float));
+	osMessageQueuePut(screen1_isr_queue, &flag4, 0, 0);
 
   /* USER CODE END EXTI6_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
+  HAL_GPIO_EXTI_IRQHandler(BOUTON_4_Pin);
   /* USER CODE BEGIN EXTI6_IRQn 1 */
 
   /* USER CODE END EXTI6_IRQn 1 */
@@ -228,12 +276,38 @@ void EXTI6_IRQHandler(void)
 void EXTI7_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI7_IRQn 0 */
+	uint8_t flag3 = WIND_SP_FLAG;
+
+	static float test3 = 0.0f;
+	test3 += 0.1f;
+	memcpy(&canRx_wind_speed, &test3, sizeof(float));
+	osMessageQueuePut(screen1_isr_queue, &flag3, 0, 0);
 
   /* USER CODE END EXTI7_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
+  HAL_GPIO_EXTI_IRQHandler(BOUTON_3_Pin);
   /* USER CODE BEGIN EXTI7_IRQn 1 */
 
   /* USER CODE END EXTI7_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI Line8 interrupt.
+  */
+void EXTI8_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI8_IRQn 0 */
+	uint8_t flag6 = TURB_RPM_FLAG;
+
+	static float test6 = 0.0f;
+	test6 += 0.1f;
+	memcpy(&canRx_turbine_rpm, &test6, sizeof(float));
+	osMessageQueuePut(screen1_isr_queue, &flag6, 0, 0);
+
+  /* USER CODE END EXTI8_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(BOUTON_6_Pin);
+  /* USER CODE BEGIN EXTI8_IRQn 1 */
+
+  /* USER CODE END EXTI8_IRQn 1 */
 }
 
 /**
@@ -242,9 +316,15 @@ void EXTI7_IRQHandler(void)
 void EXTI10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI10_IRQn 0 */
+	uint8_t flag2 = PITCH_FLAG;
+
+	static float test2 = 0.0f;
+	test2 += 0.1f;
+	memcpy(&canRx_pitch, &test2, sizeof(float));
+	osMessageQueuePut(screen1_isr_queue, &flag2, 0, 0);
 
   /* USER CODE END EXTI10_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
+  HAL_GPIO_EXTI_IRQHandler(BOUTON_2_Pin);
   /* USER CODE BEGIN EXTI10_IRQn 1 */
 
   /* USER CODE END EXTI10_IRQn 1 */

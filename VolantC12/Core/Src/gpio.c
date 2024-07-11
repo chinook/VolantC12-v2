@@ -102,10 +102,10 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PAPin PAPin PA4 PA6
-                           PA7 */
-  GPIO_InitStruct.Pin = BOUTON_7_Pin|BOUTON_6_Pin|GPIO_PIN_4|GPIO_PIN_6
-                          |GPIO_PIN_7;
+  /*Configure GPIO pins : PAPin PAPin PAPin PAPin
+                           PAPin PAPin */
+  GPIO_InitStruct.Pin = BOUTON_7_Pin|BOUTON_6_Pin|BOUTON_9_Pin|BOUTON_10_Pin
+                          |BOUTON_4_Pin|BOUTON_3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -116,8 +116,8 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB5 PB0 PB10 */
-  GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_0|GPIO_PIN_10;
+  /*Configure GPIO pins : PBPin PBPin PBPin */
+  GPIO_InitStruct.Pin = BOUTON_5_Pin|BOUTON_8_Pin|BOUTON_2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -193,11 +193,11 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(USB_OVERCURRENT_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PG2 */
-  GPIO_InitStruct.Pin = GPIO_PIN_2;
+  /*Configure GPIO pin : PtPin */
+  GPIO_InitStruct.Pin = BOUTON_1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
+  HAL_GPIO_Init(BOUTON_1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = R_RST_Pin;
@@ -211,12 +211,6 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PtPin */
-  GPIO_InitStruct.Pin = SCREEN_CHANGE_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(SCREEN_CHANGE_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PC5 */
   GPIO_InitStruct.Pin = GPIO_PIN_5;
@@ -239,6 +233,9 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(R_INT_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+
   HAL_NVIC_SetPriority(EXTI2_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(EXTI2_IRQn);
 
@@ -248,8 +245,14 @@ void MX_GPIO_Init(void)
   HAL_NVIC_SetPriority(EXTI4_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(EXTI4_IRQn);
 
+  HAL_NVIC_SetPriority(EXTI5_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(EXTI5_IRQn);
+
   HAL_NVIC_SetPriority(EXTI7_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(EXTI7_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI8_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(EXTI8_IRQn);
 
   HAL_NVIC_SetPriority(EXTI10_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(EXTI10_IRQn);
