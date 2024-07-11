@@ -347,76 +347,214 @@ void process_can_message(void)
 
 }
 
-
-
-
 /**
- * @brief
+ * @brief Buttons interrupt handling
  *
  * @param Unused
  * @return None
  */
+void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin)
+//void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	/* Prepare Tx message Header */
+	txHeader.IdType              = FDCAN_STANDARD_ID;
+	txHeader.TxFrameType         = FDCAN_DATA_FRAME;
+	txHeader.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
+	txHeader.BitRateSwitch       = FDCAN_BRS_OFF;
+	txHeader.FDFormat            = FDCAN_CLASSIC_CAN;
+	txHeader.TxEventFifoControl  = FDCAN_NO_TX_EVENTS;
+	txHeader.MessageMarker       = 0U;
 
-//void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin)	//TODO: Define the GPIO buttons
-//{
-//	/* Prepare Tx message Header */
-//	txHeader.IdType              = FDCAN_STANDARD_ID;
-//	txHeader.TxFrameType         = FDCAN_DATA_FRAME;
-//	txHeader.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
-//	txHeader.BitRateSwitch       = FDCAN_BRS_OFF;
-//	txHeader.FDFormat            = FDCAN_CLASSIC_CAN;
-//	txHeader.TxEventFifoControl  = FDCAN_NO_TX_EVENTS;
-//	txHeader.MessageMarker       = 0U;
-//
-//	// Button rising edge interrupt occurred, handle it here
-//	switch (GPIO_Pin) {
-//		case BUTTON_PITCH_MODE:
-//			txHeader.Identifier          = VOLANT_PITCH_MODE_CMD;
-//			txHeader.DataLength          = 4U;
-//
-//			uint8_t pitch_mode = 0x71;
-//
-//			/* Add message to TX FIFO */
-//			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_mode) != HAL_OK)
-//			{
-//			  Error_Handler();
-//			}
-//
-//			break;
-//
-//		case BUTTON_PITCH_LEFT:
-//			txHeader.Identifier          = VOLANT_MANUAL_PITCH_CMD;
-//			txHeader.DataLength          = 4U;
-//
-//			uint8_t pitch_left = 0x01;	// pitch left
-//
-//			/* Add message to TX FIFO */
-//			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_left) != HAL_OK)
-//			{
-//			  Error_Handler();
-//			}
-//
-//			break;
-//
-//		case BUTTON_PITCH_RIGHT:
-//			txHeader.Identifier          = VOLANT_MANUAL_PITCH_CMD;
-//			txHeader.DataLength          = 4U;
-//
-//			uint8_t pitch_right = 0x80;	// pitch right TODO: Check 0x200 value, because overflow
-//
-//			/* Add message to TX FIFO */
-//			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_right) != HAL_OK)
-//			{
-//			  Error_Handler();
-//			}
-//
-//			break;
-//
-//		//TODO: Continue the rest of the commands
-//		default:
-//			break;
-//	}
-//}
+	// Button rising edge interrupt occurred, handle it here
+	switch (GPIO_Pin) {
+
+	/*********** PITCH ***********/
+
+		case BOUTON_5_Pin:
+			txHeader.Identifier          = VOLANT_PITCH_MODE_CMD; // 0x6A		// Values taken from chinook_can_ids.h
+			txHeader.DataLength          = 4U;
+
+			uint8_t pitch_mode = 0;
+
+			/* Add message to TX FIFO */
+			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_mode) != HAL_OK)
+			{
+			  Error_Handler();
+			}
+
+			pitch_mode ^= 1;
+
+			break;
+
+		case BOUTON_1_Pin:
+			txHeader.Identifier          = VOLANT_MANUAL_PITCH_CMD; // 0x7A
+			txHeader.DataLength          = 4U;
+
+			uint8_t pitch_left = 0x01;	// pitch left							// Values taken from VolantC11/Volant.X/source/main.c 230-308
+
+			/* Add message to TX FIFO */
+			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_left) != HAL_OK)
+			{
+			  Error_Handler();
+			}
+
+			break;
+
+		case BOUTON_2_Pin:
+			txHeader.Identifier          = VOLANT_MANUAL_PITCH_CMD; // 0x7A
+			txHeader.DataLength          = 4U;
+
+			uint8_t pitch_right = 0x80;	// pitch right 							// TODO: Check 0x200 value, because overflow
+
+			/* Add message to TX FIFO */
+			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_right) != HAL_OK)
+			{
+			  Error_Handler();
+			}
+
+			break;
+
+	/*********** MAST ***********/
+
+		case BOUTON_6_Pin:
+			txHeader.Identifier          = VOLANT_MAST_MODE_CMD; // 0x6B
+			txHeader.DataLength          = 4U;
+
+			uint8_t mast_mode = 0;
+
+			/* Add message to TX FIFO */
+			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &mast_mode) != HAL_OK)
+			{
+			  Error_Handler();
+			}
+
+			mast_mode ^= 1;
+
+			break;
+
+		case BOUTON_3_Pin:
+			txHeader.Identifier          = VOLANT_MANUAL_MAST_CMD; // 0x7B
+			txHeader.DataLength          = 4U;
+
+			uint8_t mast_left = 10;	// mast left
+
+			/* Add message to TX FIFO */
+			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &mast_left) != HAL_OK)
+			{
+			  Error_Handler();
+			}
+
+			break;
+
+		case BOUTON_4_Pin:
+			txHeader.Identifier          = VOLANT_MANUAL_MAST_CMD; // 0x7B
+			txHeader.DataLength          = 4U;
+
+			uint8_t mast_right = 246;	// mast right			 				// TODO: Cannot send float through FDCAN (uint8_t). Need to find a way to send -10.0f
+
+			/* Add message to TX FIFO */
+			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &mast_right) != HAL_OK)
+			{
+			  Error_Handler();
+			}
+
+			break;
+
+	/*********** ROPS? ***********/
+
+		default:
+			break;
+	}
+}
+
+
+// TODO: EXTI callback when releasing button after hold
+/**
+ * @brief Buttons release interrupt handling
+ *
+ * @param Unused
+ * @return None
+ */
+void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin)
+{
+	/* Prepare Tx message Header */
+	txHeader.IdType              = FDCAN_STANDARD_ID;
+	txHeader.TxFrameType         = FDCAN_DATA_FRAME;
+	txHeader.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
+	txHeader.BitRateSwitch       = FDCAN_BRS_OFF;
+	txHeader.FDFormat            = FDCAN_CLASSIC_CAN;
+	txHeader.TxEventFifoControl  = FDCAN_NO_TX_EVENTS;
+	txHeader.MessageMarker       = 0U;
+
+	// Button falling edge interrupt occurred, handle it here
+	switch (GPIO_Pin) {
+
+	/*********** PITCH ***********/
+
+		case BOUTON_5_Pin:
+			break;
+
+		case BOUTON_1_Pin:
+		case BOUTON_2_Pin:
+			txHeader.Identifier          = VOLANT_MANUAL_PITCH_CMD; // 0x7A
+			txHeader.DataLength          = 4U;
+
+			uint8_t pitch_stop = 0x00;	// pitch stop
+
+			/* Add message to TX FIFO */
+			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_stop) != HAL_OK)
+			{
+			  Error_Handler();
+			}
+
+			break;
+
+	/*********** MAST ***********/
+
+		case BOUTON_6_Pin:
+			break;
+
+		case BOUTON_3_Pin:
+		case BOUTON_4_Pin:
+			txHeader.Identifier          = VOLANT_MANUAL_MAST_CMD; // 0x7B
+			txHeader.DataLength          = 4U;
+
+			uint8_t mast_stop = 0;	// mast stop			 					// TODO: Cannot send float through FDCAN (uint8_t). Need to find a way to send 0.0
+
+			/* Add message to TX FIFO */
+			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &mast_stop) != HAL_OK)
+			{
+			  Error_Handler();
+			}
+
+			break;
+
+	/*********** ROPS? ***********/
+
+		default:
+			break;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////// TESTING ////////////////////////
 
 /**
  * @brief For testing buttons
