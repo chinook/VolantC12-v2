@@ -468,7 +468,7 @@ void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin)
 }
 
 
-// TODO: EXTI callback when releasing button after hold
+// TODO: EXTI callback when releasing button after hold + configure .ioc
 /**
  * @brief Buttons release interrupt handling
  *
