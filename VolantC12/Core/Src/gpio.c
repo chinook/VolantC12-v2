@@ -84,22 +84,21 @@ void MX_GPIO_Init(void)
 //    __HAL_RCC_GPIOG_CLK_ENABLE();
 
     /*Configure GPIO pins : PA15 PA8 PA7 PA4
-                             PA3 PA6 */
-    GPIO_InitStruct.Pin = GPIO_PIN_15|GPIO_PIN_8|GPIO_PIN_7|GPIO_PIN_4
-                            |GPIO_PIN_3|GPIO_PIN_6;
-    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+                             PA3 PA6 PA5*/
+    GPIO_InitStruct.Pin = GPIO_PIN_15|GPIO_PIN_8|GPIO_PIN_7|GPIO_PIN_4|GPIO_PIN_3|GPIO_PIN_6|GPIO_PIN_5;
+    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     /*Configure GPIO pins : PB5 PB0 PB10 */
-    GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_0|GPIO_PIN_10;
-    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+    GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_10|GPIO_PIN_0;   // Rajouter PB10 et PB0 - Luc
+    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
     /*Configure GPIO pin : PG2 */
     GPIO_InitStruct.Pin = GPIO_PIN_2;
-    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
@@ -145,10 +144,10 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(CTP_RST_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
-  GPIO_InitStruct.Pin = SCREEN_CHANGE_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(SCREEN_CHANGE_GPIO_Port, &GPIO_InitStruct);
+//  GPIO_InitStruct.Pin = SCREEN_CHANGE_Pin;
+//  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+//  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+//  HAL_GPIO_Init(SCREEN_CHANGE_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PI6 */
 //  GPIO_InitStruct.Pin = GPIO_PIN_6;
@@ -166,10 +165,10 @@ void MX_GPIO_Init(void)
 //  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
-  GPIO_InitStruct.Pin = CTP_INT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(CTP_INT_GPIO_Port, &GPIO_InitStruct);
+//  GPIO_InitStruct.Pin = CTP_INT_Pin;
+//  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+//  GPIO_InitStruct.Pull = GPIO_PULLUP;
+//  HAL_GPIO_Init(CTP_INT_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PA9 */
   GPIO_InitStruct.Pin = GPIO_PIN_9;
@@ -213,16 +212,19 @@ void MX_GPIO_Init(void)
     HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
+	HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(EXTI1_IRQn);
+
 	HAL_NVIC_SetPriority(EXTI2_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(EXTI2_IRQn);
 
-	HAL_NVIC_SetPriority(EXTI3_IRQn, 0, 0);
+	HAL_NVIC_SetPriority(EXTI3_IRQn, 1, 1);
 	HAL_NVIC_EnableIRQ(EXTI3_IRQn);
 
-	HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
+	HAL_NVIC_SetPriority(EXTI4_IRQn, 1, 1);
 	HAL_NVIC_EnableIRQ(EXTI4_IRQn);
 
-	HAL_NVIC_SetPriority(EXTI5_IRQn, 0, 0);
+	HAL_NVIC_SetPriority(EXTI5_IRQn, 1, 1);
 	HAL_NVIC_EnableIRQ(EXTI5_IRQn);
 
 	HAL_NVIC_SetPriority(EXTI6_IRQn, 0, 0);

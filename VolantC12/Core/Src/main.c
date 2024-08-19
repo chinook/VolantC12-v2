@@ -214,7 +214,27 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
+	  /* USER CODE END WHILE */
+
+	  uint32_t dir_left = MOTOR_DIRECTION_LEFT;
+	  uint32_t dir_right = MOTOR_DIRECTION_RIGHT;
+	  uint32_t dir_stop = MOTOR_DIRECTION_STOP;
+
+	  uint32_t mast_mode = MOTOR_MODE_MANUAL;
+	  SendCAN(MARIO_MAST_MODE_CMD, (uint8_t*)&mast_mode);
+
+	  static uint32_t manual_motor_id = MARIO_MAST_MANUAL_CMD;
+
+	  if (pb3_value == 1) {
+		  pb3_value = 0;
+		  SendCAN(manual_motor_id, (uint8_t*)&dir_stop);
+	  }
+	  if (pb3_update == 1) {
+		  pb3_update = 0;
+		  SendCAN(manual_motor_id, (uint8_t*)&dir_right);
+	  }
+
+
 
     /* USER CODE BEGIN 3 */
   }

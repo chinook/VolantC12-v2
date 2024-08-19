@@ -80,6 +80,12 @@ void Error_Handler(void);
 #define R_INT_Pin GPIO_PIN_4
 #define R_INT_GPIO_Port GPIOC
 
+
+// Pushbuttons
+extern uint8_t pb3_value;
+extern uint8_t pb3_update;
+
+
 /* USER CODE BEGIN Private defines */
 #define PALE_RADIUS 0.918
 /* USER CODE END Private defines */
