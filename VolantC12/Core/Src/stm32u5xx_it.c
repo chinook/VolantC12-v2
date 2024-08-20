@@ -312,11 +312,16 @@ void SendCAN(uint8_t id, uint8_t* data)
 
 void EXTI0_IRQHandler(void) // PB0
 {
-	static float test4 = 0.0f;
-	test4 += 0.1f;
-	memcpy(&canRx_wind_dir, &test4, sizeof(float));
-	static int wind_dir_flag = WIND_DIR_FLAG;
-	osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
+	if (!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0))
+		{
+			uint32_t dir_left = MOTOR_DIRECTION_LEFT;
+			SendCAN(MARIO_MAST_MANUAL_CMD, (uint8_t*)&dir_left);
+		}
+		else
+		{
+			uint32_t dir_stop = MOTOR_DIRECTION_STOP;
+			SendCAN(MARIO_MAST_MANUAL_CMD, (uint8_t*)&dir_stop);
+		}
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
 }
 
@@ -350,31 +355,14 @@ void EXTI2_IRQHandler(void) // PG2 - TOP LEFT - LEFT
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
 }
 
-void EXTI5_IRQHandler(void) // PB5 - TOP LEFT RIGHT
+void EXTI5_IRQHandler(void) // 5 - TOP LEFT RIGHT
 {
-//	static float test5 = 0.0f;
-//	test5 += 0.1f;
-//	memcpy(&canRx_wheel_rpm, &test5, sizeof(float));
-//	static int wheel_rpm_flag = WHEEL_RPM_FLAG;
-//	osMessageQueuePut(screen1_isr_queue, &wheel_rpm_flag, 0, 0);
-	/*
-	if (!HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5))
-	{
-		uint32_t dir_right = MOTOR_DIRECTION_RIGHT;
-		SendCAN(MARIO_PITCH_MANUAL_CMD, (uint8_t*)&dir_right);
-	}
-	else if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5))
-	{
-		uint32_t dir_stop = MOTOR_DIRECTION_STOP;
-		SendCAN(MARIO_PITCH_MANUAL_CMD, (uint8_t*)&dir_stop);
-	}
-	*/
 	if (!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5))
 	{
 		uint32_t dir_right = MOTOR_DIRECTION_RIGHT;
 		SendCAN(MARIO_PITCH_MANUAL_CMD, (uint8_t*)&dir_right);
 	}
-	else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5))
+	else
 	{
 		uint32_t dir_stop = MOTOR_DIRECTION_STOP;
 		SendCAN(MARIO_PITCH_MANUAL_CMD, (uint8_t*)&dir_stop);
@@ -386,97 +374,63 @@ void EXTI5_IRQHandler(void) // PB5 - TOP LEFT RIGHT
 uint8_t pb3_value = 0;
 uint8_t pb3_update = 0;
 
-void EXTI3_IRQHandler(void) // PA3
+void EXTI3_IRQHandler(void) // PA3 --pas bon
 {
-//	static float test6 = 0.0f;
-//	test6 += 0.1f;
-//	memcpy(&canRx_turbine_rpm, &test6, sizeof(float));
-//	static int turb_rpm_flag = TURB_RPM_FLAG;
-//	osMessageQueuePut(screen1_isr_queue, &turb_rpm_flag, 0, 0);
-
-
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
 }
 
-void EXTI4_IRQHandler(void) // PA4
+void EXTI4_IRQHandler(void) // PA4 --pas bon
 {
-//	static float test6 = 0.0f;
-//	test6 += 0.1f;
-//	memcpy(&canRx_turbine_rpm, &test6, sizeof(float));
-//	static int turb_rpm_flag = TURB_RPM_FLAG;
-//	osMessageQueuePut(screen1_isr_queue, &turb_rpm_flag, 0, 0);
-
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
 }
 
-void EXTI6_IRQHandler(void) // PB6
+void EXTI6_IRQHandler(void) // PB6 --pas bon
 {
-//	static float test3 = 0.0f;
-//		test3 += 0.1f;
-//		memcpy(&canRx_wind_speed, &test3, sizeof(float));
-//		static int wind_sp_flag = WIND_SP_FLAG;
-//		osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
-//
-//	static float test4 = 0.0f;
-//	test4 += 0.1f;
-//	memcpy(&canRx_wind_dir, &test4, sizeof(float));
-//	static int wind_dir_flag = WIND_DIR_FLAG;
-//	osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
-
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
 }
 
-void EXTI7_IRQHandler(void) // PA7
+void EXTI7_IRQHandler(void) // PA7 -- pas bon
 {
-//	static float test3 = 0.0f;
-//		test3 += 0.1f;
-//		memcpy(&canRx_wind_speed, &test3, sizeof(float));
-//		static int wind_sp_flag = WIND_SP_FLAG;
-//		osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
-//
-//	static float test4 = 0.0f;
-//	test4 += 0.1f;
-//	memcpy(&canRx_wind_dir, &test4, sizeof(float));
-//	static int wind_dir_flag = WIND_DIR_FLAG;
-//	osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
-
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
+
 }
 
-void EXTI8_IRQHandler(void) // BOUTON 6 - Milieu droit - PA8 - ok
+void EXTI8_IRQHandler(void) // BOUTON 6 - Milieu droit - PA8 - pas bon
 {
-	static float test3 = 0.0f;
-	test3 += 0.1f;
-	memcpy(&canRx_wind_speed, &test3, sizeof(float));
-	static int wind_sp_flag = WIND_SP_FLAG;
-	osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
-
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
 }
 
 void EXTI10_IRQHandler(void) // PB10
 {
-//	static float test2 = 0.0f;
-//	test2 += 0.1f;
-//	memcpy(&canRx_pitch, &test2, sizeof(float));
-//	static int pitch_flag = PITCH_FLAG;
-//	osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
-
+	/*
+	if (!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_10))
+		{
+			uint32_t dir_left = MOTOR_DIRECTION_LEFT;
+			SendCAN(MARIO_MAST_MANUAL_CMD, (uint8_t*)&dir_left);
+		}
+		else
+		{
+			uint32_t dir_stop = MOTOR_DIRECTION_STOP;
+			SendCAN(MARIO_MAST_MANUAL_CMD, (uint8_t*)&dir_stop);
+		}
+	*/
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
 }
 
 void EXTI15_IRQHandler(void) // BOUTON 7 - Range bas, gauche, premier bouton - PA15
 {
-	// static float test1 = 0.0f;
-	// test1 += 0.1f;
-	// memcpy(&canRx_mast_angle, &test1, sizeof(float));
-	// static int mast_angle_flag = MAST_ANGLE_FLAG;
-	// osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
 
+	if (!HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15))
+			{
+				uint32_t dir_right = MOTOR_DIRECTION_RIGHT;
+				SendCAN(MARIO_MAST_MANUAL_CMD, (uint8_t*)&dir_right);
+			}
+			else
+			{
+				uint32_t dir_stop = MOTOR_DIRECTION_STOP;
+				SendCAN(MARIO_MAST_MANUAL_CMD, (uint8_t*)&dir_stop);
+		}
 
-
-	pb3_value = 1;
-	pb3_update = 1;
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
 }
 
