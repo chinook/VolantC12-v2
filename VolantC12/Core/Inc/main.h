@@ -85,7 +85,6 @@ void Error_Handler(void);
 extern uint8_t pb3_value;
 extern uint8_t pb3_update;
 
-
 /* USER CODE BEGIN Private defines */
 #define PALE_RADIUS 0.918
 /* USER CODE END Private defines */

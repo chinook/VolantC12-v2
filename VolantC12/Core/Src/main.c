@@ -216,24 +216,12 @@ int main(void)
   {
 	  /* USER CODE END WHILE */
 
-	  uint32_t dir_left = MOTOR_DIRECTION_LEFT;
-	  uint32_t dir_right = MOTOR_DIRECTION_RIGHT;
-	  uint32_t dir_stop = MOTOR_DIRECTION_STOP;
-
-	  uint32_t mast_mode = MOTOR_MODE_MANUAL;
-	  SendCAN(MARIO_MAST_MODE_CMD, (uint8_t*)&mast_mode);
-
-	  static uint32_t manual_motor_id = MARIO_MAST_MANUAL_CMD;
-
-	  if (pb3_value == 1) {
-		  pb3_value = 0;
-		  SendCAN(manual_motor_id, (uint8_t*)&dir_stop);
-	  }
-	  if (pb3_update == 1) {
-		  pb3_update = 0;
-		  SendCAN(manual_motor_id, (uint8_t*)&dir_right);
-	  }
-
+	  osMessageQueuePut(screen1_isr_queue, &canRx_mast_angle, 0, 0);
+  	  osMessageQueuePut(screen1_isr_queue, &canRx_pitch, 0, 0);
+  	  osMessageQueuePut(screen1_isr_queue, &canRx_wind_speed, 0, 0);
+  	  osMessageQueuePut(screen1_isr_queue, &canRx_wind_dir, 0, 0);
+  	  osMessageQueuePut(screen1_isr_queue, &canRx_wheel_rpm, 0, 0);
+  	  osMessageQueuePut(screen1_isr_queue, &canRx_turbine_rpm, 0, 0);
 
 
     /* USER CODE BEGIN 3 */

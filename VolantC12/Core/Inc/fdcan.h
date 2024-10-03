@@ -26,7 +26,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+
 
 /* USER CODE BEGIN Includes */
 #include "stm32u5xx_hal.h"
@@ -34,12 +34,12 @@ extern "C" {
 #include "../../STM32CubeIDE/Application/User/application/screen_tasks.h"
 #include <string.h>
 
-extern float 	canRx_mast_angle;
-extern float 	canRx_pitch;
-extern float 	canRx_wind_speed;
-extern float 	canRx_wind_dir;
-extern float 	canRx_wheel_rpm;
-extern float 	canRx_turbine_rpm;
+float 	canRx_mast_angle;
+float 	canRx_pitch;
+float 	canRx_wind_speed;
+float 	canRx_wind_dir;
+float 	canRx_wheel_rpm;
+float 	canRx_turbine_rpm;
 
 extern float	canRx_torque;
 
