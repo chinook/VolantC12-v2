@@ -190,7 +190,7 @@ int main(void)
     }
 
   screen1_task_handle = osThreadNew(screen1_task, NULL, &screen1_task_attr);
-  screen2_task_handle = osThreadNew(screen2_task, NULL, &screen2_task_attr);
+  //screen2_task_handle = osThreadNew(screen2_task, NULL, &screen2_task_attr);
   /* Task used for development */
   // test_task_handle = osThreadNew(test_task, NULL, &test_task_attr);
 
@@ -211,22 +211,11 @@ int main(void)
   /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  /* USER CODE END WHILE */
+	//pas de code ici car FREERTOS execute du code dans une task
 
-	  osMessageQueuePut(screen1_isr_queue, &canRx_mast_angle, 0, 0);
-  	  osMessageQueuePut(screen1_isr_queue, &canRx_pitch, 0, 0);
-  	  osMessageQueuePut(screen1_isr_queue, &canRx_wind_speed, 0, 0);
-  	  osMessageQueuePut(screen1_isr_queue, &canRx_wind_dir, 0, 0);
-  	  osMessageQueuePut(screen1_isr_queue, &canRx_wheel_rpm, 0, 0);
-  	  osMessageQueuePut(screen1_isr_queue, &canRx_turbine_rpm, 0, 0);
-
-
-    /* USER CODE BEGIN 3 */
   }
-  /* USER CODE END 3 */
 }
 
 /**

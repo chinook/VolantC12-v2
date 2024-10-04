@@ -67,50 +67,35 @@ static void init_screen2(void);
  * @param Unused
  * @return None
  */
+int test = 1000;
+
 void screen1_task(void* arg)
 {
-	uint8_t buf = 0;
 	init_screen1();
 
-	while (1) {
-		osDelay(1);
-		if (osMessageQueueGet(screen1_isr_queue, &buf, 0, 0) == osOK) {
-			switch (buf) {
-			case MAST_ANGLE_FLAG:
-				/* Process data from the ISR */
-				mast_angle = canRx_mast_angle;
-				break;
-			case PITCH_FLAG:
-				/* Process data from the ISR */
-				pitch = canRx_pitch;
-				break;
-			case WIND_SP_FLAG:
-				/* Process data from the ISR */
-				wind_speed = canRx_wind_speed;
-				break;
-			case WIND_DIR_FLAG:
-				/* Process data from the ISR */
-				wind_dir = canRx_wind_dir;
-				break;
-			case WHEEL_RPM_FLAG:
-				/* Process data from the ISR */
-				wheel_rpm = canRx_wheel_rpm;
-				break;
-			case TURB_RPM_FLAG:
-				/* Process data from the ISR */
-				turbine_rpm = canRx_turbine_rpm;
-				break;
-			default:
-				buf = 0;
-				break;
-			}
 
-			if (buf) {
-				osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
-				buf = 0;
-			}
-		}
+
+	while (1) {
+
+		test += 1000;
+		if(test >= 10000) test = 1000;
+
+		mast_angle = canRx_mast_angle + test;
+		pitch = canRx_pitch + test;
+		wind_speed = canRx_wind_speed + test;
+		wind_dir = canRx_wind_dir + test;
+		wheel_rpm = canRx_wheel_rpm + test;
+		turbine_rpm = canRx_turbine_rpm + test;
+
+		uint8_t buf = POWER_FLAG;
+		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
+		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
+		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
+		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
+		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
+		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
 	}
+
 }
 
 /**

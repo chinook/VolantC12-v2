@@ -34,40 +34,19 @@ void UI_page1Presenter::update_ui(void* screen)
 	uint8_t buf;
 
 	if (osMessageQueueGet(screen1_pres_queue, &buf, NULL, 0) == osOK) {
-		switch (buf) {
-		case MAST_ANGLE_FLAG: {
-			float angle = *(const float*)ui->data1;
-			view.update_mast_angle(angle);
-			break;
-		}
-		case PITCH_FLAG: {
-			float pitch = *(const float*)ui->data2;
-			view.update_pitch(pitch);
-			break;
-		}
-		case WIND_SP_FLAG: {
-			float speed = *(const float*)ui->data3;
-			view.update_wind_speed(speed);
-			break;
-		}
-		case WIND_DIR_FLAG: {
-			float dir = *(const float*)ui->data4;
-			view.update_wind_dir(dir);
-			break;
-		}
-		case WHEEL_RPM_FLAG: {
-			float rpm = *(const float*)ui->data5;
-			view.update_wheel_rpm(rpm);
-			break;
-		}
-		case TURB_RPM_FLAG: {
-			float rpm = *(const float*)ui->data6;
-			view.update_turb_rpm(rpm);
-			break;
-		}
-		default:
-			break;
-		}
+		float angle = *(const float*)ui->data1;
+		view.update_mast_angle(angle);
+		float pitch = *(const float*)ui->data2;
+		view.update_pitch(pitch);
+		float speed = *(const float*)ui->data3;
+		view.update_wind_speed(speed);
+		float dir = *(const float*)ui->data4;
+		view.update_wind_dir(dir);
+		float wrpm = *(const float*)ui->data5;
+		view.update_wheel_rpm(wrpm);
+		float rpm = *(const float*)ui->data6;
+		view.update_turb_rpm(rpm);
 	}
+
 
 }

@@ -18,7 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include "fdcan.h"s
+#include "fdcan.h"
 
 /* USER CODE BEGIN 0 */
 static void configure_fdcan_filters(void);
@@ -42,7 +42,12 @@ static uint8_t wheel_rpm_ready = 0;
 static uint8_t turbine_ready = 0;
 
 
-
+float 	canRx_mast_angle 	= 0.0;
+float 	canRx_pitch			= 0.0;
+float 	canRx_wind_speed	= 0.0;
+float 	canRx_wind_dir		= 0.0;
+float 	canRx_wheel_rpm		= 0.0;
+float 	canRx_turbine_rpm	= 0.0;
 
 /* Screen 1 */
 uint8_t mast_angle_flag = MAST_ANGLE_FLAG;
@@ -246,6 +251,8 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
  * @param Unused
  * @return None
  */
+
+
 void process_can_message(void)
 {
 	// Technically CAN data can be 8+ bytes but we only send 4-bytes data to the motor driver
@@ -260,9 +267,10 @@ void process_can_message(void)
 	    	    Error_Handler();
 	    	} else {
 	    	    // Interpret the received bytes as a float
+	    		//rxData[0]++;
 	    	    memcpy(&canRx_mast_angle, rxData, sizeof(float));
 	    	    //osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
-	    	    mast_angle_flag = 1;
+	    	    //mast_angle_flag = 1;
 	    	}
 	        break;
 
@@ -273,8 +281,9 @@ void process_can_message(void)
 			} else {
 				// Interpret the received bytes as a float
 				memcpy(&canRx_pitch, rxData, sizeof(float));
+
 				//osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
-				pitch_ready = 1;
+				//pitch_ready = 1;
 			}
 	        break;
 
@@ -285,8 +294,9 @@ void process_can_message(void)
 			} else {
 				// Interpret the received bytes as a float
 				memcpy(&canRx_wind_speed, rxData, sizeof(float));
+
 				//osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
-				wind_speed_ready = 1;
+				//wind_speed_ready = 1;
 			}
 	        break;
 
@@ -297,8 +307,9 @@ void process_can_message(void)
 			} else {
 				// Interpret the received bytes as a float
 				memcpy(&canRx_wind_dir, rxData, sizeof(float));
+
 				//osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
-				wind_dir_ready = 1;
+				//wind_dir_ready = 1;
 			}
 	        break;
 
@@ -309,8 +320,9 @@ void process_can_message(void)
 			} else {
 				// Interpret the received bytes as a float
 				memcpy(&canRx_wheel_rpm, rxData, sizeof(float));
+
 				//osMessageQueuePut(screen1_isr_queue, &wheel_rpm_flag, 0, 0);
-				wheel_rpm_ready = 1;
+				//wheel_rpm_ready = 1;
 			}
 	        break;
 
@@ -321,12 +333,11 @@ void process_can_message(void)
 			} else {
 				// Interpret the received bytes as a float
 				memcpy(&canRx_turbine_rpm, rxData, sizeof(float));
+
 				//osMessageQueuePut(screen1_isr_queue, &turb_rpm_flag, 0, 0);
-				turbine_ready = 1;
+				//turbine_ready = 1;
 			}
 			break;
-
-		turbine_ready;
 
 	    /*
 	    case MARIO_TIP_SPEED_RATIO:
@@ -356,24 +367,6 @@ void process_can_message(void)
 	        // Unknown CAN ID
 	        break;
 	}
-	//if (mast_angle_ready && pitch_ready && wind_dir_ready && wind_speed_ready && wheel_rpm_ready && turbine_ready) {
-		    	mast_angle_ready = 0;
-		    	pitch_ready = 0;
-		    	wind_speed_ready = 0;
-		    	wind_dir_ready = 0;
-		    	wheel_rpm_ready = 0;
-		    	turbine_ready = 0;
-
-		    	static float tsr_refresh = 10;
-		    	tsr_refresh += 10;
-		    	if (tsr_refresh >= 100)
-		    		tsr_refresh = 10;
-		    	static float mast_angle_flag_temps = 0;
-		    	mast_angle_flag_temps = mast_angle_flag + tsr_refresh;
-
-
-	//}
-
 }
 
 /**
