@@ -1,0 +1,4 @@
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/fdcan.c:70:6:MX_FDCAN1_Init	8	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/fdcan.c:110:6:HAL_FDCAN_MspInit	264	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/fdcan.c:156:6:HAL_FDCAN_MspDeInit	8	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/fdcan.c:231:6:HAL_FDCAN_RxFifo0Callback	8	static

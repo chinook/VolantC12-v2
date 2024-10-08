@@ -1,0 +1,5 @@
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/app_freertos.c:166:6:StartDefaultTask	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/app_freertos.c:80:6:vApplicationMallocFailedHook	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/app_freertos.c:96:6:vApplicationIdleHook	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/app_freertos.c:111:6:vApplicationStackOverflowHook	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/app_freertos.c:124:6:MX_FREERTOS_Init	1

@@ -1,0 +1,4 @@
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng_ex.c:85:19:HAL_RNGEx_SetConfig	16	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng_ex.c:184:19:HAL_RNGEx_GetConfig	8	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng_ex.c:235:19:HAL_RNGEx_LockConfig	0	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rng_ex.c:294:19:HAL_RNGEx_RecoverSeedError	0	static

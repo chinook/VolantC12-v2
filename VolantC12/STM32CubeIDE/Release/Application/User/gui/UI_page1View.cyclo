@@ -1,0 +1,14 @@
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	1
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1View.cpp:13:6:virtual void UI_page1View::tearDownScreen()	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1View.cpp:18:6:virtual void UI_page1View::change_screen(uint8_t)	1
+../../TouchGFX/gui/include/gui/ui_page1_screen/UI_page1View.hpp:11:13:UI_page1View::~UI_page1View()	1
+../../TouchGFX/gui/include/gui/ui_page1_screen/UI_page1View.hpp:11:13:virtual UI_page1View::~UI_page1View()	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1View.cpp:3:1:UI_page1View::UI_page1View()	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1View.cpp:8:6:virtual void UI_page1View::setupScreen()	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1View.cpp:23:6:virtual void UI_page1View::update_mast_angle(float)	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1View.cpp:30:6:virtual void UI_page1View::update_pitch(float)	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1View.cpp:36:6:virtual void UI_page1View::update_wind_speed(float)	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1View.cpp:42:6:virtual void UI_page1View::update_wind_dir(float)	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1View.cpp:48:6:virtual void UI_page1View::update_wheel_rpm(float)	1
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1View.cpp:54:6:virtual void UI_page1View::update_turb_rpm(float)	1

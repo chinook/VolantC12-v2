@@ -6,6 +6,8 @@
  */
 
 #include "screen_tasks.h"
+#include "tim.h"
+
 
 
 #define QUEUE_SIZE			(50)
@@ -77,15 +79,28 @@ void screen1_task(void* arg)
 
 	while (1) {
 
-		test += 1000;
-		if(test >= 10000) test = 1000;
+		//tests refresh du CAN
+		if(timer7_refresh_can_flag == 1) {
+			timer7_refresh_can_flag = 0;
 
-		mast_angle = canRx_mast_angle + test;
-		pitch = canRx_pitch + test;
-		wind_speed = canRx_wind_speed + test;
-		wind_dir = canRx_wind_dir + test;
-		wheel_rpm = canRx_wheel_rpm + test;
-		turbine_rpm = canRx_turbine_rpm + test;
+			canRx_mast_angle_temps = 0;
+			canRx_pitch_temps = 0;
+			canRx_wind_speed_temps = 0;
+			canRx_wind_dir_temps = 0;
+			canRx_wheel_rpm_temps = 0;
+			canRx_turbine_rpm_temps = 0;
+		}
+
+		//tests refresh de l'écran
+		//test += 1000;
+		//if(test >= 9000) test = 1000;
+
+		mast_angle = canRx_mast_angle + test + canRx_mast_angle_temps;
+		pitch = canRx_pitch + test + canRx_pitch_temps;
+		wind_speed = canRx_wind_speed + test + canRx_wind_speed_temps;
+		wind_dir = canRx_wind_dir + test + canRx_wind_dir_temps;
+		wheel_rpm = canRx_wheel_rpm + test + canRx_wheel_rpm_temps;
+		turbine_rpm = canRx_turbine_rpm + test + canRx_turbine_rpm_temps;
 
 		uint8_t buf = POWER_FLAG;
 		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);

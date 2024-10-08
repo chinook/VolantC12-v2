@@ -1,0 +1,6 @@
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:70:43:const touchgfx::TypedText::TypedTextData* TypedTextDatabase::getInstance(touchgfx::LanguageId)	0	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:75:10:uint16_t TypedTextDatabase::getInstanceSize()	0	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:80:24:const touchgfx::Font** TypedTextDatabase::getFonts()	0	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:85:23:const touchgfx::Font* TypedTextDatabase::setFont(touchgfx::FontId, const touchgfx::Font*)	0	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:92:6:void TypedTextDatabase::resetFont(touchgfx::FontId)	8	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:107:1:cpp)	8	static

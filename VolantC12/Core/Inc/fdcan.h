@@ -41,6 +41,13 @@ extern float 	canRx_wind_dir;
 extern float 	canRx_wheel_rpm;
 extern float 	canRx_turbine_rpm;
 
+extern float 	canRx_mast_angle_temps;
+extern float 	canRx_pitch_temps;
+extern float 	canRx_wind_speed_temps;
+extern float 	canRx_wind_dir_temps;
+extern float 	canRx_wheel_rpm_temps;
+extern float 	canRx_turbine_rpm_temps;
+
 extern float	canRx_torque;
 
 extern float 	canRx_power;

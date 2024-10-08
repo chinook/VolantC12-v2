@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "fdcan.h"
+#include "tim.h"
 
 /* USER CODE BEGIN 0 */
 static void configure_fdcan_filters(void);
@@ -48,6 +49,13 @@ float 	canRx_wind_speed	= 0.0;
 float 	canRx_wind_dir		= 0.0;
 float 	canRx_wheel_rpm		= 0.0;
 float 	canRx_turbine_rpm	= 0.0;
+
+float 	canRx_mast_angle_temps 		= 0.0;
+float 	canRx_pitch_temps			= 0.0;
+float 	canRx_wind_speed_temps		= 0.0;
+float 	canRx_wind_dir_temps		= 0.0;
+float 	canRx_wheel_rpm_temps		= 0.0;
+float 	canRx_turbine_rpm_temps		= 0.0;
 
 /* Screen 1 */
 uint8_t mast_angle_flag = MAST_ANGLE_FLAG;
@@ -85,11 +93,11 @@ void MX_FDCAN1_Init(void)
   hfdcan1.Init.TransmitPause = DISABLE;
   hfdcan1.Init.ProtocolException = DISABLE;
   hfdcan1.Init.NominalPrescaler = 40;
-  hfdcan1.Init.NominalSyncJumpWidth = 1;
+  hfdcan1.Init.NominalSyncJumpWidth = 3;
   hfdcan1.Init.NominalTimeSeg1 = 11;
   hfdcan1.Init.NominalTimeSeg2 = 4;
   hfdcan1.Init.DataPrescaler = 1;
-  hfdcan1.Init.DataSyncJumpWidth = 3;
+  hfdcan1.Init.DataSyncJumpWidth = 1;
   hfdcan1.Init.DataTimeSeg1 = 1;
   hfdcan1.Init.DataTimeSeg2 = 1;
   hfdcan1.Init.StdFiltersNbr = 0;
@@ -257,86 +265,49 @@ void process_can_message(void)
 {
 	// Technically CAN data can be 8+ bytes but we only send 4-bytes data to the motor driver
 	// uint32_t upper_can_data = rxData[4] | (rxData[5] << 8) | (rxData[6] << 16) | (rxData[7] << 24);
-//	uint32_t can_data = rxData[0] | (rxData[1] << 8) | (rxData[2] << 16) | (rxData[3] << 24);
+	//	uint32_t can_data = rxData[0] | (rxData[1] << 8) | (rxData[2] << 16) | (rxData[3] << 24);
 
+
+
+	// Check if the received message data length is correct
+	if (rxHeader.DataLength != 4) {
+				Error_Handler();
+	} else {
 	switch (rxHeader.Identifier) {
-
 	    case MARIO_MAST_ANGLE:
-	    	// Check if the received message data length is correct
-	    	if (rxHeader.DataLength != 4) {
-	    	    Error_Handler();
-	    	} else {
-	    	    // Interpret the received bytes as a float
-	    		//rxData[0]++;
-	    	    memcpy(&canRx_mast_angle, rxData, sizeof(float));
-	    	    //osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
-	    	    //mast_angle_flag = 1;
-	    	}
+	    	if (canRx_mast_angle_temps < 8000) canRx_mast_angle_temps += 1000;
+	    	// Interpret the received bytes as a float
+	    	memcpy(&canRx_mast_angle, rxData, sizeof(float));
 	        break;
 
 	    case MARIO_PITCH_ANGLE:
-	    	// Check if the received message data length is correct
-			if (rxHeader.DataLength != 4) {
-				Error_Handler();
-			} else {
-				// Interpret the received bytes as a float
-				memcpy(&canRx_pitch, rxData, sizeof(float));
-
-				//osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
-				//pitch_ready = 1;
-			}
+	    	if (canRx_pitch_temps < 8000) canRx_pitch_temps += 1000;
+			// Interpret the received bytes as a float
+			memcpy(&canRx_pitch, rxData, sizeof(float));
 	        break;
 
 	    case MARIO_WIND_SPEED:
-	    	// Check if the received message data length is correct
-			if (rxHeader.DataLength != 4) {
-				Error_Handler();
-			} else {
-				// Interpret the received bytes as a float
-				memcpy(&canRx_wind_speed, rxData, sizeof(float));
-
-				//osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
-				//wind_speed_ready = 1;
-			}
+	    	if (canRx_wind_speed_temps < 8000) canRx_wind_speed_temps += 1000;
+			// Interpret the received bytes as a float
+			memcpy(&canRx_wind_speed, rxData, sizeof(float));
 	        break;
 
 	    case MARIO_WIND_DIRECTION:
-	    	// Check if the received message data length is correct
-			if (rxHeader.DataLength != 4) {
-				Error_Handler();
-			} else {
-				// Interpret the received bytes as a float
-				memcpy(&canRx_wind_dir, rxData, sizeof(float));
-
-				//osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
-				//wind_dir_ready = 1;
-			}
+	    	if (canRx_wind_dir_temps < 8000) canRx_wind_dir_temps += 1000;
+			// Interpret the received bytes as a float
+			memcpy(&canRx_wind_dir, rxData, sizeof(float));
 	        break;
 
 	    case MARIO_WHEEL_RPM:
-	    	// Check if the received message data length is correct
-			if (rxHeader.DataLength != 4) {
-				Error_Handler();
-			} else {
-				// Interpret the received bytes as a float
-				memcpy(&canRx_wheel_rpm, rxData, sizeof(float));
-
-				//osMessageQueuePut(screen1_isr_queue, &wheel_rpm_flag, 0, 0);
-				//wheel_rpm_ready = 1;
-			}
+	    	if (canRx_wheel_rpm_temps < 8000) canRx_wheel_rpm_temps += 1000;
+			// Interpret the received bytes as a float
+			memcpy(&canRx_wheel_rpm, rxData, sizeof(float));
 	        break;
 
 	    case MARIO_ROTOR_RPM:
-	    	// Check if the received message data length is correct
-			if (rxHeader.DataLength != 4) {
-				Error_Handler();
-			} else {
-				// Interpret the received bytes as a float
-				memcpy(&canRx_turbine_rpm, rxData, sizeof(float));
-
-				//osMessageQueuePut(screen1_isr_queue, &turb_rpm_flag, 0, 0);
-				//turbine_ready = 1;
-			}
+	    	if (canRx_turbine_rpm_temps < 8000) canRx_turbine_rpm_temps += 1000;
+			// Interpret the received bytes as a float
+			memcpy(&canRx_turbine_rpm, rxData, sizeof(float));
 			break;
 
 	    /*
@@ -366,6 +337,7 @@ void process_can_message(void)
 	    default:
 	        // Unknown CAN ID
 	        break;
+		}
 	}
 }
 

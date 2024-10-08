@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "tim.h"
 
+
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
@@ -27,8 +28,11 @@
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim5;
 TIM_HandleTypeDef htim6;
+TIM_HandleTypeDef htim7;
 TIM_HandleTypeDef htim8;
 TIM_HandleTypeDef htim15;
+
+uint8_t timer7_refresh_can_flag;
 
 /* TIM3 init function */
 void MX_TIM3_Init(void)
@@ -147,6 +151,7 @@ void MX_TIM5_Init(void)
   HAL_TIM_MspPostInit(&htim5);
 
 }
+
 /* TIM6 init function */
 void MX_TIM6_Init(void)
 {
@@ -180,6 +185,63 @@ void MX_TIM6_Init(void)
   /* USER CODE END TIM6_Init 2 */
 
 }
+
+
+/* TIM7 init function */
+void MX_TIM7_Init(void)
+{
+
+  /* USER CODE BEGIN TIM7_Init 0 */
+	timer7_refresh_can_flag = 0;
+  /* USER CODE END TIM7_Init 0 */
+
+	__HAL_RCC_TIM7_CLK_ENABLE(); //IMPORTANT
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM7_Init 1 */
+
+  /* USER CODE END TIM7_Init 1 */
+  htim7.Instance = TIM7;
+  htim7.Init.Prescaler = 15999;
+  htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim7.Init.Period = 999; //change to ARR = (ms - 1)/10
+  htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+
+
+  HAL_StatusTypeDef status = HAL_TIM_Base_Init(&htim7);
+    if (status == HAL_OK)
+    {
+      /* Start the TIM time Base generation in interrupt mode */
+      status = HAL_TIM_Base_Start_IT(&htim7);
+      if (status == HAL_OK)
+      {
+        if (0 < (1UL << __NVIC_PRIO_BITS))
+        {
+          /* Enable the TIM2 global Interrupt */
+          HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0U);
+          uwTickPrio = 0;
+        }
+        else
+        {
+          status = HAL_ERROR;
+        }
+      }
+    }
+
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim7, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM7_Init 2 */
+  /* Enable the TIM7 global Interrupt */
+  HAL_NVIC_EnableIRQ(TIM7_IRQn);
+  /* USER CODE END TIM7_Init 2 */
+
+}
+
 /* TIM8 init function */
 void MX_TIM8_Init(void)
 {
@@ -575,6 +637,17 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
 
   /* USER CODE END TIM6_MspDeInit 1 */
   }
+  else if(tim_baseHandle->Instance==TIM15)
+    {
+    /* USER CODE BEGIN TIM7_MspDeInit 0 */
+
+    /* USER CODE END TIM7_MspDeInit 0 */
+      /* Peripheral clock disable */
+      __HAL_RCC_TIM7_CLK_DISABLE();
+    /* USER CODE BEGIN TIM7_MspDeInit 1 */
+
+    /* USER CODE END TIM7_MspDeInit 1 */
+    }
   else if(tim_baseHandle->Instance==TIM15)
   {
   /* USER CODE BEGIN TIM15_MspDeInit 0 */

@@ -1,0 +1,4 @@
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/adc.c:31:6:MX_ADC1_Init	40	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/adc.c:88:6:MX_ADC2_Init	40	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/adc.c:147:6:HAL_ADC_MspInit	272	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/Core/Src/adc.c:223:6:HAL_ADC_MspDeInit	0	static

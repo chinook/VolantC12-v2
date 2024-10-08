@@ -1,0 +1,7 @@
+../../TouchGFX/gui/include/gui/ui_page1_screen/UI_page1Presenter.hpp:32:13:UI_page1Presenter::~UI_page1Presenter()	0	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1Presenter.cpp:10:6:virtual void UI_page1Presenter::activate()	0	static
+../../TouchGFX/gui/include/gui/ui_page1_screen/UI_page1Presenter.hpp:32:13:virtual UI_page1Presenter::~UI_page1Presenter()	8	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1Presenter.cpp:20:6:virtual void UI_page1Presenter::change_screen(uint8_t)	32	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1Presenter.cpp:31:6:virtual void UI_page1Presenter::update_ui(void*)	24	static
+../../TouchGFX/gui/include/gui/ui_page1_screen/UI_page1Presenter.hpp:32:13:virtual void* UI_page1Presenter::_ZThn4_N17UI_page1PresenterD1Ev()	0	static
+C:/Users/thoma/OneDrive/ets/chinook/github/VolantC12-v2/VolantC12/TouchGFX/gui/src/ui_page1_screen/UI_page1Presenter.cpp:4:1:UI_page1Presenter::UI_page1Presenter(UI_page1View&)	0	static

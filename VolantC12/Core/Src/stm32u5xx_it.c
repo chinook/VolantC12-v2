@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32u5xx_it.h"
+#include "tim.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "../../STM32CubeIDE/Application/User/application/screen_tasks.h"
@@ -247,6 +248,20 @@ void TIM2_IRQHandler(void)
 
   /* USER CODE END TIM2_IRQn 1 */
 }
+
+void TIM7_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM2_IRQn 0 */
+
+  /* USER CODE END TIM2_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim7);
+  /* USER CODE BEGIN TIM2_IRQn 1 */
+
+  timer7_refresh_can_flag = 1;
+  /* USER CODE END TIM2_IRQn 1 */
+}
+
+
 
 /**
   * @brief This function handles GPU2D global interrupt.

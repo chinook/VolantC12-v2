@@ -27,6 +27,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "stm32u5xx_it.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -42,6 +43,9 @@ extern TIM_HandleTypeDef htim8;
 
 extern TIM_HandleTypeDef htim15;
 
+extern TIM_HandleTypeDef htim7;
+extern uint8_t timer7_refresh_can_flag;
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
@@ -49,6 +53,7 @@ extern TIM_HandleTypeDef htim15;
 void MX_TIM3_Init(void);
 void MX_TIM5_Init(void);
 void MX_TIM6_Init(void);
+void MX_TIM7_Init(void);
 void MX_TIM8_Init(void);
 void MX_TIM15_Init(void);
 
