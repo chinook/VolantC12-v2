@@ -20,39 +20,97 @@ void UI_page1View::change_screen(uint8_t screen)
 	UI_page1ViewBase::handleKeyEvent(screen);
 }
 
-void UI_page1View::update_mast_angle(float angle)
+//TouchGFX_4_23_2_tutorial_after_generating_code_step_3 : add the function like update_change_the_name
+
+void UI_page1View::update_turb_dir_value(float turb_dir_value_temps)
 {
-//	angle = 10;
-	Unicode::snprintfFloat(mast_angle_textBuffer, MAST_ANGLE_TEXT_SIZE, "%.1f", angle);
-	mast_angle_text.invalidate();
+	Unicode::snprintfFloat(turb_dir_valueBuffer, TURB_DIR_VALUE_SIZE, "%.1f", turb_dir_value_temps);
+	turb_dir_value.invalidate();
 }
 
-void UI_page1View::update_pitch(float pitch)
+void UI_page1View::update_turb_cmd_value(float turb_cmd_value_temps)
 {
-	Unicode::snprintfFloat(pitch_textBuffer, PITCH_TEXT_SIZE, "%.1f", pitch);
-	pitch_text.invalidate();
+	Unicode::snprintfFloat(turb_cmd_valueBuffer, TURB_CMD_VALUE_SIZE, "%.1f", turb_cmd_value_temps);
+	turb_cmd_value.invalidate();
 }
 
-void UI_page1View::update_wind_speed(float speed)
+void UI_page1View::update_wind_dir_value(float wind_dir_value_temps)
 {
-	Unicode::snprintfFloat(wind_speed_textBuffer, WIND_SPEED_TEXT_SIZE, "%.1f", speed);
-	wind_speed_text.invalidate();
+	Unicode::snprintfFloat(wind_dir_valueBuffer, WIND_DIR_VALUE_SIZE, "%.1f", wind_dir_value_temps);
+	wind_dir_value.invalidate();
 }
 
-void UI_page1View::update_wind_dir(float dir)
+void UI_page1View::update_speed_value(float speed_value_temps)
 {
-	Unicode::snprintfFloat(wind_dir_textBuffer, WIND_DIR_TEXT_SIZE, "%.1f", dir);
-	wind_dir_text.invalidate();
+	Unicode::snprintfFloat(speed_valueBuffer, SPEED_VALUE_SIZE, "%.2f", speed_value_temps);
+	speed_value.invalidate();
 }
 
-void UI_page1View::update_wheel_rpm(float rpm)
+void UI_page1View::update_tsr_value(float tsr_value_temps)
 {
-	Unicode::snprintfFloat(wheel_rpm_textBuffer, WHEEL_RPM_TEXT_SIZE, "%.1f", rpm);
-	wheel_rpm_text.invalidate();
+	Unicode::snprintfFloat(tsr_valueBuffer, TSR_VALUE_SIZE, "%.2f", tsr_value_temps);
+	tsr_value.invalidate();
 }
 
-void UI_page1View::update_turb_rpm(float rpm)
+void UI_page1View::update_gear_ratio_value(float gear_ratio_value_temps)
 {
-	Unicode::snprintfFloat(turb_rpm_textBuffer, TURB_RPM_TEXT_SIZE, "%.1f", rpm);
-	turb_rpm_text.invalidate();
+	Unicode::snprintfFloat(gear_ratio_valueBuffer, GEAR_RATIO_VALUE_SIZE, "%.1f", gear_ratio_value_temps);
+	gear_ratio_value.invalidate();
+}
+
+void UI_page1View::update_rotor_speed_value(float rotor_speed_value_temps)
+{
+	Unicode::snprintfFloat(rotor_speed_valueBuffer, ROTOR_SPEED_VALUE_SIZE, "%.0f", rotor_speed_value_temps);
+	rotor_speed_value.invalidate();
+}
+
+void UI_page1View::update_rotor_rops_cmd_value(float rotor_rops_cmd_value_temps)
+{
+	Unicode::snprintfFloat(rotor_rops_cmd_valueBuffer, ROTOR_ROPS_CMD_VALUE_SIZE, "%.0f", rotor_rops_cmd_value_temps);
+	rotor_rops_cmd_value.invalidate();
+}
+
+void UI_page1View::update_pitch_value(float pitch_value_temps)
+{
+	Unicode::snprintfFloat(pitch_valueBuffer, PITCH_VALUE_SIZE, "%.3f", pitch_value_temps);
+	pitch_value.invalidate();
+}
+
+void UI_page1View::update_efficiency_value(float efficiency_value_temps)
+{
+	Unicode::snprintfFloat(efficiency_valueBuffer, EFFICIENCY_VALUE_SIZE, "%.2f", efficiency_value_temps);
+	efficiency_value.invalidate();
+}
+
+void UI_page1View::update_wind_speed_value(float wind_speed_value_temps)
+{
+	Unicode::snprintfFloat(wind_speed_valueBuffer, WIND_SPEED_VALUE_SIZE, "%.1f", wind_speed_value_temps);
+	wind_speed_value.invalidate();
+}
+
+void UI_page1View::update_pitch_cmd_value(float pitch_cmd_value_temps)
+{
+	Unicode::snprintfFloat(pitch_cmd_valueBuffer, PITCH_CMD_VALUE_SIZE, "%.3f", pitch_cmd_value_temps);
+	pitch_cmd_value.invalidate();
+}
+
+void UI_page1View::update_debug_log_value_value(float debug_log_value_temps)
+{
+	Unicode::snprintfFloat(debug_log_valueBuffer, DEBUG_LOG_VALUE_SIZE, "%.18f", debug_log_value_temps);
+	debug_log_value.invalidate();
+}
+
+void UI_page1View::update_fps_counter_value(float fps_counter_value_temps)
+{
+	Unicode::snprintfFloat(fps_counter_valueBuffer, FPS_COUNTER_VALUE_SIZE, "%.0f", fps_counter_value_temps);
+	fps_counter_value.invalidate();
+}
+
+
+void UI_page1View::update_change_the_name(float change_the_name_temps)
+{
+	Unicode::snprintfFloat(change_the_nameBuffer, CHANGE_THE_NAME_SIZE, "%.0f", change_the_name_temps);
+	change_the_name.invalidate();
+	//Unicode::snprintfFloat(change_the_nameBuffer, CHANGE_THE_NAME_SIZE, "%.1f", change_the_name);
+	//change_the_name.invalidate();
 }

@@ -10,10 +10,6 @@
             "Name": "background",
             "Width": 800,
             "Height": 480,
-            "LockPosition": true,
-            "Color": {
-              "Red": 255
-            },
             "Points": [
               {},
               {
@@ -31,91 +27,74 @@
             "YScale": 1.0
           },
           {
-            "Type": "Container",
-            "Name": "header_page1_container",
-            "Width": 800,
-            "Height": 48,
-            "LockPosition": true,
-            "Components": [
-              {
-                "Type": "BoxWithBorder",
-                "Name": "header_p1_box",
-                "Width": 800,
-                "Height": 48,
-                "LockPosition": true,
-                "BorderColor": {
-                  "Red": 50,
-                  "Green": 82,
-                  "Blue": 123
-                },
-                "BorderSize": 2
-              },
-              {
-                "Type": "TextArea",
-                "Name": "page1_num_text",
-                "X": 718,
-                "Y": 9,
-                "Width": 68,
-                "Height": 30,
-                "LockPosition": true,
-                "TextId": "__SingleUse_V6AU",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "AutoSize": true
-              }
-            ]
+            "Type": "TextArea",
+            "Name": "change_the_name",
+            "X": 700,
+            "Y": 440,
+            "Width": 50,
+            "Height": 40,
+            "Visible": false,
+            "TextId": "__SingleUse_6XD4",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "change_the_name",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "fps_counter_value",
+            "X": 700,
+            "Y": 440,
+            "Width": 50,
+            "Height": 40,
+            "TextId": "__SingleUse_RIB5",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "fps_counter_value",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "fps_counter",
+            "X": 750,
+            "Y": 440,
+            "Width": 50,
+            "Height": 40,
+            "TextId": "__SingleUse_TVWU",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
           },
           {
             "Type": "Container",
-            "Name": "mast_angle_container",
-            "Y": 48,
-            "Width": 400,
-            "Height": 144,
-            "LockPosition": true,
+            "Name": "debug_log_viewer",
+            "Y": 440,
+            "Width": 700,
+            "Height": 40,
             "Components": [
               {
-                "Type": "BoxWithBorder",
-                "Name": "mast_angle_box",
-                "Width": 400,
-                "Height": 144,
-                "LockPosition": true,
-                "BorderColor": {
-                  "Red": 50,
-                  "Green": 82,
-                  "Blue": 123
-                },
-                "BorderSize": 2
-              },
-              {
                 "Type": "TextArea",
-                "Name": "mast_angle_title",
-                "X": 10,
-                "Y": 111,
-                "Width": 115,
-                "Height": 24,
-                "LockPosition": true,
-                "TextId": "__SingleUse_OSUO",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "AutoSize": true
-              },
-              {
-                "Type": "TextArea",
-                "Name": "mast_angle_text",
-                "X": 110,
-                "Y": 32,
-                "Width": 185,
-                "Height": 61,
-                "LockPosition": true,
-                "TextId": "__SingleUse_2589",
+                "Name": "debug_log_value",
+                "Width": 700,
+                "Height": 40,
+                "TextId": "__SingleUse_C1PU",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
@@ -123,61 +102,173 @@
                   "Blue": 255
                 },
                 "Wildcard1": {
-                  "TextId": "mast_angle_text",
+                  "TextId": "debug_log_value",
                   "UseBuffer": true,
-                  "BufferSize": 7
+                  "BufferSize": 10
                 }
               }
             ]
           },
           {
             "Type": "Container",
-            "Name": "pitch_container",
-            "X": 400,
-            "Y": 48,
-            "Width": 400,
-            "Height": 144,
-            "LockPosition": true,
+            "Name": "empty_container_2",
+            "X": 560,
+            "Y": 400,
+            "Width": 240,
+            "Height": 40,
+            "Components": []
+          },
+          {
+            "Type": "Container",
+            "Name": "efficiency_bar_gradation",
+            "X": 239,
+            "Y": 400,
+            "Width": 320,
+            "Height": 40,
             "Components": [
               {
-                "Type": "BoxWithBorder",
-                "Name": "pitch_box",
-                "Width": 400,
-                "Height": 144,
-                "LockPosition": true,
-                "BorderColor": {
-                  "Red": 50,
-                  "Green": 82,
-                  "Blue": 123
-                },
-                "BorderSize": 2
-              },
-              {
                 "Type": "TextArea",
-                "Name": "pitch_title",
-                "X": 10,
-                "Y": 111,
-                "Width": 55,
-                "Height": 24,
-                "LockPosition": true,
-                "TextId": "__SingleUse_A6ZH",
+                "Name": "efficiency_min_legend",
+                "X": 2,
+                "Width": 56,
+                "Height": 40,
+                "TextId": "__SingleUse_M42X",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
                   "Green": 255,
                   "Blue": 255
-                },
-                "AutoSize": true
+                }
               },
               {
                 "Type": "TextArea",
-                "Name": "pitch_text",
-                "X": 110,
-                "Y": 32,
-                "Width": 185,
-                "Height": 61,
-                "LockPosition": true,
-                "TextId": "__SingleUse_KMLK",
+                "Name": "efficiency_max_legend",
+                "X": 240,
+                "Width": 75,
+                "Height": 40,
+                "TextId": "__SingleUse_511U",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "efficiency_up_legend",
+                "X": 150,
+                "Width": 75,
+                "Height": 40,
+                "TextId": "__SingleUse_C47P",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "pitch_cmd_viewer",
+            "Y": 400,
+            "Width": 240,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "pitch_cmd_value",
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_PPHW",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "Wildcard1": {
+                  "TextId": "pitch_cmd_value",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "wind_speed_viewer",
+            "X": 560,
+            "Y": 360,
+            "Width": 240,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "Line",
+                "Name": "line1_3_2_1",
+                "X": 238,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_1_3_1_1",
+                "Y": 38,
+                "Width": 240,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 240.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_1_1_2_1_1",
+                "Width": 240,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 240.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "wind_speed_value_unit",
+                "X": 165,
+                "Width": 72,
+                "Height": 40,
+                "TextId": "__SingleUse_Z33Q",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "wind_speed_value",
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_32K4",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
@@ -185,60 +276,604 @@
                   "Blue": 255
                 },
                 "Wildcard1": {
-                  "TextId": "pitch_text",
+                  "TextId": "wind_speed_value",
                   "UseBuffer": true,
-                  "BufferSize": 7
+                  "BufferSize": 10
                 }
               }
             ]
           },
           {
             "Type": "Container",
-            "Name": "wind_speed_container",
-            "Y": 192,
-            "Width": 400,
-            "Height": 144,
-            "LockPosition": true,
+            "Name": "efficiency_viewer",
+            "X": 240,
+            "Y": 360,
+            "Width": 320,
+            "Height": 40,
             "Components": [
               {
-                "Type": "BoxWithBorder",
-                "Name": "wind_speed_box",
-                "Width": 400,
-                "Height": 144,
-                "LockPosition": true,
-                "BorderColor": {
-                  "Red": 50,
-                  "Green": 82,
-                  "Blue": 123
+                "Type": "Line",
+                "Name": "line1_3_2",
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
                 },
-                "BorderSize": 2
+                "StartX": 5.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_3_1_1",
+                "X": 318,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_1_3_1",
+                "Y": 38,
+                "Width": 320,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 320.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_1_1_2_1",
+                "Width": 320,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 320.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
               },
               {
                 "Type": "TextArea",
-                "Name": "wind_speed_title",
-                "X": 11,
-                "Y": 108,
-                "Width": 126,
-                "Height": 24,
-                "LockPosition": true,
-                "TextId": "__SingleUse_PRUK",
+                "Name": "efficiency_value",
+                "X": 2,
+                "Width": 318,
+                "Height": 40,
+                "TextId": "__SingleUse_PGB7",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
                   "Green": 255,
                   "Blue": 255
                 },
-                "AutoSize": true
+                "Wildcard1": {
+                  "TextId": "efficiency_value",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "efficiency_value_unit",
+                "X": 240,
+                "Width": 75,
+                "Height": 40,
+                "TextId": "__SingleUse_XUVG",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "pitch_viewer",
+            "Y": 360,
+            "Width": 240,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "Line",
+                "Name": "line1_2",
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_1_2",
+                "Width": 240,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 240.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_1_1_1",
+                "Y": 38,
+                "Width": 240,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 240.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "pitch_value_unit",
+                "X": 182,
+                "Width": 56,
+                "Height": 40,
+                "TextId": "__SingleUse_F6HM",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "pitch_value",
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_90VN",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "pitch_value",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "wind_speed_title",
+            "X": 558,
+            "Y": 320,
+            "Width": 242,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "Line",
+                "Name": "line_g_vertical_1_1_1",
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_vertical_1_1_1",
+                "X": 240,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_g_flat_1_1_1",
+                "Y": 19,
+                "Width": 12,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_flat_1_1_1",
+                "X": 229,
+                "Y": 19,
+                "Width": 12,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
               },
               {
                 "Type": "TextArea",
                 "Name": "wind_speed_text",
-                "X": 110,
-                "Y": 32,
-                "Width": 185,
-                "Height": 61,
-                "LockPosition": true,
-                "TextId": "__SingleUse_P7XC",
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_HOP2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "efficiency_title",
+            "X": 240,
+            "Y": 320,
+            "Width": 320,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "efficiency_text",
+                "Width": 320,
+                "Height": 40,
+                "TextId": "__SingleUse_GA82",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "Line",
+                "Name": "line_g_vertical_2",
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_vertical_2",
+                "X": 318,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_g_flat_2",
+                "Y": 19,
+                "Width": 60,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_flat_2",
+                "X": 260,
+                "Y": 19,
+                "Width": 60,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "pitch_title",
+            "Y": 320,
+            "Width": 242,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "Line",
+                "Name": "line_g_vertical_1_2",
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_vertical_1_2",
+                "X": 240,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_g_flat_1_2",
+                "Y": 19,
+                "Width": 67,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_flat_1_2",
+                "X": 174,
+                "Y": 19,
+                "Width": 67,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "pitch_text",
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_57JH",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "wind_speed_legend",
+            "X": 558,
+            "Y": 280,
+            "Width": 242,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "wind_speed_legend_temps",
+                "Width": 240,
+                "Height": 40,
+                "Visible": false,
+                "TextId": "__SingleUse_OKQT",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "wind_speed_legend_l",
+                "X": 144,
+                "Width": 15,
+                "Height": 40,
+                "TextId": "__SingleUse_C6NF",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "wind_speed_legend_wind",
+                "X": 157,
+                "Width": 70,
+                "Height": 40,
+                "TextId": "__SingleUse_9W31",
+                "TextRotation": "0",
+                "Color": {
+                  "Green": 145,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "wind_speed_legend_cmd",
+                "X": 90,
+                "Width": 63,
+                "Height": 40,
+                "TextId": "__SingleUse_MGRZ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "wind_speed_legend_turb",
+                "Width": 97,
+                "Height": 40,
+                "TextId": "__SingleUse_WUAQ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 60,
+                  "Green": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "rotor_speed_gradation",
+            "X": 240,
+            "Y": 280,
+            "Width": 320,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "rotor_speed_min_legend",
+                "Width": 56,
+                "Height": 40,
+                "TextId": "__SingleUse_EF9D",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "rotor_speed_max_legend",
+                "X": 240,
+                "Width": 75,
+                "Height": 40,
+                "TextId": "__SingleUse_9OO1",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "rotor_rops_cmd_value",
+                "X": 145,
+                "Width": 85,
+                "Height": 40,
+                "TextId": "__SingleUse_EZPE",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "Wildcard1": {
+                  "TextId": "rotor_rops_cmd_value",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "empty_container_1",
+            "Y": 280,
+            "Width": 240,
+            "Height": 40,
+            "Components": []
+          },
+          {
+            "Type": "Container",
+            "Name": "rotor_speed_viewer",
+            "X": 240,
+            "Y": 240,
+            "Width": 320,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "rotor_speed_value",
+                "X": 2,
+                "Width": 318,
+                "Height": 40,
+                "TextId": "__SingleUse_YIW8",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
@@ -246,61 +881,148 @@
                   "Blue": 255
                 },
                 "Wildcard1": {
-                  "TextId": "wind_speed_text",
+                  "TextId": "rotor_speed_value",
                   "UseBuffer": true,
-                  "BufferSize": 7
+                  "BufferSize": 10
                 }
-              }
-            ]
-          },
-          {
-            "Type": "Container",
-            "Name": "wind_dir_container",
-            "X": 400,
-            "Y": 192,
-            "Width": 400,
-            "Height": 144,
-            "LockPosition": true,
-            "Components": [
-              {
-                "Type": "BoxWithBorder",
-                "Name": "wind_dir_box",
-                "Width": 400,
-                "Height": 144,
-                "LockPosition": true,
-                "BorderColor": {
-                  "Red": 50,
-                  "Green": 82,
-                  "Blue": 123
-                },
-                "BorderSize": 2
               },
               {
                 "Type": "TextArea",
-                "Name": "wind_dir_title",
-                "X": 10,
-                "Y": 108,
-                "Width": 153,
-                "Height": 24,
-                "LockPosition": true,
-                "TextId": "__SingleUse_OVCS",
+                "Name": "rotor_speed_unit",
+                "X": 240,
+                "Width": 75,
+                "Height": 40,
+                "TextId": "__SingleUse_W26I",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
                   "Green": 255,
                   "Blue": 255
+                }
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_3",
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
                 },
-                "AutoSize": true
+                "StartX": 5.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_3_1",
+                "X": 318,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_1_3",
+                "Width": 320,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 320.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_1_1_2",
+                "Y": 38,
+                "Width": 320,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 320.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "gear_ratio_viewer",
+            "Y": 240,
+            "Width": 240,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "Line",
+                "Name": "line1",
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_1",
+                "Width": 240,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 240.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_1_1",
+                "Y": 38,
+                "Width": 240,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 240.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
               },
               {
                 "Type": "TextArea",
-                "Name": "wind_dir_text",
-                "X": 110,
-                "Y": 32,
-                "Width": 185,
-                "Height": 61,
-                "LockPosition": true,
-                "TextId": "__SingleUse_APA4",
+                "Name": "gear_ratio_value",
+                "X": 1,
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_WNMP",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
@@ -308,132 +1030,692 @@
                   "Blue": 255
                 },
                 "Wildcard1": {
-                  "TextId": "wind_dir_text",
+                  "TextId": "gear_ratio_value",
                   "UseBuffer": true,
-                  "BufferSize": 7
+                  "BufferSize": 10
                 }
               }
             ]
           },
           {
             "Type": "Container",
-            "Name": "wheel_rpm_container",
-            "Y": 336,
-            "Width": 400,
-            "Height": 144,
-            "LockPosition": true,
+            "Name": "rotor_speed_title",
+            "X": 240,
+            "Y": 200,
+            "Width": 320,
+            "Height": 40,
             "Components": [
               {
-                "Type": "BoxWithBorder",
-                "Name": "wheel_rpm_box",
-                "Width": 400,
-                "Height": 144,
-                "LockPosition": true,
-                "BorderColor": {
-                  "Red": 50,
-                  "Green": 82,
-                  "Blue": 123
-                },
-                "BorderSize": 2
-              },
-              {
                 "Type": "TextArea",
-                "Name": "wheel_rpm_title",
-                "X": 10,
-                "Y": 108,
-                "Width": 119,
-                "Height": 24,
-                "LockPosition": true,
-                "TextId": "__SingleUse_HW5F",
+                "Name": "rotor_speed_text",
+                "Width": 320,
+                "Height": 40,
+                "TextId": "__SingleUse_3KSE",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
                   "Green": 255,
                   "Blue": 255
+                }
+              },
+              {
+                "Type": "Line",
+                "Name": "line_g_vertical_3",
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
                 },
-                "AutoSize": true
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_vertical_3",
+                "X": 318,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_g_flat_3",
+                "Y": 19,
+                "Width": 43,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_flat_3",
+                "X": 277,
+                "Y": 19,
+                "Width": 43,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "gear_ratio_title",
+            "Y": 200,
+            "Width": 242,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "Line",
+                "Name": "line_g_vertical_1_3",
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_vertical_1_3",
+                "X": 240,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_g_flat_1_3",
+                "Y": 19,
+                "Width": 15,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_flat_1_3",
+                "X": 225,
+                "Y": 19,
+                "Width": 15,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
               },
               {
                 "Type": "TextArea",
-                "Name": "wheel_rpm_text",
-                "X": 110,
-                "Y": 32,
-                "Width": 185,
-                "Height": 61,
-                "LockPosition": true,
-                "TextId": "__SingleUse_8FJJ",
+                "Name": "gear_ratio_text",
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_UHJ5",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
                   "Green": 255,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "tsr_viewer",
+            "X": 240,
+            "Y": 40,
+            "Width": 320,
+            "Height": 160,
+            "Components": [
+              {
+                "Type": "Circle",
+                "Name": "circle1",
+                "Width": 320,
+                "Height": 160,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 160.0,
+                "CenterY": 160.0,
+                "Radius": 160.0,
+                "EndAngle": 360.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Shape",
+                "Name": "shape1",
+                "X": 59,
+                "Width": 200,
+                "Height": 160,
+                "Visible": false,
+                "Color": {
+                  "Red": 60,
+                  "Green": 255
+                },
+                "Points": [
+                  {
+                    "X": 100.0,
+                    "Y": 5.0
+                  },
+                  {
+                    "X": 150.0,
+                    "Y": 15.0
+                  },
+                  {
+                    "X": 200.0,
+                    "Y": 45.0
+                  },
+                  {
+                    "X": 100.0,
+                    "Y": 160.0
+                  },
+                  {
+                    "Y": 45.0
+                  },
+                  {
+                    "X": 50.0,
+                    "Y": 15.0
+                  }
+                ],
+                "XScale": 1.0,
+                "YScale": 1.0
+              },
+              {
+                "Type": "TextArea",
+                "Name": "tsr_value",
+                "X": 39,
+                "Y": 60,
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_LSVJ",
+                "TextRotation": "0",
+                "Wildcard1": {
+                  "TextId": "tsr_value",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "speed_viewer",
+            "Y": 80,
+            "Width": 240,
+            "Height": 120,
+            "Components": [
+              {
+                "Type": "Circle",
+                "Name": "circle2",
+                "Width": 240,
+                "Height": 120,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 120.0,
+                "CenterY": 120.0,
+                "Radius": 120.0,
+                "EndAngle": 360.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "speed_value_unit",
+                "X": 92,
+                "Y": 80,
+                "Width": 56,
+                "Height": 40,
+                "TextId": "__SingleUse_NCUI",
+                "TextRotation": "0"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "speed_value",
+                "X": 1,
+                "Y": 40,
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_XL1B",
+                "TextRotation": "0",
+                "Wildcard1": {
+                  "TextId": "speed_value",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "direction_viewer",
+            "X": 558,
+            "Y": 40,
+            "Width": 240,
+            "Height": 240,
+            "Components": [
+              {
+                "Type": "Circle",
+                "Name": "circle3",
+                "Width": 240,
+                "Height": 240,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "CenterX": 120.0,
+                "CenterY": 120.0,
+                "Radius": 120.0,
+                "EndAngle": 360.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle3_1",
+                "Width": 240,
+                "Height": 240,
+                "CenterX": 120.0,
+                "CenterY": 120.0,
+                "Radius": 115.0,
+                "EndAngle": 360.0,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "direction_unit",
+                "X": 94,
+                "Y": 200,
+                "Width": 56,
+                "Height": 40,
+                "TextId": "__SingleUse_6SKF",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "wind_dir_value",
+                "X": 1,
+                "Y": 139,
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_WEXC",
+                "TextRotation": "0",
+                "Color": {
+                  "Green": 145,
                   "Blue": 255
                 },
                 "Wildcard1": {
-                  "TextId": "wheel_rpm_text",
+                  "TextId": "wind_dir_value",
                   "UseBuffer": true,
-                  "BufferSize": 7
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "turb_cmd_value",
+                "X": 1,
+                "Y": 100,
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_WZKT",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "Wildcard1": {
+                  "TextId": "turb_cmd_value",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "turb_dir_value",
+                "X": 2,
+                "Y": 60,
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_0Q4R",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 60,
+                  "Green": 255
+                },
+                "Wildcard1": {
+                  "TextId": "turb_dir_value",
+                  "UseBuffer": true,
+                  "BufferSize": 10
                 }
               }
             ]
           },
           {
             "Type": "Container",
-            "Name": "turb_rpm_container",
-            "X": 400,
-            "Y": 336,
-            "Width": 400,
-            "Height": 144,
-            "LockPosition": true,
+            "Name": "speed_title",
+            "Y": 40,
+            "Width": 242,
+            "Height": 40,
             "Components": [
               {
-                "Type": "BoxWithBorder",
-                "Name": "turb_rpm_box",
-                "Width": 400,
-                "Height": 144,
-                "LockPosition": true,
-                "BorderColor": {
-                  "Red": 50,
-                  "Green": 82,
-                  "Blue": 123
+                "Type": "Line",
+                "Name": "line_g_vertical_1",
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
                 },
-                "BorderSize": 2
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_vertical_1",
+                "X": 240,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_g_flat_1",
+                "Y": 19,
+                "Width": 47,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_flat_1",
+                "X": 193,
+                "Y": 19,
+                "Width": 47,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
               },
               {
                 "Type": "TextArea",
-                "Name": "turb_rpm_title",
-                "X": 10,
-                "Y": 108,
+                "Name": "speed_text",
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_ZLWZ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "direction_title",
+            "X": 558,
+            "Width": 242,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "Line",
+                "Name": "line_g_vertical_1_1_2_1",
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_vertical_1_1_2_1",
+                "X": 240,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_g_flat_1_1_2_1",
+                "Y": 19,
+                "Width": 23,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_flat_1_1_2_1",
+                "X": 219,
+                "Y": 19,
+                "Width": 23,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "direction_text",
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_F7YL",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "tsr_title",
+            "X": 240,
+            "Width": 320,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "tsr_text",
+                "Width": 320,
+                "Height": 40,
+                "TextId": "__SingleUse_0D8N",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              },
+              {
+                "Type": "Line",
+                "Name": "line_g_vertical",
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_vertical",
+                "X": 318,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndY": 40.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_g_flat",
+                "Y": 19,
                 "Width": 131,
-                "Height": 24,
-                "LockPosition": true,
-                "TextId": "__SingleUse_RSWZ",
-                "TextRotation": "0",
+                "Height": 2,
                 "Color": {
                   "Red": 255,
                   "Green": 255,
                   "Blue": 255
                 },
-                "AutoSize": true
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line_d_flat",
+                "X": 189,
+                "Y": 19,
+                "Width": 131,
+                "Height": 2,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "EndX": 131.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Round"
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "chinook_title",
+            "Width": 240,
+            "Height": 40,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "version",
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_G2VX",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
               },
               {
                 "Type": "TextArea",
-                "Name": "turb_rpm_text",
-                "X": 110,
-                "Y": 32,
-                "Width": 185,
-                "Height": 61,
-                "LockPosition": true,
-                "TextId": "__SingleUse_YY7I",
+                "Name": "chinook",
+                "Width": 240,
+                "Height": 40,
+                "TextId": "__SingleUse_MO2P",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
                   "Green": 255,
                   "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "turb_rpm_text",
-                  "UseBuffer": true,
-                  "BufferSize": 7
                 }
               }
             ]
@@ -451,6 +1733,21 @@
               "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "UI_page2"
             }
+          },
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 1
+            },
+            "Action": {
+              "Type": "ActionExecuteCode"
+            }
+          }
+        ],
+        "CustomActions": [
+          {
+            "Name": "test"
           }
         ]
       },
@@ -508,8 +1805,8 @@
                 "Name": "page2_num_text",
                 "X": 718,
                 "Y": 9,
-                "Width": 68,
-                "Height": 30,
+                "Width": 85,
+                "Height": 37,
                 "LockPosition": true,
                 "TextId": "__SingleUse_1F1N",
                 "TextRotation": "0",
@@ -548,8 +1845,8 @@
                 "Name": "power_title",
                 "X": 10,
                 "Y": 111,
-                "Width": 66,
-                "Height": 24,
+                "Width": 102,
+                "Height": 37,
                 "LockPosition": true,
                 "TextId": "__SingleUse_CG1O",
                 "TextRotation": "0",
@@ -576,7 +1873,6 @@
                   "Blue": 255
                 },
                 "Wildcard1": {
-                  "TextId": "power_text",
                   "UseBuffer": true,
                   "BufferSize": 8
                 }
@@ -610,8 +1906,8 @@
                 "Name": "efficiency_title",
                 "X": 10,
                 "Y": 111,
-                "Width": 100,
-                "Height": 24,
+                "Width": 187,
+                "Height": 37,
                 "LockPosition": true,
                 "TextId": "__SingleUse_V5U8",
                 "TextRotation": "0",
@@ -638,7 +1934,6 @@
                   "Blue": 255
                 },
                 "Wildcard1": {
-                  "TextId": "efficiency_text",
                   "UseBuffer": true,
                   "BufferSize": 8
                 }
@@ -671,8 +1966,8 @@
                 "Name": "tsr_title",
                 "X": 10,
                 "Y": 111,
-                "Width": 47,
-                "Height": 24,
+                "Width": 68,
+                "Height": 37,
                 "LockPosition": true,
                 "TextId": "__SingleUse_QAY6",
                 "TextRotation": "0",
@@ -699,7 +1994,6 @@
                   "Blue": 255
                 },
                 "Wildcard1": {
-                  "TextId": "tsr_text",
                   "UseBuffer": true,
                   "BufferSize": 8
                 }
@@ -733,8 +2027,8 @@
                 "Name": "empty4_title",
                 "X": 10,
                 "Y": 111,
-                "Width": 70,
-                "Height": 24,
+                "Width": 102,
+                "Height": 37,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_Y1FV",
@@ -791,8 +2085,8 @@
                 "Name": "empty5_title",
                 "X": 10,
                 "Y": 111,
-                "Width": 70,
-                "Height": 24,
+                "Width": 102,
+                "Height": 37,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_9JZ7",
@@ -850,8 +2144,8 @@
                 "Name": "empty6_title",
                 "X": 10,
                 "Y": 111,
-                "Width": 70,
-                "Height": 24,
+                "Width": 102,
+                "Height": 37,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_T5F8",
@@ -921,8 +2215,8 @@
             "Name": "value_title",
             "X": 10,
             "Y": 111,
-            "Width": 45,
-            "Height": 24,
+            "Width": 102,
+            "Height": 37,
             "TextId": "__SingleUse_IQLU",
             "TextRotation": "0",
             "Color": {

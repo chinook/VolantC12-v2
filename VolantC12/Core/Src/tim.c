@@ -32,7 +32,7 @@ TIM_HandleTypeDef htim7;
 TIM_HandleTypeDef htim8;
 TIM_HandleTypeDef htim15;
 
-uint8_t timer7_refresh_can_flag;
+uint16_t timer7_1ms_counter;
 
 /* TIM3 init function */
 void MX_TIM3_Init(void)
@@ -192,7 +192,7 @@ void MX_TIM7_Init(void)
 {
 
   /* USER CODE BEGIN TIM7_Init 0 */
-	timer7_refresh_can_flag = 0;
+	timer7_1ms_counter = 0;
   /* USER CODE END TIM7_Init 0 */
 
 	__HAL_RCC_TIM7_CLK_ENABLE(); //IMPORTANT
@@ -203,9 +203,9 @@ void MX_TIM7_Init(void)
 
   /* USER CODE END TIM7_Init 1 */
   htim7.Instance = TIM7;
-  htim7.Init.Prescaler = 15999;
+  htim7.Init.Prescaler = 159; // 160 MHz / (PSC + 1) = 1 MHz
   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim7.Init.Period = 999; //change to ARR = (ms - 1)/10
+  htim7.Init.Period = 999 ; // 9999 = flag at 1 at each 1 sec // 9 = each 10ms
   htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
 
 

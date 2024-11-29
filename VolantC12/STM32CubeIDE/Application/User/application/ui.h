@@ -21,22 +21,26 @@
  * const void, allowing for the representation of
  * various data types.
  *
- * The data fields are placed as follows:
- * ----------------
- *| data1 | data2 |
- *|----------------
- *| data3 | data4 |
- *|----------------
- *| data5 | data6 |
- *|----------------
  */
+
+//TouchGFX_4_23_2_tutorial_after_generating_code_step_1 : add a variable like change_the_name
 typedef struct ui {
-	volatile const void* data1;
-	volatile const void* data2;
-	volatile const void* data3;
-	volatile const void* data4;
-	volatile const void* data5;
-	volatile const void* data6;
+	volatile const void* turb_dir_value;
+	volatile const void* turb_cmd_value;
+	volatile const void* wind_dir_value;
+	volatile const void* speed_value;
+	volatile const void* tsr_value;
+	volatile const void* gear_ratio_value;
+	volatile const void* rotor_speed_value;
+	volatile const void* rotor_rops_cmd_value;
+	volatile const void* pitch_value;
+	volatile const void* efficiency_value;
+	volatile const void* wind_speed_value;
+	volatile const void* pitch_cmd_value;
+	volatile const void* debug_log_value_value;
+	volatile const void* fps_counter_value;
+	
+	volatile const void* change_the_name;
 } ui_t;
 
 

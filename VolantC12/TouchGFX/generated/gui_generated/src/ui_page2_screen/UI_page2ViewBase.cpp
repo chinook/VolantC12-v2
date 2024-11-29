@@ -55,7 +55,7 @@ UI_page2ViewBase::UI_page2ViewBase()
     power_text.setPosition(100, 32, 195, 61);
     power_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     power_text.setLinespacing(0);
-    Unicode::snprintf(power_textBuffer, POWER_TEXT_SIZE, "%s", touchgfx::TypedText(T_POWER_TEXT).getText());
+    power_textBuffer[0] = 0;
     power_text.setWildcard(power_textBuffer);
     power_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4N8U));
     power_container.add(power_text);
@@ -78,7 +78,7 @@ UI_page2ViewBase::UI_page2ViewBase()
     efficiency_text.setPosition(75, 32, 245, 61);
     efficiency_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     efficiency_text.setLinespacing(0);
-    Unicode::snprintf(efficiency_textBuffer, EFFICIENCY_TEXT_SIZE, "%s", touchgfx::TypedText(T_EFFICIENCY_TEXT).getText());
+    efficiency_textBuffer[0] = 0;
     efficiency_text.setWildcard(efficiency_textBuffer);
     efficiency_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DIBQ));
     efficiency_container.add(efficiency_text);
@@ -101,7 +101,7 @@ UI_page2ViewBase::UI_page2ViewBase()
     tsr_text.setPosition(100, 32, 195, 61);
     tsr_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     tsr_text.setLinespacing(0);
-    Unicode::snprintf(tsr_textBuffer, TSR_TEXT_SIZE, "%s", touchgfx::TypedText(T_TSR_TEXT).getText());
+    tsr_textBuffer[0] = 0;
     tsr_text.setWildcard(tsr_textBuffer);
     tsr_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_MU00));
     tsr_container.add(tsr_text);

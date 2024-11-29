@@ -6,125 +6,228 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="debug_log_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">debug_log</Translation>
+      </Text>
+      <Text Id="wind_speed_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">12</Translation>
+      </Text>
+      <Text Id="efficiency_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">114</Translation>
+      </Text>
+      <Text Id="pitch_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">-5</Translation>
+      </Text>
+      <Text Id="rotor_speed_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">666</Translation>
+      </Text>
+      <Text Id="fps_counter_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">-1</Translation>
+      </Text>
+      <Text Id="__SingleUse_RIB5" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_TVWU" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">FPS</Translation>
+      </Text>
+      <Text Id="rotor_rops_cmd_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">1400</Translation>
+      </Text>
+      <Text Id="pitch_cmd_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">-17</Translation>
+      </Text>
+      <Text Id="__SingleUse_PPHW" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="tsr_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">6</Translation>
+      </Text>
+      <Text Id="__SingleUse_LSVJ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="speed_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">11</Translation>
+      </Text>
+      <Text Id="__SingleUse_XL1B" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_NCUI" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">m/s</Translation>
+      </Text>
+      <Text Id="__SingleUse_6SKF" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">°</Translation>
+      </Text>
+      <Text Id="wind_dir_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">16</Translation>
+      </Text>
+      <Text Id="__SingleUse_WEXC" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="turb_dir_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">17</Translation>
+      </Text>
+      <Text Id="gear_ratio_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">7</Translation>
+      </Text>
+      <Text Id="__SingleUse_0Q4R" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_WZKT" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_G2VX" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">V1</Translation>
+      </Text>
+      <Text Id="__SingleUse_9W31" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">WIND</Translation>
+      </Text>
+      <Text Id="__SingleUse_MGRZ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">CMD</Translation>
+      </Text>
+      <Text Id="__SingleUse_F7YL" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">DIRECTION</Translation>
+      </Text>
+      <Text Id="__SingleUse_3KSE" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">ROTOR SPEED</Translation>
+      </Text>
+      <Text Id="__SingleUse_UHJ5" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">GEAR RATIO</Translation>
+      </Text>
+      <Text Id="turb_cmd_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">15</Translation>
+      </Text>
+      <Text Id="__SingleUse_WNMP" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_W26I" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">RPM</Translation>
+      </Text>
+      <Text Id="__SingleUse_YIW8" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_C6NF" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">|</Translation>
+      </Text>
+      <Text Id="__SingleUse_WUAQ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">TURB</Translation>
+      </Text>
+      <Text Id="__SingleUse_OKQT" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">TURB CMD|WIND</Translation>
+      </Text>
+      <Text Id="__SingleUse_EZPE" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_9OO1" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">2000</Translation>
+      </Text>
+      <Text Id="__SingleUse_EF9D" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_57JH" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">PITCH</Translation>
+      </Text>
+      <Text Id="__SingleUse_GA82" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">EFFICIENCY</Translation>
+      </Text>
+      <Text Id="__SingleUse_HOP2" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">WIND SPEED</Translation>
+      </Text>
+      <Text Id="__SingleUse_90VN" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_F6HM" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">°</Translation>
+      </Text>
+      <Text Id="__SingleUse_PGB7" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_XUVG" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">%</Translation>
+      </Text>
+      <Text Id="__SingleUse_32K4" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_Z33Q" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">m/s</Translation>
+      </Text>
+      <Text Id="__SingleUse_C47P" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">100</Translation>
+      </Text>
+      <Text Id="__SingleUse_511U" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">150</Translation>
+      </Text>
+      <Text Id="__SingleUse_M42X" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_C1PU" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZLWZ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">SPEED</Translation>
+      </Text>
+      <Text Id="__SingleUse_0D8N" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">TSR</Translation>
+      </Text>
+      <Text Id="__SingleUse_MO2P" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">@CHINOOK</Translation>
+      </Text>
+      <Text Id="change_the_name" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">60</Translation>
+      </Text>
+      <Text Id="__SingleUse_6XD4" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_IQPW" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">p.1/1</Translation>
       </Text>
-      <Text Id="__SingleUse_OIHV" Alignment="Center" TypographyId="Large">
+      <Text Id="__SingleUse_OIHV" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">0</Translation>
       </Text>
-      <Text Id="__SingleUse_IQLU" Alignment="Left" TypographyId="Small">
+      <Text Id="__SingleUse_IQLU" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">title.</Translation>
       </Text>
-      <Text Id="__SingleUse_DTB9" Alignment="Center" TypographyId="Large">
+      <Text Id="__SingleUse_DTB9" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">0</Translation>
       </Text>
-      <Text Id="__SingleUse_VJH6" Alignment="Center" TypographyId="Large">
+      <Text Id="__SingleUse_VJH6" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">0</Translation>
       </Text>
-      <Text Id="__SingleUse_LEP2" Alignment="Center" TypographyId="Large">
+      <Text Id="__SingleUse_LEP2" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">0</Translation>
       </Text>
-      <Text Id="tsr_text" Alignment="Left" TypographyId="Large">
-        <Translation Language="GB">0.00</Translation>
-      </Text>
-      <Text Id="__SingleUse_MU00" Alignment="Center" TypographyId="Large">
+      <Text Id="__SingleUse_MU00" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">&lt;0&gt;</Translation>
       </Text>
-      <Text Id="efficiency_text" Alignment="Left" TypographyId="Large">
-        <Translation Language="GB">0.00</Translation>
-      </Text>
-      <Text Id="__SingleUse_DIBQ" Alignment="Center" TypographyId="Large">
+      <Text Id="__SingleUse_DIBQ" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">&lt;0&gt;%</Translation>
       </Text>
-      <Text Id="power_text" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">0.00</Translation>
-      </Text>
-      <Text Id="__SingleUse_4N8U" Alignment="Center" TypographyId="Large">
+      <Text Id="__SingleUse_4N8U" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">&lt;0&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_T5F8" Alignment="Left" TypographyId="Small">
+      <Text Id="__SingleUse_T5F8" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Empty.</Translation>
       </Text>
-      <Text Id="__SingleUse_9JZ7" Alignment="Left" TypographyId="Small">
+      <Text Id="__SingleUse_9JZ7" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Empty.</Translation>
       </Text>
-      <Text Id="__SingleUse_Y1FV" Alignment="Left" TypographyId="Small">
+      <Text Id="__SingleUse_Y1FV" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Empty.</Translation>
       </Text>
-      <Text Id="__SingleUse_QAY6" Alignment="Left" TypographyId="Small">
+      <Text Id="__SingleUse_QAY6" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">TSR.</Translation>
       </Text>
-      <Text Id="__SingleUse_V5U8" Alignment="Left" TypographyId="Small">
+      <Text Id="__SingleUse_V5U8" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Efficiency.</Translation>
       </Text>
-      <Text Id="__SingleUse_CG1O" Alignment="Left" TypographyId="Small">
+      <Text Id="__SingleUse_CG1O" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Power.</Translation>
       </Text>
       <Text Id="__SingleUse_1F1N" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">p.2/2</Translation>
       </Text>
-      <Text Id="turb_rpm_text" Alignment="Left" TypographyId="Large">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_YY7I" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">&lt;0&gt;</Translation>
-      </Text>
-      <Text Id="wheel_rpm_text" Alignment="Left" TypographyId="Large">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_8FJJ" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">&lt;0&gt;</Translation>
-      </Text>
-      <Text Id="wind_dir_text" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_APA4" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">&lt;0&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_RSWZ" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">Turbine RPM.</Translation>
-      </Text>
-      <Text Id="__SingleUse_HW5F" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">Wheel RPM.</Translation>
-      </Text>
-      <Text Id="__SingleUse_OVCS" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">Wind Direction.</Translation>
-      </Text>
-      <Text Id="wind_speed_text" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_P7XC" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">&lt;0&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_PRUK" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">Wind Speed.</Translation>
-      </Text>
-      <Text Id="pitch_text" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_KMLK" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">&lt;0&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_A6ZH" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">Pitch.</Translation>
-      </Text>
-      <Text Id="mast_angle_text" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">0.0</Translation>
-      </Text>
-      <Text Id="__SingleUse_2589" Alignment="Center" TypographyId="Large">
-        <Translation Language="GB">&lt;0&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_OSUO" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">Mast angle.</Translation>
-      </Text>
-      <Text Id="__SingleUse_V6AU" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">p.1/2</Translation>
-      </Text>
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="32-126" />
-    <Typography Id="Large" Font="verdana.ttf" Size="60" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="32-126" />
-    <Typography Id="Small" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="32-126" />
+    <Typography Id="Default" Font="consolab.ttf" Size="31" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="32-126" />
   </Typographies>
 </TextDatabase>

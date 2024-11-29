@@ -27,12 +27,33 @@ volatile ui_t screen2;
 volatile uint8_t arr[NUM_FIELDS] = {0x1, 0x2, 0x4, 0x8, 0x10, 0x20};
 
 /* Screen1 data variables */
-volatile float mast_angle 	= 10.1;
-volatile float pitch 		= 10.1;
-volatile float wind_speed 	= 10.1;
-volatile float wind_dir 	= 10.1;
-volatile float wheel_rpm 	= 10.1;
-volatile float turbine_rpm 	= 10.1;
+volatile float turb_dir_value 			= 0;
+volatile float turb_cmd_value 			= 0;
+volatile float wind_dir_value 			= 0;
+volatile float speed_value 				= 0;
+volatile float tsr_value 				= 0;
+volatile float gear_ratio_value 		= 0;
+volatile float rotor_speed_value 		= 0;
+volatile float rotor_rops_cmd_value 	= 0;
+volatile float pitch_value		 		= 0;
+volatile float efficiency_value 		= 0;
+volatile float wind_speed_value 		= 0;
+volatile float pitch_cmd_value	 		= 0;
+volatile float debug_log_value_value 	= 0;
+volatile float fps_counter_value 		= 0;
+
+volatile float change_the_name 			= 0;
+
+
+volatile float refresh_can_mast_angle;
+volatile float refresh_can_pitch;
+volatile float refresh_can_wind_speed;
+volatile float refresh_can_wind_dir;
+volatile float refresh_can_wheel_rpm;
+volatile float refresh_can_turbine_rpm;
+
+volatile float fps_counter_value_temps;
+
 
 /* Screen2 data variables */
 volatile float power 		= 10.01;
@@ -69,48 +90,58 @@ static void init_screen2(void);
  * @param Unused
  * @return None
  */
-int test = 1000;
+int test_refresh_rate = 0;
 
 void screen1_task(void* arg)
 {
 	init_screen1();
 
-
-
 	while (1) {
-
 		//tests refresh du CAN
-		if(timer7_refresh_can_flag == 1) {
-			timer7_refresh_can_flag = 0;
+		if(timer7_1ms_counter % 1000 == 0) { //1sec
+			fps_counter_value = fps_counter_value_temps;
+			fps_counter_value_temps = 0;
 
-			canRx_mast_angle_temps = 0;
-			canRx_pitch_temps = 0;
-			canRx_wind_speed_temps = 0;
-			canRx_wind_dir_temps = 0;
-			canRx_wheel_rpm_temps = 0;
-			canRx_turbine_rpm_temps = 0;
+			refresh_can_mast_angle = canRx_mast_angle_temps;
+			refresh_can_pitch = canRx_pitch_temps;
+			refresh_can_wind_speed = canRx_wind_speed_temps;
+			refresh_can_wind_dir = canRx_wind_dir_temps;
+			refresh_can_wheel_rpm = canRx_wheel_rpm_temps;
+			refresh_can_turbine_rpm = canRx_turbine_rpm_temps;
+
+			canRx_mast_angle_temps = 100000;
+			canRx_pitch_temps = 100000;
+			canRx_wind_speed_temps = 100000;
+			canRx_wind_dir_temps = 100000;
+			canRx_wheel_rpm_temps = 100000;
+			canRx_turbine_rpm_temps = 100000;
 		}
 
 		//tests refresh de l'écran
-		//test += 1000;
-		//if(test >= 9000) test = 1000;
+		test_refresh_rate += 1000;
+		if(test_refresh_rate >= 90000) test_refresh_rate = 0;
 
-		mast_angle = canRx_mast_angle + test + canRx_mast_angle_temps;
-		pitch = canRx_pitch + test + canRx_pitch_temps;
-		wind_speed = canRx_wind_speed + test + canRx_wind_speed_temps;
-		wind_dir = canRx_wind_dir + test + canRx_wind_dir_temps;
-		wheel_rpm = canRx_wheel_rpm + test + canRx_wheel_rpm_temps;
-		turbine_rpm = canRx_turbine_rpm + test + canRx_turbine_rpm_temps;
+		if(timer7_1ms_counter % 16 == 0) { //each 16 ms
+			fps_counter_value_temps++; //fps counter
+			turb_dir_value = test_refresh_rate;
+			turb_cmd_value = test_refresh_rate;
+			wind_dir_value = canRx_wind_dir + test_refresh_rate + refresh_can_wind_dir;
+			speed_value = canRx_wheel_rpm + test_refresh_rate + refresh_can_wheel_rpm;
+			tsr_value = canRx_mast_angle + test_refresh_rate + refresh_can_mast_angle;
+			gear_ratio_value = test_refresh_rate;
+			rotor_speed_value = canRx_turbine_rpm + test_refresh_rate + refresh_can_turbine_rpm;
+			rotor_rops_cmd_value = test_refresh_rate;
+			pitch_value = canRx_pitch + test_refresh_rate + refresh_can_pitch;
+			efficiency_value = test_refresh_rate;
+			wind_speed_value = canRx_wind_speed + test_refresh_rate + refresh_can_wind_speed;
+			pitch_cmd_value = test_refresh_rate;
+			debug_log_value_value = test_refresh_rate;
+		}
 
-		uint8_t buf = POWER_FLAG;
-		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
-		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
-		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
-		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
-		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
+		//keep it it's magic but it doesn't work without it : the more you add osMessageQueuePut the less the refresh rate is. One is 500FPS
+		volatile uint8_t buf = POWER_FLAG;
 		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
 	}
-
 }
 
 /**
@@ -183,18 +214,18 @@ void test_task(void* arg)
 	uint8_t eff_flag = EFF_FLAG;
 	uint8_t tsr_flag = TSR_FLAG;
 
-	turbine_rpm = 2000;
+	//turbine_rpm = 2000;
 	power = 0;
 
 	while (1) {
 		osDelay(300);
 
-		mast_angle++;
-		pitch--;
-		wind_speed++;
-		wind_dir--;
-		wheel_rpm++;
-		turbine_rpm--;
+		//mast_angle++;
+		//pitch--;
+		//wind_speed++;
+		//wind_dir--;
+		//wheel_rpm++;
+		//turbine_rpm--;
 
 		power++;
 		efficiency--;
@@ -227,15 +258,26 @@ void test_task(void* arg)
 static void init_screen1(void)
 {
 	screen1_pres_queue = osMessageQueueNew(QUEUE_SIZE, sizeof(char), NULL);
-	screen1_isr_queue = osMessageQueueNew(QUEUE_SIZE, sizeof(char), NULL);
+	//screen1_isr_queue = osMessageQueueNew(QUEUE_SIZE, sizeof(char), NULL);
 
-	/* Bind the variables to the proper data field */
-	screen1.data1 = &mast_angle;
-	screen1.data2 = &pitch;
-	screen1.data3 = &wind_speed;
-	screen1.data4 = &wind_dir;
-	screen1.data5 = &wheel_rpm;
-	screen1.data6 = &turbine_rpm;
+	//TouchGFX_4_23_2_tutorial_after_generating_code_step_5 : add the 2 lines of code like change_the_name
+	screen1.turb_dir_value = &turb_dir_value;
+	screen1.turb_cmd_value = &turb_cmd_value;
+	screen1.wind_dir_value = &wind_dir_value;
+	screen1.speed_value = &speed_value;
+	screen1.tsr_value = &tsr_value;
+	screen1.rotor_speed_value = &rotor_speed_value;
+	screen1.gear_ratio_value = &gear_ratio_value;
+	screen1.rotor_rops_cmd_value = &rotor_rops_cmd_value;
+	screen1.pitch_value = &pitch_value;
+	screen1.efficiency_value = &efficiency_value;
+	screen1.wind_speed_value = &wind_speed_value;
+	screen1.pitch_cmd_value = &pitch_cmd_value;
+	screen1.debug_log_value_value = &debug_log_value_value;
+	screen1.fps_counter_value = &fps_counter_value;
+
+	screen1.change_the_name = &change_the_name;
+
 }
 
 /**
@@ -254,8 +296,8 @@ static void init_screen2(void)
 	screen2_isr_queue = osMessageQueueNew(QUEUE_SIZE, sizeof(char), NULL);
 
 	/* Bind the variables to the proper data field */
-	screen2.data1 = &power;
-	screen2.data2 = &efficiency;
-	screen2.data3 = &tsr;
+	//screen2.data1 = &power;
+	//screen2.data2 = &efficiency;
+	//screen2.data3 = &tsr;
 
 }

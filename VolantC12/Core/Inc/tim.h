@@ -44,7 +44,7 @@ extern TIM_HandleTypeDef htim8;
 extern TIM_HandleTypeDef htim15;
 
 extern TIM_HandleTypeDef htim7;
-extern uint8_t timer7_refresh_can_flag;
+extern uint16_t timer7_1ms_counter;
 
 /* USER CODE BEGIN Private defines */
 

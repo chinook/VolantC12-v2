@@ -257,7 +257,11 @@ void TIM7_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim7);
   /* USER CODE BEGIN TIM2_IRQn 1 */
 
-  timer7_refresh_can_flag = 1;
+  if (timer7_1ms_counter > 1000) {
+	  timer7_1ms_counter = 0;
+  } else {
+	  timer7_1ms_counter++;
+  }
   /* USER CODE END TIM2_IRQn 1 */
 }
 

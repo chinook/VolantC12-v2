@@ -275,37 +275,37 @@ void process_can_message(void)
 	} else {
 	switch (rxHeader.Identifier) {
 	    case MARIO_MAST_ANGLE:
-	    	if (canRx_mast_angle_temps < 8000) canRx_mast_angle_temps += 1000;
+	    	if (canRx_mast_angle_temps < 800000) canRx_mast_angle_temps += 100000;
 	    	// Interpret the received bytes as a float
 	    	memcpy(&canRx_mast_angle, rxData, sizeof(float));
 	        break;
 
 	    case MARIO_PITCH_ANGLE:
-	    	if (canRx_pitch_temps < 8000) canRx_pitch_temps += 1000;
+	    	if (canRx_pitch_temps < 800000) canRx_pitch_temps += 100000;
 			// Interpret the received bytes as a float
 			memcpy(&canRx_pitch, rxData, sizeof(float));
 	        break;
 
 	    case MARIO_WIND_SPEED:
-	    	if (canRx_wind_speed_temps < 8000) canRx_wind_speed_temps += 1000;
+	    	if (canRx_wind_speed_temps < 800000) canRx_wind_speed_temps += 100000;
 			// Interpret the received bytes as a float
 			memcpy(&canRx_wind_speed, rxData, sizeof(float));
 	        break;
 
 	    case MARIO_WIND_DIRECTION:
-	    	if (canRx_wind_dir_temps < 8000) canRx_wind_dir_temps += 1000;
+	    	if (canRx_wind_dir_temps < 800000) canRx_wind_dir_temps += 100000;
 			// Interpret the received bytes as a float
 			memcpy(&canRx_wind_dir, rxData, sizeof(float));
 	        break;
 
 	    case MARIO_WHEEL_RPM:
-	    	if (canRx_wheel_rpm_temps < 8000) canRx_wheel_rpm_temps += 1000;
+	    	if (canRx_wheel_rpm_temps < 800000) canRx_wheel_rpm_temps += 100000;
 			// Interpret the received bytes as a float
 			memcpy(&canRx_wheel_rpm, rxData, sizeof(float));
 	        break;
 
 	    case MARIO_ROTOR_RPM:
-	    	if (canRx_turbine_rpm_temps < 8000) canRx_turbine_rpm_temps += 1000;
+	    	if (canRx_turbine_rpm_temps < 800000) canRx_turbine_rpm_temps += 100000;
 			// Interpret the received bytes as a float
 			memcpy(&canRx_turbine_rpm, rxData, sizeof(float));
 			break;
