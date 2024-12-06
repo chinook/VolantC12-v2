@@ -20,7 +20,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32u5xx_it.h"
-#include "tim.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "../../STM32CubeIDE/Application/User/application/screen_tasks.h"
@@ -69,6 +68,7 @@
 extern FDCAN_HandleTypeDef hfdcan1;
 extern GPU2D_HandleTypeDef hgpu2d;
 extern LTDC_HandleTypeDef hltdc;
+extern TIM_HandleTypeDef htim7;
 extern TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN EV */
@@ -174,38 +174,148 @@ void DebugMon_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles EXTI Line0 interrupt.
+  */
+void EXTI0_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI0_IRQn 0 */
+
+  /* USER CODE END EXTI0_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+  /* USER CODE BEGIN EXTI0_IRQn 1 */
+
+  /* USER CODE END EXTI0_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI Line2 interrupt.
+  */
+void EXTI2_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI2_IRQn 0 */
+
+  /* USER CODE END EXTI2_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
+  /* USER CODE BEGIN EXTI2_IRQn 1 */
+
+  /* USER CODE END EXTI2_IRQn 1 */
+}
+
+/**
   * @brief This function handles EXTI Line3 interrupt.
   */
-//void EXTI3_IRQHandler(void) // PA3
-//{
-//  /* USER CODE BEGIN EXTI3_IRQn 0 */
+void EXTI3_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI3_IRQn 0 */
 //  if (desired_screen) {
 //	desired_screen = 0;
 //  } else {
 //	desired_screen = 1;
 //  }
-//  /* USER CODE END EXTI3_IRQn 0 */
-//  HAL_GPIO_EXTI_IRQHandler(SCREEN_CHANGE_Pin);
-////  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
-//  /* USER CODE BEGIN EXTI3_IRQn 1 */
+  /* USER CODE END EXTI3_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
+  /* USER CODE BEGIN EXTI3_IRQn 1 */
 //
-//  /* USER CODE END EXTI3_IRQn 1 */
-//}
+  /* USER CODE END EXTI3_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI Line4 interrupt.
+  */
+void EXTI4_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI4_IRQn 0 */
+
+  /* USER CODE END EXTI4_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
+  /* USER CODE BEGIN EXTI4_IRQn 1 */
+
+  /* USER CODE END EXTI4_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI Line5 interrupt.
+  */
+void EXTI5_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI5_IRQn 0 */
+
+  /* USER CODE END EXTI5_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
+  /* USER CODE BEGIN EXTI5_IRQn 1 */
+
+  /* USER CODE END EXTI5_IRQn 1 */
+}
 
 /**
   * @brief This function handles EXTI Line6 interrupt.
   */
-//void EXTI6_IRQHandler(void) // PA6
-//{
-//  /* USER CODE BEGIN EXTI6_IRQn 0 */
+void EXTI6_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI6_IRQn 0 */
 //
-//  /* USER CODE END EXTI6_IRQn 0 */
-//  HAL_GPIO_EXTI_IRQHandler(CTP_INT_Pin);
-////  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
-//  /* USER CODE BEGIN EXTI6_IRQn 1 */
+  /* USER CODE END EXTI6_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
+  /* USER CODE BEGIN EXTI6_IRQn 1 */
 //
-//  /* USER CODE END EXTI6_IRQn 1 */
-//}
+  /* USER CODE END EXTI6_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI Line7 interrupt.
+  */
+void EXTI7_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI7_IRQn 0 */
+
+  /* USER CODE END EXTI7_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
+  /* USER CODE BEGIN EXTI7_IRQn 1 */
+
+  /* USER CODE END EXTI7_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI Line8 interrupt.
+  */
+void EXTI8_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI8_IRQn 0 */
+
+  /* USER CODE END EXTI8_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
+  /* USER CODE BEGIN EXTI8_IRQn 1 */
+
+  /* USER CODE END EXTI8_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI Line10 interrupt.
+  */
+void EXTI10_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI10_IRQn 0 */
+
+  /* USER CODE END EXTI10_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
+  /* USER CODE BEGIN EXTI10_IRQn 1 */
+
+  /* USER CODE END EXTI10_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI Line15 interrupt.
+  */
+void EXTI15_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI15_IRQn 0 */
+
+  /* USER CODE END EXTI15_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
+  /* USER CODE BEGIN EXTI15_IRQn 1 */
+
+  /* USER CODE END EXTI15_IRQn 1 */
+}
 
 /**
   * @brief This function handles FDCAN1 interrupt 0.
@@ -249,23 +359,19 @@ void TIM2_IRQHandler(void)
   /* USER CODE END TIM2_IRQn 1 */
 }
 
+/**
+  * @brief This function handles TIM7 global interrupt.
+  */
 void TIM7_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM2_IRQn 0 */
+  /* USER CODE BEGIN TIM7_IRQn 0 */
 
-  /* USER CODE END TIM2_IRQn 0 */
+  /* USER CODE END TIM7_IRQn 0 */
   HAL_TIM_IRQHandler(&htim7);
-  /* USER CODE BEGIN TIM2_IRQn 1 */
+  /* USER CODE BEGIN TIM7_IRQn 1 */
 
-  if (timer7_1ms_counter > 1000) {
-	  timer7_1ms_counter = 0;
-  } else {
-	  timer7_1ms_counter++;
-  }
-  /* USER CODE END TIM2_IRQn 1 */
+  /* USER CODE END TIM7_IRQn 1 */
 }
-
-
 
 /**
   * @brief This function handles GPU2D global interrupt.
@@ -328,130 +434,5 @@ void SendCAN(uint8_t id, uint8_t* data)
 		Error_Handler();
 	}
 }
-
-void EXTI0_IRQHandler(void) // PB0
-{
-	if (!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0))
-		{
-			uint32_t dir_left = MOTOR_DIRECTION_LEFT;
-			SendCAN(MARIO_MAST_MANUAL_CMD, (uint8_t*)&dir_left);
-		}
-		else
-		{
-			uint32_t dir_stop = MOTOR_DIRECTION_STOP;
-			SendCAN(MARIO_MAST_MANUAL_CMD, (uint8_t*)&dir_stop);
-		}
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
-}
-
-//void EXTI1_IRQHandler(void)
-//{
-//	static float test6 = 0.0f;
-//	test6 += 0.1f;
-//	memcpy(&canRx_turbine_rpm, &test6, sizeof(float));
-//	static int turb_rpm_flag = TURB_RPM_FLAG;
-//	osMessageQueuePut(screen1_isr_queue, &turb_rpm_flag, 0, 0);
-//  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
-//}
-
-void EXTI2_IRQHandler(void) // PG2 - TOP LEFT - LEFT
-{
-//	static float test6 = 0.0f;
-//	test6 += 0.1f;
-//	memcpy(&canRx_turbine_rpm, &test6, sizeof(float));
-//	static int turb_rpm_flag = TURB_RPM_FLAG;
-//	osMessageQueuePut(screen1_isr_queue, &turb_rpm_flag, 0, 0);
-	if (!HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_2))
-	{
-		uint32_t dir_left = MOTOR_DIRECTION_LEFT;
-		SendCAN(MARIO_PITCH_MANUAL_CMD, (uint8_t*)&dir_left);
-	}
-	else
-	{
-		uint32_t dir_stop = MOTOR_DIRECTION_STOP;
-		SendCAN(MARIO_PITCH_MANUAL_CMD, (uint8_t*)&dir_stop);
-	}
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
-}
-
-void EXTI5_IRQHandler(void) // 5 - TOP LEFT RIGHT
-{
-	if (!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5))
-	{
-		uint32_t dir_right = MOTOR_DIRECTION_RIGHT;
-		SendCAN(MARIO_PITCH_MANUAL_CMD, (uint8_t*)&dir_right);
-	}
-	else
-	{
-		uint32_t dir_stop = MOTOR_DIRECTION_STOP;
-		SendCAN(MARIO_PITCH_MANUAL_CMD, (uint8_t*)&dir_stop);
-	}
-
-	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
-}
-
-uint8_t pb3_value = 0;
-uint8_t pb3_update = 0;
-
-void EXTI3_IRQHandler(void) // PA3 --pas bon
-{
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
-}
-
-void EXTI4_IRQHandler(void) // PA4 --pas bon
-{
-	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
-}
-
-void EXTI6_IRQHandler(void) // PB6 --pas bon
-{
-	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
-}
-
-void EXTI7_IRQHandler(void) // PA7 -- pas bon
-{
-	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
-
-}
-
-void EXTI8_IRQHandler(void) // BOUTON 6 - Milieu droit - PA8 - pas bon
-{
-	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
-}
-
-void EXTI10_IRQHandler(void) // PB10
-{
-	/*
-	if (!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_10))
-		{
-			uint32_t dir_left = MOTOR_DIRECTION_LEFT;
-			SendCAN(MARIO_MAST_MANUAL_CMD, (uint8_t*)&dir_left);
-		}
-		else
-		{
-			uint32_t dir_stop = MOTOR_DIRECTION_STOP;
-			SendCAN(MARIO_MAST_MANUAL_CMD, (uint8_t*)&dir_stop);
-		}
-	*/
-	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
-}
-
-void EXTI15_IRQHandler(void) // BOUTON 7 - Range bas, gauche, premier bouton - PA15
-{
-
-	if (!HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15))
-			{
-				uint32_t dir_right = MOTOR_DIRECTION_RIGHT;
-				SendCAN(MARIO_MAST_MANUAL_CMD, (uint8_t*)&dir_right);
-			}
-			else
-			{
-				uint32_t dir_stop = MOTOR_DIRECTION_STOP;
-				SendCAN(MARIO_MAST_MANUAL_CMD, (uint8_t*)&dir_stop);
-		}
-
-	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
-}
-
 
 /* USER CODE END 1 */

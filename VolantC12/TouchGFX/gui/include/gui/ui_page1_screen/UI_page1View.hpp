@@ -26,7 +26,10 @@ public:
     virtual void update_efficiency_value(float efficiency_value);
     virtual void update_wind_speed_value(float wind_speed_value);
     virtual void update_pitch_cmd_value(float pitch_cmd_value);
-    virtual void update_debug_log_value_value(float debug_log_value_value);
+    virtual void update_debug_log_value_value(float debug_log_1_value);
+    virtual void update_debug_log_value_value(float debug_log_2_value);
+    virtual void update_debug_log_value_value(float debug_log_3_value);
+    virtual void update_debug_log_value_value(float debug_log_4_value);
     virtual void update_fps_counter_value(float fps_counter_value);
     
     virtual void update_change_the_name(float change_the_name);

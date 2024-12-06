@@ -41,20 +41,80 @@ UI_page1ViewBase::UI_page1ViewBase()
     fps_counter_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_RIB5));
     add(fps_counter_value);
 
-    fps_counter.setPosition(750, 440, 50, 40);
+    fps_counter.setPosition(747, 440, 50, 40);
     fps_counter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     fps_counter.setLinespacing(0);
     fps_counter.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TVWU));
     add(fps_counter);
 
     debug_log_viewer.setPosition(0, 440, 700, 40);
-    debug_log_value.setPosition(0, 0, 700, 40);
-    debug_log_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    debug_log_value.setLinespacing(0);
-    Unicode::snprintf(debug_log_valueBuffer, DEBUG_LOG_VALUE_SIZE, "%s", touchgfx::TypedText(T_DEBUG_LOG_VALUE).getText());
-    debug_log_value.setWildcard(debug_log_valueBuffer);
-    debug_log_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_C1PU));
-    debug_log_viewer.add(debug_log_value);
+    debug_log_1_value.setPosition(1, 0, 174, 40);
+    debug_log_1_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    debug_log_1_value.setLinespacing(0);
+    Unicode::snprintf(debug_log_1_valueBuffer, DEBUG_LOG_1_VALUE_SIZE, "%s", touchgfx::TypedText(T_DEBUG_LOG_1_VALUE).getText());
+    debug_log_1_value.setWildcard(debug_log_1_valueBuffer);
+    debug_log_1_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_C1PU));
+    debug_log_viewer.add(debug_log_1_value);
+
+    debug_log_2_value.setPosition(176, 0, 174, 40);
+    debug_log_2_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    debug_log_2_value.setLinespacing(0);
+    Unicode::snprintf(debug_log_2_valueBuffer, DEBUG_LOG_2_VALUE_SIZE, "%s", touchgfx::TypedText(T_DEBUG_LOG_2_VALUE).getText());
+    debug_log_2_value.setWildcard(debug_log_2_valueBuffer);
+    debug_log_2_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_P9LT));
+    debug_log_viewer.add(debug_log_2_value);
+
+    debug_log_3_value.setPosition(351, 0, 174, 40);
+    debug_log_3_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    debug_log_3_value.setLinespacing(0);
+    Unicode::snprintf(debug_log_3_valueBuffer, DEBUG_LOG_3_VALUE_SIZE, "%s", touchgfx::TypedText(T_DEBUG_LOG_3_VALUE).getText());
+    debug_log_3_value.setWildcard(debug_log_3_valueBuffer);
+    debug_log_3_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_WXFH));
+    debug_log_viewer.add(debug_log_3_value);
+
+    debug_log_4_value.setPosition(524, 0, 174, 40);
+    debug_log_4_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    debug_log_4_value.setLinespacing(0);
+    Unicode::snprintf(debug_log_4_valueBuffer, DEBUG_LOG_4_VALUE_SIZE, "%s", touchgfx::TypedText(T_DEBUG_LOG_4_VALUE).getText());
+    debug_log_4_value.setWildcard(debug_log_4_valueBuffer);
+    debug_log_4_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_QWDD));
+    debug_log_viewer.add(debug_log_4_value);
+
+    line1_3_2_2.setPosition(175, 0, 2, 40);
+    line1_3_2_2Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    line1_3_2_2.setPainter(line1_3_2_2Painter);
+    line1_3_2_2.setStart(5, 0);
+    line1_3_2_2.setEnd(5, 45);
+    line1_3_2_2.setLineWidth(10);
+    line1_3_2_2.setLineEndingStyle(touchgfx::Line::SQUARE_CAP_ENDING);
+    debug_log_viewer.add(line1_3_2_2);
+
+    line1_3_2_2_1.setPosition(350, 0, 2, 40);
+    line1_3_2_2_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    line1_3_2_2_1.setPainter(line1_3_2_2_1Painter);
+    line1_3_2_2_1.setStart(5, 0);
+    line1_3_2_2_1.setEnd(5, 45);
+    line1_3_2_2_1.setLineWidth(10);
+    line1_3_2_2_1.setLineEndingStyle(touchgfx::Line::SQUARE_CAP_ENDING);
+    debug_log_viewer.add(line1_3_2_2_1);
+
+    line1_3_2_2_1_1.setPosition(524, 0, 2, 40);
+    line1_3_2_2_1_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    line1_3_2_2_1_1.setPainter(line1_3_2_2_1_1Painter);
+    line1_3_2_2_1_1.setStart(5, 0);
+    line1_3_2_2_1_1.setEnd(5, 45);
+    line1_3_2_2_1_1.setLineWidth(10);
+    line1_3_2_2_1_1.setLineEndingStyle(touchgfx::Line::SQUARE_CAP_ENDING);
+    debug_log_viewer.add(line1_3_2_2_1_1);
+
+    line1_3_2_2_1_1_1.setPosition(697, 0, 2, 40);
+    line1_3_2_2_1_1_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    line1_3_2_2_1_1_1.setPainter(line1_3_2_2_1_1_1Painter);
+    line1_3_2_2_1_1_1.setStart(5, 0);
+    line1_3_2_2_1_1_1.setEnd(5, 45);
+    line1_3_2_2_1_1_1.setLineWidth(10);
+    line1_3_2_2_1_1_1.setLineEndingStyle(touchgfx::Line::SQUARE_CAP_ENDING);
+    debug_log_viewer.add(line1_3_2_2_1_1_1);
 
     add(debug_log_viewer);
 

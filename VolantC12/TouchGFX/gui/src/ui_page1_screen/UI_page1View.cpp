@@ -94,10 +94,28 @@ void UI_page1View::update_pitch_cmd_value(float pitch_cmd_value_temps)
 	pitch_cmd_value.invalidate();
 }
 
-void UI_page1View::update_debug_log_value_value(float debug_log_value_temps)
+void UI_page1View::update_debug_log_1_value(float debug_log_1_value_temps)
 {
-	Unicode::snprintfFloat(debug_log_valueBuffer, DEBUG_LOG_VALUE_SIZE, "%.18f", debug_log_value_temps);
-	debug_log_value.invalidate();
+	Unicode::snprintfFloat(debug_log_1_valueBuffer, DEBUG_LOG_1_VALUE_SIZE, "%.18f", debug_log_1_value_temps);
+	debug_log_1_value.invalidate();
+}
+
+void UI_page1View::update_debug_log_2_value(float debug_log_2_value_temps)
+{
+	Unicode::snprintfFloat(debug_log_2_valueBuffer, DEBUG_LOG_2_VALUE_SIZE, "%.18f", debug_log_2_value_temps);
+	debug_log_2_value.invalidate();
+}
+
+void UI_page1View::update_debug_log_3_value(float debug_log_3_value_temps)
+{
+	Unicode::snprintfFloat(debug_log_3_valueBuffer, DEBUG_LOG_3_VALUE_SIZE, "%.18f", debug_log_3_value_temps);
+	debug_log_3_value.invalidate();
+}
+
+void UI_page1View::update_debug_log_4_value(float debug_log_4_value_temps)
+{
+	Unicode::snprintfFloat(debug_log_4_valueBuffer, DEBUG_LOG_4_VALUE_SIZE, "%.18f", debug_log_4_value_temps);
+	debug_log_4_value.invalidate();
 }
 
 void UI_page1View::update_fps_counter_value(float fps_counter_value_temps)

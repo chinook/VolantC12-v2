@@ -49,7 +49,7 @@ void MX_DAC1_Init(void)
     Error_Handler();
   }
 
-  /** DAC channel OUT1 config
+  /** DAC channel OUT2 config
   */
   sConfig.DAC_HighFrequency = DAC_HIGH_FREQUENCY_INTERFACE_MODE_DISABLE;
   sConfig.DAC_DMADoubleDataMode = DISABLE;
@@ -59,7 +59,7 @@ void MX_DAC1_Init(void)
   sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_DISABLE;
   sConfig.DAC_ConnectOnChipPeripheral = DAC_CHIPCONNECT_EXTERNAL;
   sConfig.DAC_UserTrimming = DAC_TRIMMING_FACTORY;
-  if (HAL_DAC_ConfigChannel(&hdac1, &sConfig, DAC_CHANNEL_1) != HAL_OK)
+  if (HAL_DAC_ConfigChannel(&hdac1, &sConfig, DAC_CHANNEL_2) != HAL_OK)
   {
     Error_Handler();
   }
@@ -68,13 +68,6 @@ void MX_DAC1_Init(void)
   */
   sAutonomousMode.AutonomousModeState = DAC_AUTONOMOUS_MODE_DISABLE;
   if (HAL_DACEx_SetConfigAutonomousMode(&hdac1, &sAutonomousMode) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** DAC channel OUT2 config
-  */
-  if (HAL_DAC_ConfigChannel(&hdac1, &sConfig, DAC_CHANNEL_2) != HAL_OK)
   {
     Error_Handler();
   }
@@ -110,10 +103,9 @@ void HAL_DAC_MspInit(DAC_HandleTypeDef* dacHandle)
 
     __HAL_RCC_GPIOA_CLK_ENABLE();
     /**DAC1 GPIO Configuration
-    PA4     ------> DAC1_OUT1
     PA5     ------> DAC1_OUT2
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5;
+    GPIO_InitStruct.Pin = GPIO_PIN_5;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -136,10 +128,9 @@ void HAL_DAC_MspDeInit(DAC_HandleTypeDef* dacHandle)
     __HAL_RCC_DAC1_CLK_DISABLE();
 
     /**DAC1 GPIO Configuration
-    PA4     ------> DAC1_OUT1
     PA5     ------> DAC1_OUT2
     */
-    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_4|GPIO_PIN_5);
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_5);
 
   /* USER CODE BEGIN DAC1_MspDeInit 1 */
 

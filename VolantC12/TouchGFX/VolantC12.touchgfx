@@ -70,7 +70,7 @@
           {
             "Type": "TextArea",
             "Name": "fps_counter",
-            "X": 750,
+            "X": 747,
             "Y": 440,
             "Width": 50,
             "Height": 40,
@@ -91,8 +91,9 @@
             "Components": [
               {
                 "Type": "TextArea",
-                "Name": "debug_log_value",
-                "Width": 700,
+                "Name": "debug_log_1_value",
+                "X": 1,
+                "Width": 174,
                 "Height": 40,
                 "TextId": "__SingleUse_C1PU",
                 "TextRotation": "0",
@@ -102,10 +103,135 @@
                   "Blue": 255
                 },
                 "Wildcard1": {
-                  "TextId": "debug_log_value",
+                  "TextId": "debug_log_1_value",
                   "UseBuffer": true,
                   "BufferSize": 10
                 }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "debug_log_2_value",
+                "X": 176,
+                "Width": 174,
+                "Height": 40,
+                "TextId": "__SingleUse_P9LT",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "debug_log_2_value",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "debug_log_3_value",
+                "X": 351,
+                "Width": 174,
+                "Height": 40,
+                "TextId": "__SingleUse_WXFH",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "debug_log_3_value",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "debug_log_4_value",
+                "X": 524,
+                "Width": 174,
+                "Height": 40,
+                "TextId": "__SingleUse_QWDD",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "debug_log_4_value",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_3_2_2",
+                "X": 175,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_3_2_2_1",
+                "X": 350,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_3_2_2_1_1",
+                "X": 524,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_3_2_2_1_1_1",
+                "X": 697,
+                "Width": 2,
+                "Height": 40,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 10.0,
+                "LineEndingStyle": "Square"
               }
             ]
           },

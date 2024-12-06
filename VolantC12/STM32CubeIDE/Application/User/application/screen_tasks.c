@@ -7,6 +7,7 @@
 
 #include "screen_tasks.h"
 #include "tim.h"
+#include "main.h"
 
 
 
@@ -118,11 +119,12 @@ void screen1_task(void* arg)
 		}
 
 		//tests refresh de l'écran
-		test_refresh_rate += 1000;
+		//test_refresh_rate += 1000;
 		if(test_refresh_rate >= 90000) test_refresh_rate = 0;
 
-		if(timer7_1ms_counter % 16 == 0) { //each 16 ms
+		if(timer7_1ms_counter % 8 == 0) { //each 8 ms
 			fps_counter_value_temps++; //fps counter
+
 			turb_dir_value = test_refresh_rate;
 			turb_cmd_value = test_refresh_rate;
 			wind_dir_value = canRx_wind_dir + test_refresh_rate + refresh_can_wind_dir;
@@ -143,6 +145,43 @@ void screen1_task(void* arg)
 		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
 	}
 }
+
+/**
+ * @brief Initializes the message queues for communication
+ * between the screen1 task and the page1Presenter object,
+ * as well as between the screen1 task and the ISR. Additionally,
+ * it binds the data variables with their respective fields
+ * on the screen (data#).
+ *
+ * @param None
+ * @retval None
+ */
+static void init_screen1(void)
+{
+	screen1_pres_queue = osMessageQueueNew(QUEUE_SIZE, sizeof(char), NULL);
+
+	//TouchGFX_4_23_2_tutorial_after_generating_code_step_5 : add the 2 lines of code like change_the_name
+	screen1.turb_dir_value = &turb_dir_value;
+	screen1.turb_cmd_value = &turb_cmd_value;
+	screen1.wind_dir_value = &wind_dir_value;
+	screen1.speed_value = &speed_value;
+	screen1.tsr_value = &tsr_value;
+	screen1.rotor_speed_value = &rotor_speed_value;
+	screen1.gear_ratio_value = &gear_ratio_value;
+	screen1.rotor_rops_cmd_value = &rotor_rops_cmd_value;
+	screen1.pitch_value = &pitch_value;
+	screen1.efficiency_value = &efficiency_value;
+	screen1.wind_speed_value = &wind_speed_value;
+	screen1.pitch_cmd_value = &pitch_cmd_value;
+	screen1.debug_log_1_value = &debug_log_1_value;
+	screen1.debug_log_2_value = &debug_log_2_value;
+	screen1.debug_log_3_value = &debug_log_3_value;
+	screen1.debug_log_4_value = &debug_log_4_value;
+	screen1.fps_counter_value = &fps_counter_value;
+
+	screen1.change_the_name = &change_the_name;
+}
+
 
 /**
  * @brief Task for processing data for screen 2.
@@ -198,87 +237,6 @@ void screen2_task(void* arg)
 	}
 }
 
-/* Task used for development */
-void test_task(void* arg)
-{
-	/* Screen 1 */
-	uint8_t mast_angle_flag = MAST_ANGLE_FLAG;
-	uint8_t pitch_flag = PITCH_FLAG;
-	uint8_t wind_sp_flag = WIND_SP_FLAG;
-	uint8_t wind_dir_flag = WIND_DIR_FLAG;
-	uint8_t wheel_rpm_flag = WHEEL_RPM_FLAG;
-	uint8_t turb_rpm_flag = TURB_RPM_FLAG;
-
-	/* Screen 2 */
-	uint8_t power_flag = POWER_FLAG;
-	uint8_t eff_flag = EFF_FLAG;
-	uint8_t tsr_flag = TSR_FLAG;
-
-	//turbine_rpm = 2000;
-	power = 0;
-
-	while (1) {
-		osDelay(300);
-
-		//mast_angle++;
-		//pitch--;
-		//wind_speed++;
-		//wind_dir--;
-		//wheel_rpm++;
-		//turbine_rpm--;
-
-		power++;
-		efficiency--;
-		tsr++;
-
-		osMessageQueuePut(screen1_isr_queue, &mast_angle_flag, 0, 0);
-		osMessageQueuePut(screen1_isr_queue, &pitch_flag, 0, 0);
-		osMessageQueuePut(screen1_isr_queue, &wind_sp_flag, 0, 0);
-		osMessageQueuePut(screen1_isr_queue, &wind_dir_flag, 0, 0);
-		osMessageQueuePut(screen1_isr_queue, &wheel_rpm_flag, 0, 0);
-		osMessageQueuePut(screen1_isr_queue, &turb_rpm_flag, 0, 0);
-
-		osMessageQueuePut(screen2_isr_queue, &power_flag, 0, 0);
-		osMessageQueuePut(screen2_isr_queue, &eff_flag, 0, 0);
-		osMessageQueuePut(screen2_isr_queue, &tsr_flag, 0, 0);
-
-	}
-}
-
-/**
- * @brief Initializes the message queues for communication
- * between the screen1 task and the page1Presenter object,
- * as well as between the screen1 task and the ISR. Additionally,
- * it binds the data variables with their respective fields
- * on the screen (data#).
- *
- * @param None
- * @retval None
- */
-static void init_screen1(void)
-{
-	screen1_pres_queue = osMessageQueueNew(QUEUE_SIZE, sizeof(char), NULL);
-	//screen1_isr_queue = osMessageQueueNew(QUEUE_SIZE, sizeof(char), NULL);
-
-	//TouchGFX_4_23_2_tutorial_after_generating_code_step_5 : add the 2 lines of code like change_the_name
-	screen1.turb_dir_value = &turb_dir_value;
-	screen1.turb_cmd_value = &turb_cmd_value;
-	screen1.wind_dir_value = &wind_dir_value;
-	screen1.speed_value = &speed_value;
-	screen1.tsr_value = &tsr_value;
-	screen1.rotor_speed_value = &rotor_speed_value;
-	screen1.gear_ratio_value = &gear_ratio_value;
-	screen1.rotor_rops_cmd_value = &rotor_rops_cmd_value;
-	screen1.pitch_value = &pitch_value;
-	screen1.efficiency_value = &efficiency_value;
-	screen1.wind_speed_value = &wind_speed_value;
-	screen1.pitch_cmd_value = &pitch_cmd_value;
-	screen1.debug_log_value_value = &debug_log_value_value;
-	screen1.fps_counter_value = &fps_counter_value;
-
-	screen1.change_the_name = &change_the_name;
-
-}
 
 /**
  * @brief Initializes the message queues for communication

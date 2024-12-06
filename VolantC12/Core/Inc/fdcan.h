@@ -26,7 +26,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-
+#include "main.h"
 
 /* USER CODE BEGIN Includes */
 #include "stm32u5xx_hal.h"

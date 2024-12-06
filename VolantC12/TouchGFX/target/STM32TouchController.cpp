@@ -100,12 +100,12 @@ bool STM32TouchController::sampleTouch(int32_t& x, int32_t& y)
 
 void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin)
 {
-
+    /*
     if (GPIO_Pin == CTP_INT_Pin)
     {
     	TouchINT_irq = 1;
 
-    }
+    }*/
 }
 
 /* USER CODE END STM32TouchController */

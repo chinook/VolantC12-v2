@@ -36,7 +36,7 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+extern volatile uint16_t timer7_1ms_counter;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -61,14 +61,8 @@ void Error_Handler(void);
 #define LCD_DISP_RESET_GPIO_Port GPIOH
 #define CTP_RST_Pin GPIO_PIN_3
 #define CTP_RST_GPIO_Port GPIOE
-#define SCREEN_CHANGE_Pin GPIO_PIN_3
-#define SCREEN_CHANGE_GPIO_Port GPIOJ
-#define SCREEN_CHANGE_EXTI_IRQn EXTI3_IRQn
 #define USR_LED_1_Pin GPIO_PIN_5
 #define USR_LED_1_GPIO_Port GPIOE
-#define CTP_INT_Pin GPIO_PIN_6
-#define CTP_INT_GPIO_Port GPIOE
-#define CTP_INT_EXTI_IRQn EXTI6_IRQn
 #define USB_PWR_EN_Pin GPIO_PIN_8
 #define USB_PWR_EN_GPIO_Port GPIOG
 #define USB_OVERCURRENT_Pin GPIO_PIN_0
@@ -79,11 +73,6 @@ void Error_Handler(void);
 #define R_CS_GPIO_Port GPIOG
 #define R_INT_Pin GPIO_PIN_4
 #define R_INT_GPIO_Port GPIOC
-
-
-// Pushbuttons
-extern uint8_t pb3_value;
-extern uint8_t pb3_update;
 
 /* USER CODE BEGIN Private defines */
 #define PALE_RADIUS 0.918

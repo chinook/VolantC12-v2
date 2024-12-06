@@ -37,7 +37,10 @@ typedef struct ui {
 	volatile const void* efficiency_value;
 	volatile const void* wind_speed_value;
 	volatile const void* pitch_cmd_value;
-	volatile const void* debug_log_value_value;
+	volatile const void* debug_log_1_value;
+	volatile const void* debug_log_2_value;
+	volatile const void* debug_log_3_value;
+	volatile const void* debug_log_4_value;
 	volatile const void* fps_counter_value;
 	
 	volatile const void* change_the_name;

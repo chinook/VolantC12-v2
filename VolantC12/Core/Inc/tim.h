@@ -27,7 +27,6 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "stm32u5xx_it.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -39,12 +38,11 @@ extern TIM_HandleTypeDef htim5;
 
 extern TIM_HandleTypeDef htim6;
 
+extern TIM_HandleTypeDef htim7;
+
 extern TIM_HandleTypeDef htim8;
 
 extern TIM_HandleTypeDef htim15;
-
-extern TIM_HandleTypeDef htim7;
-extern uint16_t timer7_1ms_counter;
 
 /* USER CODE BEGIN Private defines */
 

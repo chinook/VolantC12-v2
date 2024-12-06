@@ -19,7 +19,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "fdcan.h"
-#include "tim.h"
 
 /* USER CODE BEGIN 0 */
 static void configure_fdcan_filters(void);
@@ -29,46 +28,21 @@ FDCAN_RxHeaderTypeDef 	rxHeader;
 FDCAN_TxHeaderTypeDef 	txHeader;
 uint8_t 				rxData[8U];		// 8 bytes
 
-float	canRx_torque		= 0.0;
+float	canRx_torque		= 0;
 
-float 	canRx_power			= 0.0;
-float 	canRx_efficiency	= 0.0;
-float 	canRx_tsr			= 0.0;
+float 	canRx_mast_angle 	= 0;
+float 	canRx_pitch			= 0;
+float 	canRx_wind_speed	= 0;
+float 	canRx_wind_dir		= 0;
+float 	canRx_wheel_rpm		= 0;
+float 	canRx_turbine_rpm	= 0;
 
-static uint8_t mast_angle_ready = 0;
-static uint8_t pitch_ready = 0;
-static uint8_t wind_speed_ready = 0;
-static uint8_t wind_dir_ready = 0;
-static uint8_t wheel_rpm_ready = 0;
-static uint8_t turbine_ready = 0;
-
-
-float 	canRx_mast_angle 	= 0.0;
-float 	canRx_pitch			= 0.0;
-float 	canRx_wind_speed	= 0.0;
-float 	canRx_wind_dir		= 0.0;
-float 	canRx_wheel_rpm		= 0.0;
-float 	canRx_turbine_rpm	= 0.0;
-
-float 	canRx_mast_angle_temps 		= 0.0;
-float 	canRx_pitch_temps			= 0.0;
-float 	canRx_wind_speed_temps		= 0.0;
-float 	canRx_wind_dir_temps		= 0.0;
-float 	canRx_wheel_rpm_temps		= 0.0;
-float 	canRx_turbine_rpm_temps		= 0.0;
-
-/* Screen 1 */
-uint8_t mast_angle_flag = MAST_ANGLE_FLAG;
-uint8_t pitch_flag = PITCH_FLAG;
-uint8_t wind_sp_flag = WIND_SP_FLAG;
-uint8_t wind_dir_flag = WIND_DIR_FLAG;
-uint8_t wheel_rpm_flag = WHEEL_RPM_FLAG;
-uint8_t turb_rpm_flag = TURB_RPM_FLAG;
-
-/* Screen 2 */
-uint8_t power_flag = POWER_FLAG;
-uint8_t eff_flag = EFF_FLAG;
-uint8_t tsr_flag = TSR_FLAG;
+float 	canRx_mast_angle_temps 		= 0;
+float 	canRx_pitch_temps			= 0;
+float 	canRx_wind_speed_temps		= 0;
+float 	canRx_wind_dir_temps		= 0;
+float 	canRx_wheel_rpm_temps		= 0;
+float 	canRx_turbine_rpm_temps		= 0;
 
 /* USER CODE END 0 */
 
@@ -267,11 +241,9 @@ void process_can_message(void)
 	// uint32_t upper_can_data = rxData[4] | (rxData[5] << 8) | (rxData[6] << 16) | (rxData[7] << 24);
 	//	uint32_t can_data = rxData[0] | (rxData[1] << 8) | (rxData[2] << 16) | (rxData[3] << 24);
 
-
-
 	// Check if the received message data length is correct
 	if (rxHeader.DataLength != 4) {
-				Error_Handler();
+		Error_Handler();
 	} else {
 	switch (rxHeader.Identifier) {
 	    case MARIO_MAST_ANGLE:

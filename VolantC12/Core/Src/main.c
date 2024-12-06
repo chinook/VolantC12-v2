@@ -50,7 +50,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+volatile uint16_t timer7_1ms_counter = 0;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -66,6 +66,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+
+
 osThreadId_t screen1_task_handle;
 const osThreadAttr_t screen1_task_attr = {
 		.name = "screen1_task",
@@ -159,18 +161,16 @@ int main(void)
   MX_OCTOSPI1_Init();
   MX_RNG_Init();
   MX_RTC_Init();
-  MX_SPI1_Init();
   MX_SPI2_Init();
   MX_TIM3_Init();
   MX_TIM5_Init();
   MX_TIM6_Init();
-  MX_TIM7_Init();
   MX_TIM8_Init();
   MX_TIM15_Init();
   MX_USART1_UART_Init();
-  MX_USART3_UART_Init();
   MX_USART6_UART_Init();
   MX_USB_OTG_HS_USB_Init();
+  MX_TIM7_Init();
   MX_TouchGFX_Init();
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
@@ -212,11 +212,14 @@ int main(void)
   /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   while (1)
   {
-	//pas de code ici car FREERTOS execute du code dans une task
+    /* USER CODE END WHILE */
 
+    /* USER CODE BEGIN 3 */
   }
+  /* USER CODE END 3 */
 }
 
 /**
@@ -282,10 +285,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-
-  /** MCO configuration
-  */
-  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_SYSCLK, RCC_MCODIV_1);
 }
 
 /**
@@ -360,7 +359,14 @@ static void MX_NVIC_Init(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   /* USER CODE BEGIN Callback 0 */
-
+	if (htim->Instance == TIM7) // Check if TIM7 caused the interrupt
+	  {
+		  if (timer7_1ms_counter > 1000) {
+			  timer7_1ms_counter = 0;
+		  } else {
+			  timer7_1ms_counter++;
+		  }
+	  }
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM2) {
     HAL_IncTick();

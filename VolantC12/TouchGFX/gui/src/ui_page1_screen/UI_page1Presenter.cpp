@@ -60,8 +60,14 @@ void UI_page1Presenter::update_ui(void* screen)
 		view.update_wind_speed_value(wind_speed_value);
 		float pitch_cmd_value = *(const float*)ui->pitch_cmd_value;
 		view.update_pitch_cmd_value(pitch_cmd_value);
-		float debug_log_value_value = *(const float*)ui->debug_log_value_value;
-		view.update_debug_log_value_value(debug_log_value_value);
+		float debug_log_1_value = *(const float*)ui->debug_log_1_value;
+		view.update_debug_log_1_value(debug_log_1_value);
+		float debug_log_2_value = *(const float*)ui->debug_log_2_value;
+		view.update_debug_log_2_value(debug_log_2_value);
+		float debug_log_3_value = *(const float*)ui->debug_log_3_value;
+		view.update_debug_log_3_value(debug_log_3_value);
+		float debug_log_4_value = *(const float*)ui->debug_log_4_value;
+		view.update_debug_log_4_value(debug_log_4_value);
 		float fps_counter_value = *(const float*)ui->fps_counter_value; //good
 		view.update_fps_counter_value(fps_counter_value);
 

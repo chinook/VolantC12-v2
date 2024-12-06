@@ -6,14 +6,32 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="debug_log_value" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">debug_log</Translation>
+      <Text Id="debug_log_4_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">1234567890</Translation>
+      </Text>
+      <Text Id="__SingleUse_QWDD" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="debug_log_3_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">1234567890</Translation>
+      </Text>
+      <Text Id="__SingleUse_WXFH" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="debug_log_2_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">1234567890</Translation>
+      </Text>
+      <Text Id="__SingleUse_P9LT" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;0&gt;</Translation>
+      </Text>
+      <Text Id="debug_log_1_value" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">1234567890</Translation>
       </Text>
       <Text Id="wind_speed_value" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">12</Translation>
       </Text>
       <Text Id="efficiency_value" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">114</Translation>
+        <Translation Language="GB">UwU</Translation>
       </Text>
       <Text Id="pitch_value" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">-5</Translation>
@@ -159,7 +177,7 @@
       <Text Id="__SingleUse_M42X" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">0</Translation>
       </Text>
-      <Text Id="__SingleUse_C1PU" Alignment="Left" TypographyId="Default">
+      <Text Id="__SingleUse_C1PU" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">&lt;0&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_ZLWZ" Alignment="Center" TypographyId="Default">
