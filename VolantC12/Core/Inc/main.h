@@ -36,6 +36,7 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+extern volatile uint16_t timer7_1ms_flag;
 extern volatile uint16_t timer7_1ms_counter;
 /* USER CODE END ET */
 

@@ -50,6 +50,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+volatile uint16_t timer7_1ms_flag = 0;
 volatile uint16_t timer7_1ms_counter = 0;
 /* USER CODE END PTD */
 
@@ -72,7 +73,7 @@ osThreadId_t screen1_task_handle;
 const osThreadAttr_t screen1_task_attr = {
 		.name = "screen1_task",
 		.stack_size = 8192*4,
-		.priority = (osPriority_t)osPriorityNormal,
+		.priority = (osPriority_t)osPriorityRealtime7,
 };
 
 osThreadId_t screen2_task_handle;
@@ -361,12 +362,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE BEGIN Callback 0 */
 	if (htim->Instance == TIM7) // Check if TIM7 caused the interrupt
 	  {
-		  if (timer7_1ms_counter > 1000) {
-			  timer7_1ms_counter = 0;
-		  } else {
-			  timer7_1ms_counter++;
-		  }
-	  }
+		timer7_1ms_flag = 1;
+		if (timer7_1ms_counter > 1000) {
+			timer7_1ms_counter = 0;
+		} else {
+			timer7_1ms_counter++;
+		}
+	}
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM2) {
     HAL_IncTick();

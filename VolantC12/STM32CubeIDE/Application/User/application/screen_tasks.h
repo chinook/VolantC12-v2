@@ -47,6 +47,20 @@ extern volatile uint8_t active_screen_index;
 extern volatile ui_t screen1;
 extern volatile ui_t screen2;
 
+//h = haut, m = milieu, b = bas, g = gauche et d = droit
+extern uint8_t flag_bouton_hgg; 	//PG2
+extern uint8_t flag_bouton_hg; 		//PB10
+extern uint8_t flag_bouton_hd;		//PA7
+extern uint8_t flag_bouton_hdd;		//PA6
+
+extern uint8_t flag_bouton_mg;		//PB5
+extern uint8_t flag_bouton_md;		//PA8
+
+extern uint8_t flag_bouton_bgg;		//PA15
+extern uint8_t flag_bouton_bg;		//PB0
+extern uint8_t flag_bouton_bd;		//PA4
+extern uint8_t flag_bouton_bdd;		//PA3
+
 /**
  * Message queues shared between the screen tasks
  * and the Presenter objects.

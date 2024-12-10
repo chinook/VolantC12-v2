@@ -184,6 +184,9 @@ void EXTI0_IRQHandler(void)
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
   /* USER CODE BEGIN EXTI0_IRQn 1 */
 
+  flag_bouton_bg = 1;
+  //logique dans screen_tasks.c
+
   /* USER CODE END EXTI0_IRQn 1 */
 }
 
@@ -198,6 +201,9 @@ void EXTI2_IRQHandler(void)
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
   /* USER CODE BEGIN EXTI2_IRQn 1 */
 
+  flag_bouton_hgg = 1;
+  //logique dans screen_tasks.c
+
   /* USER CODE END EXTI2_IRQn 1 */
 }
 
@@ -207,15 +213,14 @@ void EXTI2_IRQHandler(void)
 void EXTI3_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI3_IRQn 0 */
-//  if (desired_screen) {
-//	desired_screen = 0;
-//  } else {
-//	desired_screen = 1;
-//  }
+
   /* USER CODE END EXTI3_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
   /* USER CODE BEGIN EXTI3_IRQn 1 */
-//
+
+  flag_bouton_bdd = 1;
+  //logique dans screen_tasks.c
+
   /* USER CODE END EXTI3_IRQn 1 */
 }
 
@@ -229,6 +234,9 @@ void EXTI4_IRQHandler(void)
   /* USER CODE END EXTI4_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
   /* USER CODE BEGIN EXTI4_IRQn 1 */
+
+  flag_bouton_bd = 1;
+  //logique dans screen_tasks.c
 
   /* USER CODE END EXTI4_IRQn 1 */
 }
@@ -244,6 +252,9 @@ void EXTI5_IRQHandler(void)
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
   /* USER CODE BEGIN EXTI5_IRQn 1 */
 
+  flag_bouton_mg = 1;
+  //logique dans screen_tasks.c
+
   /* USER CODE END EXTI5_IRQn 1 */
 }
 
@@ -257,7 +268,10 @@ void EXTI6_IRQHandler(void)
   /* USER CODE END EXTI6_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
   /* USER CODE BEGIN EXTI6_IRQn 1 */
-//
+
+  flag_bouton_hdd = 1;
+  //logique dans screen_tasks.c
+
   /* USER CODE END EXTI6_IRQn 1 */
 }
 
@@ -271,6 +285,9 @@ void EXTI7_IRQHandler(void)
   /* USER CODE END EXTI7_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
   /* USER CODE BEGIN EXTI7_IRQn 1 */
+
+  flag_bouton_hd = 1;
+  //logique dans screen_tasks.c
 
   /* USER CODE END EXTI7_IRQn 1 */
 }
@@ -286,6 +303,9 @@ void EXTI8_IRQHandler(void)
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
   /* USER CODE BEGIN EXTI8_IRQn 1 */
 
+  flag_bouton_md = 1;
+  //logique dans screen_tasks.c
+
   /* USER CODE END EXTI8_IRQn 1 */
 }
 
@@ -300,6 +320,9 @@ void EXTI10_IRQHandler(void)
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
   /* USER CODE BEGIN EXTI10_IRQn 1 */
 
+  flag_bouton_hg = 1;
+  //logique dans screen_tasks.c
+
   /* USER CODE END EXTI10_IRQn 1 */
 }
 
@@ -313,6 +336,9 @@ void EXTI15_IRQHandler(void)
   /* USER CODE END EXTI15_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
   /* USER CODE BEGIN EXTI15_IRQn 1 */
+
+  flag_bouton_bgg = 1;
+  //logique dans screen_tasks.c
 
   /* USER CODE END EXTI15_IRQn 1 */
 }
@@ -425,7 +451,7 @@ void SendCAN(uint8_t id, uint8_t* data)
 	pTxHeader.Identifier = id;
 	pTxHeader.IdType = FDCAN_STANDARD_ID;
 	pTxHeader.TxFrameType = FDCAN_DATA_FRAME;
-	pTxHeader.DataLength = 4;
+	pTxHeader.DataLength = 1;
 	pTxHeader.FDFormat = FDCAN_CLASSIC_CAN;
 	pTxHeader.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
 

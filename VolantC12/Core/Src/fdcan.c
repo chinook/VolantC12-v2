@@ -30,19 +30,39 @@ uint8_t 				rxData[8U];		// 8 bytes
 
 float	canRx_torque		= 0;
 
-float 	canRx_mast_angle 	= 0;
-float 	canRx_pitch			= 0;
-float 	canRx_wind_speed	= 0;
-float 	canRx_wind_dir		= 0;
-float 	canRx_wheel_rpm		= 0;
-float 	canRx_turbine_rpm	= 0;
+float 	canRx_turb_dir_value 		= 0;
+float 	canRx_turb_cmd_value 		= 0;
+float 	canRx_wind_dir_value 		= 0;
+float 	canRx_speed_value 			= 0;
+float 	canRx_tsr_value 			= 0;
+float 	canRx_gear_ratio_value 		= 0;
+float 	canRx_rotor_speed_value 	= 0;
+float 	canRx_rotor_rops_cmd_value 	= 0;
+float 	canRx_pitch_value 			= 0;
+float 	canRx_efficiency_value 		= 0;
+float 	canRx_wind_speed_value 		= 0;
+float 	canRx_pitch_cmd_value 		= 0;
+float 	canRx_debug_log_1_value 	= 0;
+float 	canRx_debug_log_2_value 	= 0;
+float 	canRx_debug_log_3_value 	= 0;
+float 	canRx_debug_log_4_value 	= 0;
 
-float 	canRx_mast_angle_temps 		= 0;
-float 	canRx_pitch_temps			= 0;
-float 	canRx_wind_speed_temps		= 0;
-float 	canRx_wind_dir_temps		= 0;
-float 	canRx_wheel_rpm_temps		= 0;
-float 	canRx_turbine_rpm_temps		= 0;
+float 	canRx_refresh_turb_dir_value 		= 0;
+float 	canRx_refresh_turb_cmd_value 		= 0;
+float 	canRx_refresh_wind_dir_value 		= 0;
+float 	canRx_refresh_speed_value 			= 0;
+float 	canRx_refresh_tsr_value 			= 0;
+float 	canRx_refresh_gear_ratio_value 		= 0;
+float 	canRx_refresh_rotor_speed_value 	= 0;
+float 	canRx_refresh_rotor_rops_cmd_value 	= 0;
+float 	canRx_refresh_pitch_value 			= 0;
+float 	canRx_refresh_efficiency_value 		= 0;
+float 	canRx_refresh_wind_speed_value 		= 0;
+float 	canRx_refresh_pitch_cmd_value 		= 0;
+float 	canRx_refresh_debug_log_1_value 	= 0;
+float 	canRx_refresh_debug_log_2_value 	= 0;
+float 	canRx_refresh_debug_log_3_value 	= 0;
+float 	canRx_refresh_debug_log_4_value 	= 0;
 
 /* USER CODE END 0 */
 
@@ -246,70 +266,75 @@ void process_can_message(void)
 		Error_Handler();
 	} else {
 	switch (rxHeader.Identifier) {
-	    case MARIO_MAST_ANGLE:
-	    	if (canRx_mast_angle_temps < 800000) canRx_mast_angle_temps += 100000;
-	    	// Interpret the received bytes as a float
-	    	memcpy(&canRx_mast_angle, rxData, sizeof(float));
+	    case CAN_ID_MARIO_VAL_TURB_DIR:
+	    	if (canRx_refresh_turb_dir_value < 800000) canRx_refresh_turb_dir_value += 100000;
+	    	memcpy(&canRx_turb_dir_value, rxData, sizeof(float));
 	        break;
+	    case CAN_ID_MARIO_VAL_TURB_CMD:
+	    	if (canRx_refresh_turb_cmd_value < 800000) canRx_refresh_turb_cmd_value += 100000;
+	    	memcpy(&canRx_turb_cmd_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_WIND_DIR:
+	    	if (canRx_refresh_wind_dir_value < 800000) canRx_refresh_wind_dir_value += 100000;
+	    	memcpy(&canRx_wind_dir_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_SPEED:
+	    	if (canRx_refresh_speed_value < 800000) canRx_refresh_speed_value += 100000;
+	    	memcpy(&canRx_speed_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_TSR:
+	    	if (canRx_refresh_tsr_value < 800000) canRx_refresh_tsr_value += 100000;
+	    	memcpy(&canRx_tsr_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_GEAR_RATIO:
+	    	if (canRx_refresh_gear_ratio_value < 800000) canRx_refresh_gear_ratio_value += 100000;
+	    	memcpy(&canRx_gear_ratio_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_ROTOR_SPEED:
+	    	if (canRx_refresh_rotor_speed_value < 800000) canRx_refresh_rotor_speed_value += 100000;
+	    	memcpy(&canRx_rotor_speed_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_ROTOR_ROPS_CMD:
+	    	if (canRx_refresh_rotor_rops_cmd_value < 800000) canRx_refresh_rotor_rops_cmd_value += 100000;
+	    	memcpy(&canRx_rotor_rops_cmd_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_PITCH:
+	    	if (canRx_refresh_pitch_value < 800000) canRx_refresh_pitch_value += 100000;
+	    	memcpy(&canRx_pitch_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_EFFICIENCY:
+	    	if (canRx_refresh_efficiency_value < 800000) canRx_refresh_efficiency_value += 100000;
+	    	memcpy(&canRx_efficiency_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_WIND_SPEED:
+	    	if (canRx_refresh_wind_speed_value < 800000) canRx_refresh_wind_speed_value += 100000;
+	    	memcpy(&canRx_wind_speed_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_PITCH_CMD:
+	    	if (canRx_refresh_pitch_cmd_value < 800000) canRx_refresh_pitch_cmd_value += 100000;
+	    	memcpy(&canRx_pitch_cmd_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_DEBUG_LOG_1:
+	    	if (canRx_refresh_debug_log_1_value < 800000) canRx_refresh_debug_log_1_value += 100000;
+	    	memcpy(&canRx_debug_log_1_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_DEBUG_LOG_2:
+	    	if (canRx_refresh_debug_log_2_value < 800000) canRx_refresh_debug_log_2_value += 100000;
+	    	memcpy(&canRx_debug_log_2_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_DEBUG_LOG_3:
+	    	if (canRx_refresh_debug_log_3_value < 800000) canRx_refresh_debug_log_3_value += 100000;
+	    	memcpy(&canRx_debug_log_3_value, rxData, sizeof(float));
+	    	break;
+	    case CAN_ID_MARIO_VAL_DEBUG_LOG_4:
+	    	if (canRx_refresh_debug_log_4_value < 800000) canRx_refresh_debug_log_4_value += 100000;
+	    	memcpy(&canRx_debug_log_4_value, rxData, sizeof(float));
+	    	break;
 
-	    case MARIO_PITCH_ANGLE:
-	    	if (canRx_pitch_temps < 800000) canRx_pitch_temps += 100000;
-			// Interpret the received bytes as a float
-			memcpy(&canRx_pitch, rxData, sizeof(float));
-	        break;
-
-	    case MARIO_WIND_SPEED:
-	    	if (canRx_wind_speed_temps < 800000) canRx_wind_speed_temps += 100000;
-			// Interpret the received bytes as a float
-			memcpy(&canRx_wind_speed, rxData, sizeof(float));
-	        break;
-
-	    case MARIO_WIND_DIRECTION:
-	    	if (canRx_wind_dir_temps < 800000) canRx_wind_dir_temps += 100000;
-			// Interpret the received bytes as a float
-			memcpy(&canRx_wind_dir, rxData, sizeof(float));
-	        break;
-
-	    case MARIO_WHEEL_RPM:
-	    	if (canRx_wheel_rpm_temps < 800000) canRx_wheel_rpm_temps += 100000;
-			// Interpret the received bytes as a float
-			memcpy(&canRx_wheel_rpm, rxData, sizeof(float));
-	        break;
-
-	    case MARIO_ROTOR_RPM:
-	    	if (canRx_turbine_rpm_temps < 800000) canRx_turbine_rpm_temps += 100000;
-			// Interpret the received bytes as a float
-			memcpy(&canRx_turbine_rpm, rxData, sizeof(float));
-			break;
-
-	    /*
-	    case MARIO_TIP_SPEED_RATIO:
-	    	// Check if the received message data length is correct
-			if (rxHeader.DataLength != 4) {
-				Error_Handler();
-			} else {
-				// Interpret the received bytes as a float
-				memcpy(&canRx_tsr, rxData, sizeof(float));
-				osMessageQueuePut(screen2_isr_queue, &tsr_flag, 0, 0);
-			}
-	        break;
-
-	    case MARIO_TORQUE:
-	    	// Check if the received message data length is correct
-			if (rxHeader.DataLength != 4) {
-				Error_Handler();
-			} else {
-				// Interpret the received bytes as a float
-				memcpy(&canRx_torque, rxData, sizeof(float));
-				osMessageQueuePut(screen2_isr_queue, &eff_flag, 0, 0);
-				osMessageQueuePut(screen2_isr_queue, &tsr_flag, 0, 0);
-			}
-			break;
-		*/
 	    default:
 	        // Unknown CAN ID
 	        break;
-		}
+	}
 	}
 }
 

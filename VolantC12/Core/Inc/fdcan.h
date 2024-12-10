@@ -34,19 +34,39 @@ extern "C" {
 #include "../../STM32CubeIDE/Application/User/application/screen_tasks.h"
 #include <string.h>
 
-extern float 	canRx_mast_angle;
-extern float 	canRx_pitch;
-extern float 	canRx_wind_speed;
-extern float 	canRx_wind_dir;
-extern float 	canRx_wheel_rpm;
-extern float 	canRx_turbine_rpm;
+extern float 	canRx_turb_dir_value;
+extern float 	canRx_turb_cmd_value;
+extern float 	canRx_wind_dir_value;
+extern float 	canRx_speed_value;
+extern float 	canRx_tsr_value;
+extern float 	canRx_gear_ratio_value;
+extern float 	canRx_rotor_speed_value;
+extern float 	canRx_rotor_rops_cmd_value;
+extern float 	canRx_pitch_value;
+extern float 	canRx_efficiency_value;
+extern float 	canRx_wind_speed_value;
+extern float 	canRx_pitch_cmd_value;
+extern float 	canRx_debug_log_1_value;
+extern float 	canRx_debug_log_2_value;
+extern float 	canRx_debug_log_3_value;
+extern float 	canRx_debug_log_4_value;
 
-extern float 	canRx_mast_angle_temps;
-extern float 	canRx_pitch_temps;
-extern float 	canRx_wind_speed_temps;
-extern float 	canRx_wind_dir_temps;
-extern float 	canRx_wheel_rpm_temps;
-extern float 	canRx_turbine_rpm_temps;
+extern float 	canRx_refresh_turb_dir_value;
+extern float 	canRx_refresh_turb_cmd_value;
+extern float 	canRx_refresh_wind_dir_value;
+extern float 	canRx_refresh_speed_value;
+extern float 	canRx_refresh_tsr_value;
+extern float 	canRx_refresh_gear_ratio_value;
+extern float 	canRx_refresh_rotor_speed_value;
+extern float 	canRx_refresh_rotor_rops_cmd_value;
+extern float 	canRx_refresh_pitch_value;
+extern float 	canRx_refresh_efficiency_value;
+extern float 	canRx_refresh_wind_speed_value;
+extern float 	canRx_refresh_pitch_cmd_value;
+extern float 	canRx_refresh_debug_log_1_value;
+extern float 	canRx_refresh_debug_log_2_value;
+extern float 	canRx_refresh_debug_log_3_value;
+extern float 	canRx_refresh_debug_log_4_value;
 
 extern float	canRx_torque;
 

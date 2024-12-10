@@ -9,8 +9,6 @@
 #include "tim.h"
 #include "main.h"
 
-
-
 #define QUEUE_SIZE			(50)
 
 
@@ -28,30 +26,44 @@ volatile ui_t screen2;
 volatile uint8_t arr[NUM_FIELDS] = {0x1, 0x2, 0x4, 0x8, 0x10, 0x20};
 
 /* Screen1 data variables */
-volatile float turb_dir_value 			= 0;
-volatile float turb_cmd_value 			= 0;
-volatile float wind_dir_value 			= 0;
-volatile float speed_value 				= 0;
-volatile float tsr_value 				= 0;
-volatile float gear_ratio_value 		= 0;
-volatile float rotor_speed_value 		= 0;
-volatile float rotor_rops_cmd_value 	= 0;
-volatile float pitch_value		 		= 0;
-volatile float efficiency_value 		= 0;
-volatile float wind_speed_value 		= 0;
-volatile float pitch_cmd_value	 		= 0;
-volatile float debug_log_value_value 	= 0;
-volatile float fps_counter_value 		= 0;
+float turb_dir_value 			= 0;
+float turb_cmd_value 			= 0;
+float wind_dir_value 			= 0;
+float speed_value 				= 0;
+float tsr_value 				= 0;
+float gear_ratio_value 			= 0;
+float rotor_speed_value 		= 0;
+float rotor_rops_cmd_value 		= 0;
+float pitch_value		 		= 0;
+float efficiency_value 			= 0;
+float wind_speed_value 			= 0;
+float pitch_cmd_value	 		= 0;
+float debug_log_1_value 		= 0;
+float debug_log_2_value 		= 0;
+float debug_log_3_value 		= 0;
+float debug_log_4_value 		= 0;
+float fps_counter_value 		= 0;
 
-volatile float change_the_name 			= 0;
+float change_the_name 			= 0;
 
 
-volatile float refresh_can_mast_angle;
-volatile float refresh_can_pitch;
-volatile float refresh_can_wind_speed;
-volatile float refresh_can_wind_dir;
-volatile float refresh_can_wheel_rpm;
-volatile float refresh_can_turbine_rpm;
+float can_refresh_turb_dir_value 			= 0;
+float can_refresh_turb_cmd_value 			= 0;
+float can_refresh_wind_dir_value 			= 0;
+float can_refresh_speed_value 				= 0;
+float can_refresh_tsr_value 				= 0;
+float can_refresh_gear_ratio_value 			= 0;
+float can_refresh_rotor_speed_value 		= 0;
+float can_refresh_rotor_rops_cmd_value 		= 0;
+float can_refresh_pitch_value		 		= 0;
+float can_refresh_efficiency_value 			= 0;
+float can_refresh_wind_speed_value 			= 0;
+float can_refresh_pitch_cmd_value	 		= 0;
+float can_refresh_debug_log_1_value 		= 0;
+float can_refresh_debug_log_2_value 		= 0;
+float can_refresh_debug_log_3_value 		= 0;
+float can_refresh_debug_log_4_value 		= 0;
+float can_refresh_fps_counter_value 		= 0;
 
 volatile float fps_counter_value_temps;
 
@@ -79,6 +91,86 @@ osMessageQueueId_t screen2_isr_queue;
 static void init_screen1(void);
 static void init_screen2(void);
 
+//GPIO_PIN_SET == pas appuyé
+//GPIO_PIN_RESET == appuyé
+//h = haut, m = milieu, b = bas, g = gauche et d = droit
+uint8_t flag_bouton_hgg = 0; 	//PG2
+uint8_t flag_bouton_hg = 0; 	//PB10
+uint8_t flag_bouton_hd = 0;		//PA7
+uint8_t flag_bouton_hdd = 0;	//PA6
+
+uint8_t flag_bouton_mg = 0;		//PB5
+uint8_t flag_bouton_md = 0;		//PA8
+
+uint8_t flag_bouton_bgg = 0;	//PA15
+uint8_t flag_bouton_bg = 0;		//PB0
+uint8_t flag_bouton_bd = 0;		//PA4
+uint8_t flag_bouton_bdd = 0;	//PA3
+
+uint8_t status_bouton_hg = 0;
+
+void check_button_status(uint8_t *flag_bouton_x, const GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN_X, uint8_t CAN_ID_STATUS_BUTTON_X);
+
+uint8_t round_robin_traitement_buttons = 0;
+void traitement_boutons() {
+	switch (round_robin_traitement_buttons) {
+		case 0:
+			check_button_status(&flag_bouton_hgg, GPIOG, GPIO_PIN_2,  CAN_ID_STATUS_BUTTON_HGG);
+			round_robin_traitement_buttons++;
+			break;
+		case 1:
+			check_button_status(&flag_bouton_hg,  GPIOB, GPIO_PIN_10, CAN_ID_STATUS_BUTTON_HG);
+			round_robin_traitement_buttons++;
+			break;
+		case 2:
+			check_button_status(&flag_bouton_hd,  GPIOA, GPIO_PIN_7,  CAN_ID_STATUS_BUTTON_HD);
+			round_robin_traitement_buttons++;
+			break;
+		case 3:
+			check_button_status(&flag_bouton_hdd, GPIOA, GPIO_PIN_6,  CAN_ID_STATUS_BUTTON_HDD);
+			round_robin_traitement_buttons++;
+			break;
+		case 4:
+			check_button_status(&flag_bouton_mg,  GPIOB, GPIO_PIN_5,  CAN_ID_STATUS_BUTTON_MG);
+			round_robin_traitement_buttons++;
+			break;
+		case 5:
+			check_button_status(&flag_bouton_md,  GPIOA, GPIO_PIN_8,  CAN_ID_STATUS_BUTTON_MD);
+			round_robin_traitement_buttons++;
+			break;
+		case 6:
+			check_button_status(&flag_bouton_bgg, GPIOA, GPIO_PIN_15, CAN_ID_STATUS_BUTTON_BGG);
+			round_robin_traitement_buttons++;
+			break;
+		case 7:
+			check_button_status(&flag_bouton_bg,  GPIOB, GPIO_PIN_0,  CAN_ID_STATUS_BUTTON_BGG);
+			round_robin_traitement_buttons++;
+			break;
+		case 8:
+			check_button_status(&flag_bouton_bd,  GPIOA, GPIO_PIN_4,  CAN_ID_STATUS_BUTTON_BD);
+			round_robin_traitement_buttons++;
+			break;
+		case 9:
+			check_button_status(&flag_bouton_bdd, GPIOA, GPIO_PIN_3,  CAN_ID_STATUS_BUTTON_BDD);
+			round_robin_traitement_buttons = 0;
+			break;
+		default:
+			round_robin_traitement_buttons = 0;
+	}
+}
+
+void check_button_status(uint8_t *flag_bouton_x, const GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN_X, uint8_t CAN_ID_STATUS_BUTTON_X) {
+	uint8_t cmd = CAN_STATUS_UNPRESS;
+	if (*flag_bouton_x == 1) {
+		if (HAL_GPIO_ReadPin(GPIOx, GPIO_PIN_X) == GPIO_PIN_RESET) { //bouton est appuyé par le pilote
+			cmd = CAN_STATUS_PRESS;
+		} else {
+			*flag_bouton_x = 0;
+		}
+	}
+	SendCAN(CAN_ID_STATUS_BUTTON_X, (uint8_t*)&cmd);
+}
+
 /**
  * @brief Task for processing data for screen 1.
  *
@@ -91,58 +183,96 @@ static void init_screen2(void);
  * @param Unused
  * @return None
  */
-int test_refresh_rate = 0;
+int test_screen_refresh_rate = 0;
 
 void screen1_task(void* arg)
 {
 	init_screen1();
 
+
+
 	while (1) {
-		//tests refresh du CAN
-		if(timer7_1ms_counter % 1000 == 0) { //1sec
-			fps_counter_value = fps_counter_value_temps;
-			fps_counter_value_temps = 0;
 
-			refresh_can_mast_angle = canRx_mast_angle_temps;
-			refresh_can_pitch = canRx_pitch_temps;
-			refresh_can_wind_speed = canRx_wind_speed_temps;
-			refresh_can_wind_dir = canRx_wind_dir_temps;
-			refresh_can_wheel_rpm = canRx_wheel_rpm_temps;
-			refresh_can_turbine_rpm = canRx_turbine_rpm_temps;
 
-			canRx_mast_angle_temps = 100000;
-			canRx_pitch_temps = 100000;
-			canRx_wind_speed_temps = 100000;
-			canRx_wind_dir_temps = 100000;
-			canRx_wheel_rpm_temps = 100000;
-			canRx_turbine_rpm_temps = 100000;
-		}
+		if (timer7_1ms_flag == 1);
+			timer7_1ms_flag = 0;
 
-		//tests refresh de l'écran
-		//test_refresh_rate += 1000;
-		if(test_refresh_rate >= 90000) test_refresh_rate = 0;
+			//keep it it's magic but it doesn't work without it : the more you add osMessageQueuePut the less the refresh rate is. One is 500FPS
+			volatile uint8_t buf = POWER_FLAG;
+			osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
 
-		if(timer7_1ms_counter % 8 == 0) { //each 8 ms
-			fps_counter_value_temps++; //fps counter
+			if(timer7_1ms_counter % 4 == 0) {
+				traitement_boutons();
+			}
 
-			turb_dir_value = test_refresh_rate;
-			turb_cmd_value = test_refresh_rate;
-			wind_dir_value = canRx_wind_dir + test_refresh_rate + refresh_can_wind_dir;
-			speed_value = canRx_wheel_rpm + test_refresh_rate + refresh_can_wheel_rpm;
-			tsr_value = canRx_mast_angle + test_refresh_rate + refresh_can_mast_angle;
-			gear_ratio_value = test_refresh_rate;
-			rotor_speed_value = canRx_turbine_rpm + test_refresh_rate + refresh_can_turbine_rpm;
-			rotor_rops_cmd_value = test_refresh_rate;
-			pitch_value = canRx_pitch + test_refresh_rate + refresh_can_pitch;
-			efficiency_value = test_refresh_rate;
-			wind_speed_value = canRx_wind_speed + test_refresh_rate + refresh_can_wind_speed;
-			pitch_cmd_value = test_refresh_rate;
-			debug_log_value_value = test_refresh_rate;
-		}
+			//tests refresh du CAN
+			if(timer7_1ms_counter % 1000 == 0) { //1sec
+				fps_counter_value = fps_counter_value_temps;
+				fps_counter_value_temps = 0;
 
-		//keep it it's magic but it doesn't work without it : the more you add osMessageQueuePut the less the refresh rate is. One is 500FPS
-		volatile uint8_t buf = POWER_FLAG;
-		osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
+				can_refresh_turb_dir_value 			= canRx_refresh_turb_dir_value;
+				can_refresh_turb_cmd_value 			= canRx_refresh_turb_cmd_value;
+				can_refresh_wind_dir_value 			= canRx_refresh_wind_dir_value;
+				can_refresh_speed_value 			= canRx_refresh_speed_value;
+				can_refresh_tsr_value 				= canRx_refresh_tsr_value;
+				can_refresh_gear_ratio_value 		= canRx_refresh_gear_ratio_value;
+				can_refresh_rotor_speed_value 		= canRx_refresh_rotor_speed_value;
+				can_refresh_rotor_rops_cmd_value 	= canRx_refresh_rotor_rops_cmd_value;
+				can_refresh_pitch_value		 		= canRx_refresh_pitch_value;
+				can_refresh_efficiency_value 		= canRx_refresh_efficiency_value;
+				can_refresh_wind_speed_value 		= canRx_refresh_wind_speed_value;
+				can_refresh_pitch_cmd_value	 		= canRx_refresh_pitch_cmd_value;
+				can_refresh_debug_log_1_value 		= canRx_refresh_debug_log_1_value;
+				can_refresh_debug_log_2_value 		= canRx_refresh_debug_log_2_value;
+				can_refresh_debug_log_3_value 		= canRx_refresh_debug_log_3_value;
+				can_refresh_debug_log_4_value 		= canRx_refresh_debug_log_4_value;
+
+				canRx_refresh_turb_dir_value 		= 100000;
+				canRx_refresh_turb_cmd_value 		= 100000;
+				canRx_refresh_wind_dir_value 		= 100000;
+				canRx_refresh_speed_value 			= 100000;
+				canRx_refresh_tsr_value 			= 100000;
+				canRx_refresh_gear_ratio_value 		= 100000;
+				canRx_refresh_rotor_speed_value 	= 100000;
+				canRx_refresh_rotor_rops_cmd_value 	= 100000;
+				canRx_refresh_pitch_value 			= 100000;
+				canRx_refresh_efficiency_value 		= 100000;
+				canRx_refresh_wind_speed_value 		= 100000;
+				canRx_refresh_pitch_cmd_value 		= 100000;
+				canRx_refresh_debug_log_1_value 	= 100000;
+				canRx_refresh_debug_log_2_value 	= 100000;
+				canRx_refresh_debug_log_3_value 	= 100000;
+				canRx_refresh_debug_log_4_value 	= 100000;
+
+
+			}
+
+			//tests refresh de l'écran
+			//test_refresh_rate += 1000;
+			if(test_screen_refresh_rate >= 90000) test_screen_refresh_rate = 0;
+
+			if(timer7_1ms_counter % 8 == 0) { //each 8 ms
+				fps_counter_value_temps++; //fps counter
+
+				turb_dir_value 			= canRx_turb_dir_value 			+ can_refresh_turb_dir_value 		+ test_screen_refresh_rate;
+				turb_cmd_value 			= canRx_turb_cmd_value 			+ can_refresh_turb_cmd_value 		+ test_screen_refresh_rate;
+				wind_dir_value 			= canRx_wind_dir_value 			+ can_refresh_wind_dir_value 		+ test_screen_refresh_rate;
+				speed_value 			= canRx_speed_value 			+ can_refresh_speed_value 			+ test_screen_refresh_rate;
+				tsr_value 				= canRx_tsr_value 				+ can_refresh_tsr_value 			+ test_screen_refresh_rate;
+				gear_ratio_value 		= canRx_gear_ratio_value 		+ can_refresh_gear_ratio_value 		+ test_screen_refresh_rate;
+				rotor_speed_value 		= canRx_rotor_speed_value 		+ can_refresh_rotor_speed_value 	+ test_screen_refresh_rate;
+				rotor_rops_cmd_value 	= canRx_rotor_rops_cmd_value 	+ can_refresh_rotor_rops_cmd_value 	+ test_screen_refresh_rate;
+				pitch_value 			= canRx_pitch_value 			+ can_refresh_pitch_value 			+ test_screen_refresh_rate;
+				efficiency_value 		= canRx_efficiency_value	 	+ can_refresh_efficiency_value 		+ test_screen_refresh_rate;
+				wind_speed_value 		= canRx_wind_speed_value 		+ can_refresh_wind_speed_value 		+ test_screen_refresh_rate;
+				pitch_cmd_value 		= canRx_pitch_cmd_value 		+ can_refresh_pitch_cmd_value 		+ test_screen_refresh_rate;
+				debug_log_1_value		= canRx_debug_log_1_value 		+ can_refresh_debug_log_1_value 	+ test_screen_refresh_rate;
+				debug_log_2_value 		= canRx_debug_log_2_value 		+ can_refresh_debug_log_2_value 	+ test_screen_refresh_rate;
+				debug_log_3_value 		= canRx_debug_log_3_value 		+ can_refresh_debug_log_3_value 	+ test_screen_refresh_rate;
+				debug_log_4_value 		= canRx_debug_log_4_value 		+ can_refresh_debug_log_4_value 	+ test_screen_refresh_rate;
+			}
+
+
 	}
 }
 
@@ -207,16 +337,16 @@ void screen2_task(void* arg)
 			switch (buf) {
 			case POWER_FLAG:
 				/* Process data from the ISR */
-				power = canRx_turbine_rpm * canRx_torque * 2 * 3.14159 / 60;
+				//power = canRx_turbine_rpm * canRx_torque * 2 * 3.14159 / 60;
 				break;
 			case EFF_FLAG:
 				/* Process data from the ISR */
-				eff_power 	= canRx_turbine_rpm * canRx_torque * 2 * 3.14159 / 60;
-				efficiency	= eff_power / canRx_wind_speed;
+				//eff_power 	= canRx_turbine_rpm * canRx_torque * 2 * 3.14159 / 60;
+				//efficiency	= eff_power / canRx_wind_speed;
 				break;
 			case TSR_FLAG:
 				/* Process data from the ISR */
-				tsr = canRx_turbine_rpm * 3.14159 * 0.5 / canRx_wind_speed;
+				//tsr = canRx_turbine_rpm * 3.14159 * 0.5 / canRx_wind_speed;
 
 				// Other calcul
 //				rotor_speed_omega 	= canRx_turbine_rpm * PI / 30;
