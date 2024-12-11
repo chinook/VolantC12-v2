@@ -451,7 +451,7 @@ void SendCAN(uint8_t id, uint8_t* data)
 	pTxHeader.Identifier = id;
 	pTxHeader.IdType = FDCAN_STANDARD_ID;
 	pTxHeader.TxFrameType = FDCAN_DATA_FRAME;
-	pTxHeader.DataLength = 1;
+	pTxHeader.DataLength = 4;
 	pTxHeader.FDFormat = FDCAN_CLASSIC_CAN;
 	pTxHeader.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
 

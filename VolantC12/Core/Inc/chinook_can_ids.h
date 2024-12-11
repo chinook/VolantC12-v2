@@ -67,19 +67,21 @@
 #define DRIVEMOTOR_MAST_FAULT_STALL 0x25 //INFO for mario
 	//CONST TO DO
 
-// STATUS buttons Volant to Mario IDs 0x3X
-#define CAN_ID_STATUS_BUTTON_HGG 			0x30
-#define CAN_ID_STATUS_BUTTON_HG 			0x31
-#define CAN_ID_STATUS_BUTTON_HD 			0x32
-#define CAN_ID_STATUS_BUTTON_HDD 			0x33
-#define CAN_ID_STATUS_BUTTON_MG 			0x34
-#define CAN_ID_STATUS_BUTTON_MD 			0x35
-#define CAN_ID_STATUS_BUTTON_BGG 			0x36
-#define CAN_ID_STATUS_BUTTON_BG 			0x37
-#define CAN_ID_STATUS_BUTTON_BD 			0x38
-#define CAN_ID_STATUS_BUTTON_BDD 			0x39
-	#define CAN_STATUS_PRESS 	2		//CONST
-	#define CAN_STATUS_UNPRESS 	4		//CONST
+// STATUS buttons Volant to Mario IDs 0x3X //one ID in which each bit in the data are a button
+#define CAN_ID_STATUS_BUTTONS 	0x30 //CMD volant to mario
+	#define CAN_STATUS_PRESS 	1					//CONST
+	#define CAN_STATUS_UNPRESS 	0					//CONST
+	#define CAN_BIT_POSITION_BUTTON_HGG 	1		//CONST
+	#define CAN_BIT_POSITION_BUTTON_HG 		2		//CONST
+	#define CAN_BIT_POSITION_BUTTON_HD 		4		//CONST
+	#define CAN_BIT_POSITION_BUTTON_HDD 	8		//CONST
+	#define CAN_BIT_POSITION_BUTTON_MG 		16		//CONST
+	#define CAN_BIT_POSITION_BUTTON_MD 		32		//CONST
+	#define CAN_BIT_POSITION_BUTTON_BGG 	64		//CONST
+	#define CAN_BIT_POSITION_BUTTON_BG 		128		//CONST
+	#define CAN_BIT_POSITION_BUTTON_BD 		256		//CONST
+	#define CAN_BIT_POSITION_BUTTON_BDD 	512		//CONST
+
 
 // INFO Mario to Volant IDs 0x4X -> refer in volant files to: TouchGFX_4_23_2_tutorial_after_generating_code_step
 #define CAN_ID_MARIO_VAL_TURB_DIR 			0x40

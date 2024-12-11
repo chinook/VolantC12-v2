@@ -107,59 +107,38 @@ uint8_t flag_bouton_bg = 0;		//PB0
 uint8_t flag_bouton_bd = 0;		//PA4
 uint8_t flag_bouton_bdd = 0;	//PA3
 
+uint8_t status_bouton_hgg = 0;
 uint8_t status_bouton_hg = 0;
+uint8_t status_bouton_hd = 0;
+uint8_t status_bouton_hdd = 0;
+uint8_t status_bouton_mg = 0;
+uint8_t status_bouton_md = 0;
+uint8_t status_bouton_bgg = 0;
+uint8_t status_bouton_bg = 0;
+uint8_t status_bouton_bd = 0;
+uint8_t status_bouton_bdd = 0;
 
-void check_button_status(uint8_t *flag_bouton_x, const GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN_X, uint8_t CAN_ID_STATUS_BUTTON_X);
+
+uint8_t check_button_status(uint8_t *flag_bouton_x, const GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN_X);
+uint32_t compile_button_status_to_ONE_can_data();
 
 uint8_t round_robin_traitement_buttons = 0;
 void traitement_boutons() {
-	switch (round_robin_traitement_buttons) {
-		case 0:
-			check_button_status(&flag_bouton_hgg, GPIOG, GPIO_PIN_2,  CAN_ID_STATUS_BUTTON_HGG);
-			round_robin_traitement_buttons++;
-			break;
-		case 1:
-			check_button_status(&flag_bouton_hg,  GPIOB, GPIO_PIN_10, CAN_ID_STATUS_BUTTON_HG);
-			round_robin_traitement_buttons++;
-			break;
-		case 2:
-			check_button_status(&flag_bouton_hd,  GPIOA, GPIO_PIN_7,  CAN_ID_STATUS_BUTTON_HD);
-			round_robin_traitement_buttons++;
-			break;
-		case 3:
-			check_button_status(&flag_bouton_hdd, GPIOA, GPIO_PIN_6,  CAN_ID_STATUS_BUTTON_HDD);
-			round_robin_traitement_buttons++;
-			break;
-		case 4:
-			check_button_status(&flag_bouton_mg,  GPIOB, GPIO_PIN_5,  CAN_ID_STATUS_BUTTON_MG);
-			round_robin_traitement_buttons++;
-			break;
-		case 5:
-			check_button_status(&flag_bouton_md,  GPIOA, GPIO_PIN_8,  CAN_ID_STATUS_BUTTON_MD);
-			round_robin_traitement_buttons++;
-			break;
-		case 6:
-			check_button_status(&flag_bouton_bgg, GPIOA, GPIO_PIN_15, CAN_ID_STATUS_BUTTON_BGG);
-			round_robin_traitement_buttons++;
-			break;
-		case 7:
-			check_button_status(&flag_bouton_bg,  GPIOB, GPIO_PIN_0,  CAN_ID_STATUS_BUTTON_BGG);
-			round_robin_traitement_buttons++;
-			break;
-		case 8:
-			check_button_status(&flag_bouton_bd,  GPIOA, GPIO_PIN_4,  CAN_ID_STATUS_BUTTON_BD);
-			round_robin_traitement_buttons++;
-			break;
-		case 9:
-			check_button_status(&flag_bouton_bdd, GPIOA, GPIO_PIN_3,  CAN_ID_STATUS_BUTTON_BDD);
-			round_robin_traitement_buttons = 0;
-			break;
-		default:
-			round_robin_traitement_buttons = 0;
-	}
+	status_bouton_hgg = check_button_status(&flag_bouton_hgg, GPIOG, GPIO_PIN_2);
+	status_bouton_hg = check_button_status(&flag_bouton_hg,  GPIOB, GPIO_PIN_10);
+	status_bouton_hd = check_button_status(&flag_bouton_hd,  GPIOA, GPIO_PIN_7);
+	status_bouton_hdd = check_button_status(&flag_bouton_hdd, GPIOA, GPIO_PIN_6);
+	status_bouton_mg = check_button_status(&flag_bouton_mg,  GPIOB, GPIO_PIN_5);
+	status_bouton_md = check_button_status(&flag_bouton_md,  GPIOA, GPIO_PIN_8);
+	status_bouton_bgg = check_button_status(&flag_bouton_bgg, GPIOA, GPIO_PIN_15);
+	status_bouton_bg = check_button_status(&flag_bouton_bg,  GPIOB, GPIO_PIN_0);
+	status_bouton_bd = check_button_status(&flag_bouton_bd,  GPIOA, GPIO_PIN_4);
+	status_bouton_bdd = check_button_status(&flag_bouton_bdd, GPIOA, GPIO_PIN_3);
+	uint32_t data = compile_button_status_to_ONE_can_data();
+	SendCAN(CAN_ID_STATUS_BUTTONS, (uint8_t*)&data);
 }
 
-void check_button_status(uint8_t *flag_bouton_x, const GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN_X, uint8_t CAN_ID_STATUS_BUTTON_X) {
+uint8_t check_button_status(uint8_t *flag_bouton_x, const GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN_X) {
 	uint8_t cmd = CAN_STATUS_UNPRESS;
 	if (*flag_bouton_x == 1) {
 		if (HAL_GPIO_ReadPin(GPIOx, GPIO_PIN_X) == GPIO_PIN_RESET) { //bouton est appuyé par le pilote
@@ -168,7 +147,22 @@ void check_button_status(uint8_t *flag_bouton_x, const GPIO_TypeDef *GPIOx, uint
 			*flag_bouton_x = 0;
 		}
 	}
-	SendCAN(CAN_ID_STATUS_BUTTON_X, (uint8_t*)&cmd);
+	return cmd;
+}
+
+uint32_t compile_button_status_to_ONE_can_data() {
+	uint32_t data = 0;
+	if (status_bouton_hgg == CAN_STATUS_PRESS) data += CAN_BIT_POSITION_BUTTON_HGG;
+	if (status_bouton_hg  == CAN_STATUS_PRESS) data += CAN_BIT_POSITION_BUTTON_HG;
+	if (status_bouton_hd  == CAN_STATUS_PRESS) data += CAN_BIT_POSITION_BUTTON_HD;
+	if (status_bouton_hdd == CAN_STATUS_PRESS) data += CAN_BIT_POSITION_BUTTON_HDD;
+	if (status_bouton_mg  == CAN_STATUS_PRESS) data += CAN_BIT_POSITION_BUTTON_MG;
+	if (status_bouton_md  == CAN_STATUS_PRESS) data += CAN_BIT_POSITION_BUTTON_MD;
+	if (status_bouton_bgg == CAN_STATUS_PRESS) data += CAN_BIT_POSITION_BUTTON_BGG;
+	if (status_bouton_bg  == CAN_STATUS_PRESS) data += CAN_BIT_POSITION_BUTTON_BG;
+	if (status_bouton_bd  == CAN_STATUS_PRESS) data += CAN_BIT_POSITION_BUTTON_BD;
+	if (status_bouton_bdd == CAN_STATUS_PRESS) data += CAN_BIT_POSITION_BUTTON_BDD;
+	return data;
 }
 
 /**
