@@ -35,8 +35,6 @@
 // Motor modes
 #define CAN_ID_CMD_MARIO_PITCH_MODE  0x11		//CMD mario to drive motor
 #define CAN_ID_CMD_MARIO_MAST_MODE	 0x12 		//CMD mario to drive motor
-#define CAN_ID_CMD_VOLANT_PITCH_MODE 0x3A		//CMD volant to mario
-#define CAN_ID_CMD_VOLANT_MAST_MODE  0x3B 		//CMD volant to mario
 #define CAN_ID_STATE_DRIVEMOTOR_PITCH_MODE 0x21 //VALUE for mario
 #define CAN_ID_STATE_DRIVEMOTOR_MAST_MODE  0x22 //VALUE for mario
 	#define MOTOR_MODE_MANUAL 0 		//CONST
@@ -45,18 +43,14 @@
 // Manual motor control
 #define CAN_ID_CMD_MARIO_PITCH_DIRECTION  0x13	//CMD mario to drive motor
 #define CAN_ID_CMD_MARIO_MAST_DIRECTION	  0x14 	//CMD mario to drive motor
-#define CAN_ID_CMD_VOLANT_PITCH_DIRECTION 0x3C	//CMD volant to mario
-#define CAN_ID_CMD_VOLANT_MAST_DIRECTION  0x3D 	//CMD volant to mario
-	#define MOTOR_DIRECTION_LEFT 0		//CONST
-	#define MOTOR_DIRECTION_STOP 2		//CONST
+	#define MOTOR_DIRECTION_LEFT  0		//CONST
+	#define MOTOR_DIRECTION_STOP  2		//CONST
 	#define MOTOR_DIRECTION_RIGHT 4		//CONST
-#define CAN_ID_DRIVEMOTOR_PITCH_MOVE_DONE  0x23 //need to be removed
+#define CAN_ID_DRIVEMOTOR_PITCH_MOVE_DONE 0x23 	//need to be removed
 
 // motor SPEED in % -100 to 100
 #define CAN_ID_CMD_MARIO_PITCH_SPEED  0x15	//CMD mario to drive motor
 #define CAN_ID_CMD_MARIO_MAST_SPEED	  0x16 	//CMD mario to drive motor
-#define CAN_ID_CMD_VOLANT_PITCH_SPEED 0x3E	//CMD volant to mario
-#define CAN_ID_CMD_VOLANT_MAST_SPEED  0x3F 	//CMD volant to mario
 
 // Automatic motor control
 // nothing for now
