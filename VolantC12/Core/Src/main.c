@@ -97,7 +97,6 @@ void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 static void SystemPower_Config(void);
 void MX_FREERTOS_Init(void);
-static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -175,9 +174,6 @@ int main(void)
   MX_TouchGFX_Init();
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
-
-  /* Initialize interrupts */
-  MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
   if (HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_1) != HAL_OK)
     {
@@ -332,17 +328,6 @@ static void SystemPower_Config(void)
   }
 /* USER CODE BEGIN PWR */
 /* USER CODE END PWR */
-}
-
-/**
-  * @brief NVIC Configuration.
-  * @retval None
-  */
-static void MX_NVIC_Init(void)
-{
-  /* EXTI6_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(EXTI6_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(EXTI6_IRQn);
 }
 
 /* USER CODE BEGIN 4 */

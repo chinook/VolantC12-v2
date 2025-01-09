@@ -48,7 +48,7 @@
 	#define MOTOR_DIRECTION_RIGHT 4		//CONST
 #define CAN_ID_DRIVEMOTOR_PITCH_MOVE_DONE 0x23 	//need to be removed
 
-// motor SPEED in % -100 to 100
+// motor SPEED in % 0 to 100
 #define CAN_ID_CMD_MARIO_PITCH_SPEED  0x15	//CMD mario to drive motor
 #define CAN_ID_CMD_MARIO_MAST_SPEED	  0x16 	//CMD mario to drive motor
 

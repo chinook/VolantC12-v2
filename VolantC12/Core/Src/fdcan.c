@@ -140,7 +140,7 @@ void HAL_FDCAN_MspInit(FDCAN_HandleTypeDef* fdcanHandle)
     GPIO_InitStruct.Pin = GPIO_PIN_9|GPIO_PIN_8;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF9_FDCAN1;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
@@ -253,8 +253,6 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
  * @param Unused
  * @return None
  */
-
-
 void process_can_message(void)
 {
 	// Technically CAN data can be 8+ bytes but we only send 4-bytes data to the motor driver
@@ -265,145 +263,77 @@ void process_can_message(void)
 	if (rxHeader.DataLength != 4) {
 		Error_Handler();
 	} else {
-	switch (rxHeader.Identifier) {
-	    case CAN_ID_MARIO_VAL_TURB_DIR:
-	    	if (canRx_refresh_turb_dir_value < 800000) canRx_refresh_turb_dir_value += 100000;
-	    	memcpy(&canRx_turb_dir_value, rxData, sizeof(float));
-	        break;
-	    case CAN_ID_MARIO_VAL_TURB_CMD:
-	    	if (canRx_refresh_turb_cmd_value < 800000) canRx_refresh_turb_cmd_value += 100000;
-	    	memcpy(&canRx_turb_cmd_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_WIND_DIR:
-	    	if (canRx_refresh_wind_dir_value < 800000) canRx_refresh_wind_dir_value += 100000;
-	    	memcpy(&canRx_wind_dir_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_SPEED:
-	    	if (canRx_refresh_speed_value < 800000) canRx_refresh_speed_value += 100000;
-	    	memcpy(&canRx_speed_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_TSR:
-	    	if (canRx_refresh_tsr_value < 800000) canRx_refresh_tsr_value += 100000;
-	    	memcpy(&canRx_tsr_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_GEAR_RATIO:
-	    	if (canRx_refresh_gear_ratio_value < 800000) canRx_refresh_gear_ratio_value += 100000;
-	    	memcpy(&canRx_gear_ratio_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_ROTOR_SPEED:
-	    	if (canRx_refresh_rotor_speed_value < 800000) canRx_refresh_rotor_speed_value += 100000;
-	    	memcpy(&canRx_rotor_speed_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_ROTOR_ROPS_CMD:
-	    	if (canRx_refresh_rotor_rops_cmd_value < 800000) canRx_refresh_rotor_rops_cmd_value += 100000;
-	    	memcpy(&canRx_rotor_rops_cmd_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_PITCH:
-	    	if (canRx_refresh_pitch_value < 800000) canRx_refresh_pitch_value += 100000;
-	    	memcpy(&canRx_pitch_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_EFFICIENCY:
-	    	if (canRx_refresh_efficiency_value < 800000) canRx_refresh_efficiency_value += 100000;
-	    	memcpy(&canRx_efficiency_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_WIND_SPEED:
-	    	if (canRx_refresh_wind_speed_value < 800000) canRx_refresh_wind_speed_value += 100000;
-	    	memcpy(&canRx_wind_speed_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_PITCH_CMD:
-	    	if (canRx_refresh_pitch_cmd_value < 800000) canRx_refresh_pitch_cmd_value += 100000;
-	    	memcpy(&canRx_pitch_cmd_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_DEBUG_LOG_1:
-	    	if (canRx_refresh_debug_log_1_value < 800000) canRx_refresh_debug_log_1_value += 100000;
-	    	memcpy(&canRx_debug_log_1_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_DEBUG_LOG_2:
-	    	if (canRx_refresh_debug_log_2_value < 800000) canRx_refresh_debug_log_2_value += 100000;
-	    	memcpy(&canRx_debug_log_2_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_DEBUG_LOG_3:
-	    	if (canRx_refresh_debug_log_3_value < 800000) canRx_refresh_debug_log_3_value += 100000;
-	    	memcpy(&canRx_debug_log_3_value, rxData, sizeof(float));
-	    	break;
-	    case CAN_ID_MARIO_VAL_DEBUG_LOG_4:
-	    	if (canRx_refresh_debug_log_4_value < 800000) canRx_refresh_debug_log_4_value += 100000;
-	    	memcpy(&canRx_debug_log_4_value, rxData, sizeof(float));
-	    	break;
+		switch (rxHeader.Identifier) {
+	    	case CAN_ID_MARIO_VAL_TURB_DIR:
+	    		if (canRx_refresh_turb_dir_value < 800000) canRx_refresh_turb_dir_value += 100000;
+	    		memcpy(&canRx_turb_dir_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_TURB_CMD:
+	    		if (canRx_refresh_turb_cmd_value < 800000) canRx_refresh_turb_cmd_value += 100000;
+	    		memcpy(&canRx_turb_cmd_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_WIND_DIR:
+	    		if (canRx_refresh_wind_dir_value < 800000) canRx_refresh_wind_dir_value += 100000;
+	    		memcpy(&canRx_wind_dir_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_SPEED:
+	    		if (canRx_refresh_speed_value < 800000) canRx_refresh_speed_value += 100000;
+	    		memcpy(&canRx_speed_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_TSR:
+	    		if (canRx_refresh_tsr_value < 800000) canRx_refresh_tsr_value += 100000;
+	    		memcpy(&canRx_tsr_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_GEAR_RATIO:
+	    		if (canRx_refresh_gear_ratio_value < 800000) canRx_refresh_gear_ratio_value += 100000;
+	    		memcpy(&canRx_gear_ratio_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_ROTOR_SPEED:
+	    		if (canRx_refresh_rotor_speed_value < 800000) canRx_refresh_rotor_speed_value += 100000;
+	    		memcpy(&canRx_rotor_speed_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_ROTOR_ROPS_CMD:
+	    		if (canRx_refresh_rotor_rops_cmd_value < 800000) canRx_refresh_rotor_rops_cmd_value += 100000;
+	    		memcpy(&canRx_rotor_rops_cmd_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_PITCH:
+	    		if (canRx_refresh_pitch_value < 800000) canRx_refresh_pitch_value += 100000;
+	    		memcpy(&canRx_pitch_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_EFFICIENCY:
+	    		if (canRx_refresh_efficiency_value < 800000) canRx_refresh_efficiency_value += 100000;
+	    		memcpy(&canRx_efficiency_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_WIND_SPEED:
+	    		if (canRx_refresh_wind_speed_value < 800000) canRx_refresh_wind_speed_value += 100000;
+	    		memcpy(&canRx_wind_speed_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_PITCH_CMD:
+	    		if (canRx_refresh_pitch_cmd_value < 800000) canRx_refresh_pitch_cmd_value += 100000;
+	    		memcpy(&canRx_pitch_cmd_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_DEBUG_LOG_1:
+	    		if (canRx_refresh_debug_log_1_value < 800000) canRx_refresh_debug_log_1_value += 100000;
+	    		memcpy(&canRx_debug_log_1_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_DEBUG_LOG_2:
+	    		if (canRx_refresh_debug_log_2_value < 800000) canRx_refresh_debug_log_2_value += 100000;
+	    		memcpy(&canRx_debug_log_2_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_DEBUG_LOG_3:
+	    		if (canRx_refresh_debug_log_3_value < 800000) canRx_refresh_debug_log_3_value += 100000;
+	    		memcpy(&canRx_debug_log_3_value, rxData, sizeof(float));
+	    		break;
+	    	case CAN_ID_MARIO_VAL_DEBUG_LOG_4:
+	    		if (canRx_refresh_debug_log_4_value < 800000) canRx_refresh_debug_log_4_value += 100000;
+	    		memcpy(&canRx_debug_log_4_value, rxData, sizeof(float));
+	    		break;
 
-	    default:
-	        // Unknown CAN ID
-	        break;
-	}
+	    	default:
+	    		// Unknown CAN ID
+	    		break;
+		}
 	}
 }
-
-/**
- * @brief
- *
- * @param Unused
- * @return None
- */
-
-//void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin)	//TODO: Define the GPIO buttons
-//{
-//	/* Prepare Tx message Header */
-//	txHeader.IdType              = FDCAN_STANDARD_ID;
-//	txHeader.TxFrameType         = FDCAN_DATA_FRAME;
-//	txHeader.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
-//	txHeader.BitRateSwitch       = FDCAN_BRS_OFF;
-//	txHeader.FDFormat            = FDCAN_CLASSIC_CAN;
-//	txHeader.TxEventFifoControl  = FDCAN_NO_TX_EVENTS;
-//	txHeader.MessageMarker       = 0U;
-//
-//	// Button rising edge interrupt occurred, handle it here
-//	switch (GPIO_Pin) {
-//		case BUTTON_PITCH_MODE:
-//			txHeader.Identifier          = VOLANT_PITCH_MODE_CMD;
-//			txHeader.DataLength          = 4U;
-//
-//			uint8_t pitch_mode = 0x71;
-//
-//			/* Add message to TX FIFO */
-//			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_mode) != HAL_OK)
-//			{
-//			  Error_Handler();
-//			}
-//
-//			break;
-//
-//		case BUTTON_PITCH_LEFT:
-//			txHeader.Identifier          = VOLANT_MANUAL_PITCH_CMD;
-//			txHeader.DataLength          = 4U;
-//
-//			uint8_t pitch_left = 0x01;	// pitch left
-//
-//			/* Add message to TX FIFO */
-//			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_left) != HAL_OK)
-//			{
-//			  Error_Handler();
-//			}
-//
-//			break;
-//
-//		case BUTTON_PITCH_RIGHT:
-//			txHeader.Identifier          = VOLANT_MANUAL_PITCH_CMD;
-//			txHeader.DataLength          = 4U;
-//
-//			uint8_t pitch_right = 0x80;	// pitch right TODO: Check 0x200 value, because overflow
-//
-//			/* Add message to TX FIFO */
-//			if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &txHeader, &pitch_right) != HAL_OK)
-//			{
-//			  Error_Handler();
-//			}
-//
-//			break;
-//
-//		//TODO: Continue the rest of the commands
-//		default:
-//			break;
-//	}
-//}
 
 /* USER CODE END 1 */

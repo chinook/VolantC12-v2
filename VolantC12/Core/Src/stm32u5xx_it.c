@@ -183,7 +183,6 @@ void EXTI0_IRQHandler(void)
   /* USER CODE END EXTI0_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
   /* USER CODE BEGIN EXTI0_IRQn 1 */
-
   flag_bouton_bg = 1;
   //logique dans screen_tasks.c
 
@@ -200,7 +199,6 @@ void EXTI2_IRQHandler(void)
   /* USER CODE END EXTI2_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
   /* USER CODE BEGIN EXTI2_IRQn 1 */
-
   flag_bouton_hgg = 1;
   //logique dans screen_tasks.c
 
@@ -217,7 +215,6 @@ void EXTI3_IRQHandler(void)
   /* USER CODE END EXTI3_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
   /* USER CODE BEGIN EXTI3_IRQn 1 */
-
   flag_bouton_bdd = 1;
   //logique dans screen_tasks.c
 
@@ -234,7 +231,6 @@ void EXTI4_IRQHandler(void)
   /* USER CODE END EXTI4_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
   /* USER CODE BEGIN EXTI4_IRQn 1 */
-
   flag_bouton_bd = 1;
   //logique dans screen_tasks.c
 
@@ -251,7 +247,6 @@ void EXTI5_IRQHandler(void)
   /* USER CODE END EXTI5_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
   /* USER CODE BEGIN EXTI5_IRQn 1 */
-
   flag_bouton_mg = 1;
   //logique dans screen_tasks.c
 
@@ -264,11 +259,10 @@ void EXTI5_IRQHandler(void)
 void EXTI6_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI6_IRQn 0 */
-//
+
   /* USER CODE END EXTI6_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
   /* USER CODE BEGIN EXTI6_IRQn 1 */
-
   flag_bouton_hdd = 1;
   //logique dans screen_tasks.c
 
@@ -285,7 +279,6 @@ void EXTI7_IRQHandler(void)
   /* USER CODE END EXTI7_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
   /* USER CODE BEGIN EXTI7_IRQn 1 */
-
   flag_bouton_hd = 1;
   //logique dans screen_tasks.c
 
@@ -321,7 +314,7 @@ void EXTI10_IRQHandler(void)
   /* USER CODE BEGIN EXTI10_IRQn 1 */
 
   flag_bouton_hg = 1;
-  //logique dans screen_tasks.c
+   //logique dans screen_tasks.c
 
   /* USER CODE END EXTI10_IRQn 1 */
 }
