@@ -221,22 +221,22 @@ void screen1_task(void* arg)
 				can_refresh_debug_log_3_value 		= canRx_refresh_debug_log_3_value;
 				can_refresh_debug_log_4_value 		= canRx_refresh_debug_log_4_value;
 
-				canRx_refresh_turb_dir_value 		= 100000;
-				canRx_refresh_turb_cmd_value 		= 100000;
-				canRx_refresh_wind_dir_value 		= 100000;
-				canRx_refresh_speed_value 			= 100000;
-				canRx_refresh_tsr_value 			= 100000;
-				canRx_refresh_gear_ratio_value 		= 100000;
-				canRx_refresh_rotor_speed_value 	= 100000;
-				canRx_refresh_rotor_rops_cmd_value 	= 100000;
-				canRx_refresh_pitch_value 			= 100000;
-				canRx_refresh_efficiency_value 		= 100000;
-				canRx_refresh_wind_speed_value 		= 100000;
-				canRx_refresh_pitch_cmd_value 		= 100000;
-				canRx_refresh_debug_log_1_value 	= 100000;
-				canRx_refresh_debug_log_2_value 	= 100000;
-				canRx_refresh_debug_log_3_value 	= 100000;
-				canRx_refresh_debug_log_4_value 	= 100000;
+				canRx_refresh_turb_dir_value 		= 0;
+				canRx_refresh_turb_cmd_value 		= 0;
+				canRx_refresh_wind_dir_value 		= 0;
+				canRx_refresh_speed_value 			= 0;
+				canRx_refresh_tsr_value 			= 0;
+				canRx_refresh_gear_ratio_value 		= 0;
+				canRx_refresh_rotor_speed_value 	= 0;
+				canRx_refresh_rotor_rops_cmd_value 	= 0;
+				canRx_refresh_pitch_value 			= 0;
+				canRx_refresh_efficiency_value 		= 0;
+				canRx_refresh_wind_speed_value 		= 0;
+				canRx_refresh_pitch_cmd_value 		= 0;
+				canRx_refresh_debug_log_1_value 	= 0;
+				canRx_refresh_debug_log_2_value 	= 0;
+				canRx_refresh_debug_log_3_value 	= 0;
+				canRx_refresh_debug_log_4_value 	= 0;
 
 
 			}
@@ -248,23 +248,24 @@ void screen1_task(void* arg)
 			if(timer7_1ms_counter % 8 == 0) { //each 8 ms
 				fps_counter_value_temps++; //fps counter
 
-				turb_dir_value 			= canRx_turb_dir_value 			+ can_refresh_turb_dir_value 		+ test_screen_refresh_rate;
-				turb_cmd_value 			= canRx_turb_cmd_value 			+ can_refresh_turb_cmd_value 		+ test_screen_refresh_rate;
-				wind_dir_value 			= canRx_wind_dir_value 			+ can_refresh_wind_dir_value 		+ test_screen_refresh_rate;
-				speed_value 			= canRx_speed_value 			+ can_refresh_speed_value 			+ test_screen_refresh_rate;
-				tsr_value 				= canRx_tsr_value 				+ can_refresh_tsr_value 			+ test_screen_refresh_rate;
-				gear_ratio_value 		= canRx_gear_ratio_value 		+ can_refresh_gear_ratio_value 		+ test_screen_refresh_rate;
-				rotor_speed_value 		= canRx_rotor_speed_value 		+ can_refresh_rotor_speed_value 	+ test_screen_refresh_rate;
-				rotor_rops_cmd_value 	= canRx_rotor_rops_cmd_value 	+ can_refresh_rotor_rops_cmd_value 	+ test_screen_refresh_rate;
-				pitch_value 			= canRx_pitch_value 			+ can_refresh_pitch_value 			+ test_screen_refresh_rate;
-				efficiency_value 		= canRx_efficiency_value	 	+ can_refresh_efficiency_value 		+ test_screen_refresh_rate;
-				wind_speed_value 		= canRx_wind_speed_value 		+ can_refresh_wind_speed_value 		+ test_screen_refresh_rate;
-				pitch_cmd_value 		= canRx_pitch_cmd_value 		+ can_refresh_pitch_cmd_value 		+ test_screen_refresh_rate;
-				debug_log_1_value		= canRx_debug_log_1_value 		+ can_refresh_debug_log_1_value 	+ test_screen_refresh_rate;
-				debug_log_2_value 		= canRx_debug_log_2_value 		+ can_refresh_debug_log_2_value 	+ test_screen_refresh_rate;
-				debug_log_3_value 		= canRx_debug_log_3_value 		+ can_refresh_debug_log_3_value 	+ test_screen_refresh_rate;
-				debug_log_4_value 		= canRx_debug_log_4_value 		+ can_refresh_debug_log_4_value 	+ test_screen_refresh_rate;
+				turb_dir_value       = canRx_turb_dir_value;
+				turb_cmd_value       = canRx_turb_cmd_value;
+				wind_dir_value       = canRx_wind_dir_value;
+				speed_value          = canRx_speed_value;
+				tsr_value            = canRx_tsr_value;
+				gear_ratio_value     = canRx_gear_ratio_value;
+				rotor_speed_value    = canRx_rotor_speed_value;
+				rotor_rops_cmd_value = canRx_rotor_rops_cmd_value;
+				pitch_value          = canRx_pitch_value;
+				efficiency_value     = canRx_efficiency_value;
+				wind_speed_value     = canRx_wind_speed_value;
+				pitch_cmd_value      = canRx_pitch_cmd_value;
+				debug_log_1_value    = canRx_debug_log_1_value;
+				debug_log_2_value    = canRx_debug_log_2_value;
+				debug_log_3_value    = canRx_debug_log_3_value;
+				debug_log_4_value    = canRx_debug_log_4_value;
 			}
+
 
 
 	}

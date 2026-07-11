@@ -229,6 +229,17 @@ protected:
     touchgfx::Container chinook_title;
     touchgfx::TextArea version;
     touchgfx::TextArea chinook;
+    touchgfx::Container container1;
+    touchgfx::Line line2;
+    touchgfx::PainterRGB888 line2Painter;
+    touchgfx::Line line2_1;
+    touchgfx::PainterRGB888 line2_1Painter;
+    touchgfx::Line line3;
+    touchgfx::PainterRGB888 line3Painter;
+    touchgfx::Line line3_2;
+    touchgfx::PainterRGB888 line3_2Painter;
+    touchgfx::Line line3_2_1;
+    touchgfx::PainterRGB888 line3_2_1Painter;
 
     /*
      * Wildcard Buffers

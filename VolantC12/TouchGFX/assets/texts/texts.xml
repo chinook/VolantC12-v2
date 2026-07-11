@@ -34,7 +34,7 @@
         <Translation Language="GB">UwU</Translation>
       </Text>
       <Text Id="pitch_value" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">-5</Translation>
+        <Translation Language="GB">000.000</Translation>
       </Text>
       <Text Id="rotor_speed_value" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">666</Translation>
@@ -64,9 +64,9 @@
         <Translation Language="GB">&lt;0&gt;</Translation>
       </Text>
       <Text Id="speed_value" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">11</Translation>
+        <Translation Language="GB">000.00</Translation>
       </Text>
-      <Text Id="__SingleUse_XL1B" Alignment="Center" TypographyId="Default">
+      <Text Id="__SingleUse_XL1B" Alignment="Center" TypographyId="Typography_00">
         <Translation Language="GB">&lt;0&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_NCUI" Alignment="Center" TypographyId="Default">
@@ -94,7 +94,7 @@
         <Translation Language="GB">&lt;0&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_G2VX" Alignment="Right" TypographyId="Default">
-        <Translation Language="GB">V1</Translation>
+        <Translation Language="GB">V2</Translation>
       </Text>
       <Text Id="__SingleUse_9W31" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">WIND</Translation>
@@ -246,6 +246,7 @@
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="consolab.ttf" Size="31" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="32-126" />
+    <Typography Id="Default" Font="consolab.ttf" Size="35" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="32-126" />
+    <Typography Id="Typography_00" Font="consolab.ttf" Size="80" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789.-" />
   </Typographies>
 </TextDatabase>

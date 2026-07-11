@@ -14,12 +14,14 @@ class FlashDataReader;
 struct Typography
 {
     static const touchgfx::FontId DEFAULT = 0;
+    static const touchgfx::FontId TYPOGRAPHY_00 = 1;
 };
 
 struct TypographyFontIndex
 {
-    static const touchgfx::FontId DEFAULT = 0; // consolab_31_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 1;
+    static const touchgfx::FontId DEFAULT = 0;       // consolab_35_4bpp
+    static const touchgfx::FontId TYPOGRAPHY_00 = 1; // consolab_80_4bpp
+    static const uint16_t NUMBER_OF_FONTS = 2;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider

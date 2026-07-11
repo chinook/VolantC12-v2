@@ -5,10 +5,12 @@
 #include <fonts/GeneratedFont.hpp>
 #include <texts/TypedTextDatabase.hpp>
 
-extern touchgfx::GeneratedFont& getFont_consolab_31_4bpp();
+extern touchgfx::GeneratedFont& getFont_consolab_35_4bpp();
+extern touchgfx::GeneratedFont& getFont_consolab_80_4bpp();
 
 const touchgfx::Font* touchgfx_fonts[] = {
-    &(getFont_consolab_31_4bpp())
+    &(getFont_consolab_35_4bpp()),
+    &(getFont_consolab_80_4bpp())
 };
 
 extern const touchgfx::TypedText::TypedTextData typedText_database_DEFAULT[];
@@ -36,7 +38,7 @@ const touchgfx::TypedText::TypedTextData typedText_database_DEFAULT[] TEXT_LOCAT
     { 0, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 0, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
     { 0, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
-    { 0, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
+    { 1, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
     { 0, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
     { 0, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
     { 0, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
@@ -131,7 +133,10 @@ void resetFont(touchgfx::FontId fontId)
     switch (fontId)
     {
     case 0:
-        touchgfx_fonts[0] = &(getFont_consolab_31_4bpp());
+        touchgfx_fonts[0] = &(getFont_consolab_35_4bpp());
+        break;
+    case 1:
+        touchgfx_fonts[1] = &(getFont_consolab_80_4bpp());
         break;
     }
 }
