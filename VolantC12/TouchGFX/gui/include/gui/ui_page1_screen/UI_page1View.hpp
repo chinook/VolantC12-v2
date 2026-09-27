@@ -15,7 +15,7 @@ public:
     //TouchGFX_4_23_2_tutorial_after_generating_code_step_2 : add a function like update_change_the_name
     virtual void change_screen(uint8_t screen);
     virtual void update_turb_dir_value(float turb_dir_value);
-    virtual void update_turb_cmd_value(float turb_cmd_value);
+    virtual void update_current_gear_value(float current_gear_value);
     virtual void update_wind_dir_value(float wind_dir_value);
     virtual void update_speed_value(float speed_value);
     virtual void update_tsr_value(float tsr_value);

@@ -79,7 +79,7 @@
 
 // INFO Mario to Volant IDs 0x4X -> refer in volant files to: TouchGFX_4_23_2_tutorial_after_generating_code_step
 #define CAN_ID_MARIO_VAL_TURB_DIR 			0x40
-#define CAN_ID_MARIO_VAL_TURB_CMD 			0x41
+#define CAN_ID_MARIO_VAL_CURRENT_GEAR 			0x41
 #define CAN_ID_MARIO_VAL_WIND_DIR 			0x42
 #define CAN_ID_MARIO_VAL_SPEED 				0x43
 #define CAN_ID_MARIO_VAL_TSR 				0x44

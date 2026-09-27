@@ -38,8 +38,8 @@ void UI_page1Presenter::update_ui(void* screen)
 		
 		float turb_dir_value = *(const float*)ui->turb_dir_value;
 		view.update_turb_dir_value(turb_dir_value);
-		float turb_cmd_value = *(const float*)ui->turb_cmd_value;
-		view.update_turb_cmd_value(turb_cmd_value);
+		float current_gear_value = *(const float*)ui->current_gear_value;
+		view.update_current_gear_value(current_gear_value);
 		float wind_dir_value = *(const float*)ui->wind_dir_value; //good
 		view.update_wind_dir_value(wind_dir_value);
 		float speed_value = *(const float*)ui->speed_value; //good

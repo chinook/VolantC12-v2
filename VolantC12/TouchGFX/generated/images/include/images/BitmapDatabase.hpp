@@ -6,6 +6,7 @@
 #include <touchgfx/hal/Types.hpp>
 #include <touchgfx/Bitmap.hpp>
 
+const uint16_t BITMAP_TESTCHINOOK_ID = 0;
 
 namespace BitmapDatabase
 {

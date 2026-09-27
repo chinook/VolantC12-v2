@@ -35,7 +35,7 @@ extern "C" {
 #include <string.h>
 
 extern float 	canRx_turb_dir_value;
-extern float 	canRx_turb_cmd_value;
+extern float 	canRx_current_gear_value;
 extern float 	canRx_wind_dir_value;
 extern float 	canRx_speed_value;
 extern float 	canRx_tsr_value;
@@ -52,7 +52,7 @@ extern float 	canRx_debug_log_3_value;
 extern float 	canRx_debug_log_4_value;
 
 extern float 	canRx_refresh_turb_dir_value;
-extern float 	canRx_refresh_turb_cmd_value;
+extern float 	canRx_refresh_current_gear_value;
 extern float 	canRx_refresh_wind_dir_value;
 extern float 	canRx_refresh_speed_value;
 extern float 	canRx_refresh_tsr_value;

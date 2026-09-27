@@ -809,7 +809,7 @@ UI_page1ViewBase::UI_page1ViewBase()
     turb_cmd_value.setPosition(1, 60, 240, 40);
     turb_cmd_value.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     turb_cmd_value.setLinespacing(0);
-    Unicode::snprintf(turb_cmd_valueBuffer, TURB_CMD_VALUE_SIZE, "%s", touchgfx::TypedText(T_TURB_CMD_VALUE).getText());
+    Unicode::snprintf(turb_cmd_valueBuffer, TURB_CMD_VALUE_SIZE, "%s", touchgfx::TypedText(T_CURRENT_GEAR_VALUE).getText());
     turb_cmd_value.setWildcard(turb_cmd_valueBuffer);
     turb_cmd_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_WZKT));
     direction_viewer.add(turb_cmd_value);

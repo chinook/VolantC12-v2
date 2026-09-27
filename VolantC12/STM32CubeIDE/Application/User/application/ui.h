@@ -26,7 +26,7 @@
 //TouchGFX_4_23_2_tutorial_after_generating_code_step_1 : add a variable like change_the_name
 typedef struct ui {
 	volatile const void* turb_dir_value;
-	volatile const void* turb_cmd_value;
+	volatile const void* current_gear_value;
 	volatile const void* wind_dir_value;
 	volatile const void* speed_value;
 	volatile const void* tsr_value;

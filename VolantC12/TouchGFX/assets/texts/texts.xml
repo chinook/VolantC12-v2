@@ -6,6 +6,99 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_MXA0" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">22</Translation>
+      </Text>
+      <Text Id="__SingleUse_UHTM" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">21</Translation>
+      </Text>
+      <Text Id="__SingleUse_77GS" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">N</Translation>
+      </Text>
+      <Text Id="__SingleUse_ST9N" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">20</Translation>
+      </Text>
+      <Text Id="__SingleUse_6FNM" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">°</Translation>
+      </Text>
+      <Text Id="__SingleUse_WFI2" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">WIND SPEED</Translation>
+      </Text>
+      <Text Id="__SingleUse_IXVP" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">FPS</Translation>
+      </Text>
+      <Text Id="__SingleUse_FCBF" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">m/s</Translation>
+      </Text>
+      <Text Id="__SingleUse_XJ9Q" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">°</Translation>
+      </Text>
+      <Text Id="__SingleUse_XYL0" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">WIND DIRECTION</Translation>
+      </Text>
+      <Text Id="__SingleUse_2QK9" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">N</Translation>
+      </Text>
+      <Text Id="__SingleUse_MA79" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">LOADCELL</Translation>
+      </Text>
+      <Text Id="__SingleUse_76S8" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">N</Translation>
+      </Text>
+      <Text Id="__SingleUse_9LOG" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">POWER</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZE88" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">MAST ANGLE</Translation>
+      </Text>
+      <Text Id="__SingleUse_8F2U" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">TORQUE</Translation>
+      </Text>
+      <Text Id="__SingleUse_0I4K" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">@CHINOOK v3</Translation>
+      </Text>
+      <Text Id="__SingleUse_5AH9" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">GEAR RATIO</Translation>
+      </Text>
+      <Text Id="__SingleUse_4I02" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">GEAR</Translation>
+      </Text>
+      <Text Id="__SingleUse_EFGJ" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">m/s</Translation>
+      </Text>
+      <Text Id="__SingleUse_EU7X" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">SPEED</Translation>
+      </Text>
+      <Text Id="__SingleUse_0ADG" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">°</Translation>
+      </Text>
+      <Text Id="__SingleUse_AM7H" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">PITCH ANGLE</Translation>
+      </Text>
+      <Text Id="__SingleUse_V873" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">°</Translation>
+      </Text>
+      <Text Id="__SingleUse_L12S" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">PITCH AUTO&#10;TARGET</Translation>
+      </Text>
+      <Text Id="__SingleUse_LF0D" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">%</Translation>
+      </Text>
+      <Text Id="__SingleUse_ACI0" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">100</Translation>
+      </Text>
+      <Text Id="__SingleUse_6JIR" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">BATTERIE</Translation>
+      </Text>
+      <Text Id="__SingleUse_TPR3" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">%</Translation>
+      </Text>
+      <Text Id="__SingleUse_RI8A" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">EFFICIENCY</Translation>
+      </Text>
+      <Text Id="__SingleUse_5PUA" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Volant pour tests</Translation>
+      </Text>
       <Text Id="debug_log_4_value" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">1234567890</Translation>
       </Text>
@@ -31,10 +124,10 @@
         <Translation Language="GB">12</Translation>
       </Text>
       <Text Id="efficiency_value" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">UwU</Translation>
+        <Translation Language="GB">100</Translation>
       </Text>
       <Text Id="pitch_value" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">000.000</Translation>
+        <Translation Language="GB">259.321</Translation>
       </Text>
       <Text Id="rotor_speed_value" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">666</Translation>
@@ -52,7 +145,7 @@
         <Translation Language="GB">1400</Translation>
       </Text>
       <Text Id="pitch_cmd_value" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">-17</Translation>
+        <Translation Language="GB">259.321</Translation>
       </Text>
       <Text Id="__SingleUse_PPHW" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">&lt;0&gt;</Translation>
@@ -82,7 +175,7 @@
         <Translation Language="GB">&lt;0&gt;</Translation>
       </Text>
       <Text Id="turb_dir_value" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">17</Translation>
+        <Translation Language="GB">16</Translation>
       </Text>
       <Text Id="gear_ratio_value" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">7</Translation>
@@ -111,7 +204,7 @@
       <Text Id="__SingleUse_UHJ5" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">GEAR RATIO</Translation>
       </Text>
-      <Text Id="turb_cmd_value" Alignment="Left" TypographyId="Default">
+      <Text Id="current_gear_value" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">15</Translation>
       </Text>
       <Text Id="__SingleUse_WNMP" Alignment="Center" TypographyId="Default">
@@ -203,45 +296,6 @@
       </Text>
       <Text Id="__SingleUse_IQLU" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">title.</Translation>
-      </Text>
-      <Text Id="__SingleUse_DTB9" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">0</Translation>
-      </Text>
-      <Text Id="__SingleUse_VJH6" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">0</Translation>
-      </Text>
-      <Text Id="__SingleUse_LEP2" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">0</Translation>
-      </Text>
-      <Text Id="__SingleUse_MU00" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">&lt;0&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_DIBQ" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">&lt;0&gt;%</Translation>
-      </Text>
-      <Text Id="__SingleUse_4N8U" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">&lt;0&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_T5F8" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">Empty.</Translation>
-      </Text>
-      <Text Id="__SingleUse_9JZ7" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">Empty.</Translation>
-      </Text>
-      <Text Id="__SingleUse_Y1FV" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">Empty.</Translation>
-      </Text>
-      <Text Id="__SingleUse_QAY6" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">TSR.</Translation>
-      </Text>
-      <Text Id="__SingleUse_V5U8" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">Efficiency.</Translation>
-      </Text>
-      <Text Id="__SingleUse_CG1O" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">Power.</Translation>
-      </Text>
-      <Text Id="__SingleUse_1F1N" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">p.2/2</Translation>
       </Text>
     </TextGroup>
   </Texts>

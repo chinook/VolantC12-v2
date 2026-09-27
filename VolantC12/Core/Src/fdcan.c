@@ -31,7 +31,7 @@ uint8_t 				rxData[8U];		// 8 bytes
 float	canRx_torque		= 0;
 
 float 	canRx_turb_dir_value 		= 0;
-float 	canRx_turb_cmd_value 		= 0;
+float 	canRx_current_gear_value 		= 0;
 float 	canRx_wind_dir_value 		= 0;
 float 	canRx_speed_value 			= 0;
 float 	canRx_tsr_value 			= 0;
@@ -48,7 +48,7 @@ float 	canRx_debug_log_3_value 	= 0;
 float 	canRx_debug_log_4_value 	= 0;
 
 float 	canRx_refresh_turb_dir_value 		= 0;
-float 	canRx_refresh_turb_cmd_value 		= 0;
+float 	canRx_refresh_current_gear_value 		= 0;
 float 	canRx_refresh_wind_dir_value 		= 0;
 float 	canRx_refresh_speed_value 			= 0;
 float 	canRx_refresh_tsr_value 			= 0;
@@ -268,9 +268,9 @@ void process_can_message(void)
 	    		if (canRx_refresh_turb_dir_value < 800000) canRx_refresh_turb_dir_value += 100000;
 	    		memcpy(&canRx_turb_dir_value, rxData, sizeof(float));
 	    		break;
-	    	case CAN_ID_MARIO_VAL_TURB_CMD:
-	    		if (canRx_refresh_turb_cmd_value < 800000) canRx_refresh_turb_cmd_value += 100000;
-	    		memcpy(&canRx_turb_cmd_value, rxData, sizeof(float));
+	    	case CAN_ID_MARIO_VAL_CURRENT_GEAR:
+	    		if (canRx_refresh_current_gear_value < 800000) canRx_refresh_current_gear_value += 100000;
+	    		memcpy(&canRx_current_gear_value, rxData, sizeof(float));
 	    		break;
 	    	case CAN_ID_MARIO_VAL_WIND_DIR:
 	    		if (canRx_refresh_wind_dir_value < 800000) canRx_refresh_wind_dir_value += 100000;

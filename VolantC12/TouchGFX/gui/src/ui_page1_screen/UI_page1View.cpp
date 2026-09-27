@@ -28,10 +28,10 @@ void UI_page1View::update_turb_dir_value(float turb_dir_value_temps)
 	turb_dir_value.invalidate();
 }
 
-void UI_page1View::update_turb_cmd_value(float turb_cmd_value_temps)
+void UI_page1View::update_current_gear_value(float current_gear_value_temps)
 {
-	Unicode::snprintfFloat(turb_cmd_valueBuffer, TURB_CMD_VALUE_SIZE, "%.1f", turb_cmd_value_temps);
-	turb_cmd_value.invalidate();
+	Unicode::snprintfFloat(current_gear_valueBuffer, CURRENT_GEAR_VALUE_SIZE, "%.0f", current_gear_value_temps);
+	current_gear_value.invalidate();
 }
 
 void UI_page1View::update_wind_dir_value(float wind_dir_value_temps)

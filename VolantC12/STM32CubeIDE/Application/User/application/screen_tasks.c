@@ -27,7 +27,7 @@ volatile uint8_t arr[NUM_FIELDS] = {0x1, 0x2, 0x4, 0x8, 0x10, 0x20};
 
 /* Screen1 data variables */
 float turb_dir_value 			= 0;
-float turb_cmd_value 			= 0;
+float current_gear_value 			= 0;
 float wind_dir_value 			= 0;
 float speed_value 				= 0;
 float tsr_value 				= 0;
@@ -48,7 +48,7 @@ float change_the_name 			= 0;
 
 
 float can_refresh_turb_dir_value 			= 0;
-float can_refresh_turb_cmd_value 			= 0;
+float can_refresh_current_gear_value 			= 0;
 float can_refresh_wind_dir_value 			= 0;
 float can_refresh_speed_value 				= 0;
 float can_refresh_tsr_value 				= 0;
@@ -205,7 +205,7 @@ void screen1_task(void* arg)
 				fps_counter_value_temps = 0;
 
 				can_refresh_turb_dir_value 			= canRx_refresh_turb_dir_value;
-				can_refresh_turb_cmd_value 			= canRx_refresh_turb_cmd_value;
+				can_refresh_current_gear_value 			= canRx_refresh_current_gear_value;
 				can_refresh_wind_dir_value 			= canRx_refresh_wind_dir_value;
 				can_refresh_speed_value 			= canRx_refresh_speed_value;
 				can_refresh_tsr_value 				= canRx_refresh_tsr_value;
@@ -222,7 +222,7 @@ void screen1_task(void* arg)
 				can_refresh_debug_log_4_value 		= canRx_refresh_debug_log_4_value;
 
 				canRx_refresh_turb_dir_value 		= 0;
-				canRx_refresh_turb_cmd_value 		= 0;
+				canRx_refresh_current_gear_value 		= 0;
 				canRx_refresh_wind_dir_value 		= 0;
 				canRx_refresh_speed_value 			= 0;
 				canRx_refresh_tsr_value 			= 0;
@@ -249,7 +249,7 @@ void screen1_task(void* arg)
 				fps_counter_value_temps++; //fps counter
 
 				turb_dir_value       = canRx_turb_dir_value;
-				turb_cmd_value       = canRx_turb_cmd_value;
+				current_gear_value       = canRx_current_gear_value;
 				wind_dir_value       = canRx_wind_dir_value;
 				speed_value          = canRx_speed_value;
 				tsr_value            = canRx_tsr_value;
@@ -287,7 +287,7 @@ static void init_screen1(void)
 
 	//TouchGFX_4_23_2_tutorial_after_generating_code_step_5 : add the 2 lines of code like change_the_name
 	screen1.turb_dir_value = &turb_dir_value;
-	screen1.turb_cmd_value = &turb_cmd_value;
+	screen1.current_gear_value = &current_gear_value;
 	screen1.wind_dir_value = &wind_dir_value;
 	screen1.speed_value = &speed_value;
 	screen1.tsr_value = &tsr_value;

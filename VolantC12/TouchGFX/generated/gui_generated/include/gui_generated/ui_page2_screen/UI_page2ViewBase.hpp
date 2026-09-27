@@ -8,12 +8,8 @@
 #include <mvp/View.hpp>
 #include <gui/ui_page2_screen/UI_page2Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/canvas/Shape.hpp>
-#include <touchgfx/widgets/canvas/PainterRGB888.hpp>
 #include <touchgfx/containers/Container.hpp>
-#include <touchgfx/widgets/BoxWithBorder.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
-#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class UI_page2ViewBase : public touchgfx::View<UI_page2Presenter>
 {
@@ -32,53 +28,67 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::Shape<4> background;
-    touchgfx::PainterRGB888 backgroundPainter;
-    touchgfx::Container header_page2_container;
-    touchgfx::BoxWithBorder header_p2_box;
-    touchgfx::TextArea page2_num_text;
-    touchgfx::Container power_container;
-    touchgfx::BoxWithBorder power_box;
+    touchgfx::Container background;
+    touchgfx::Box black_background;
+    touchgfx::Container title;
+    touchgfx::TextArea title_text;
+    touchgfx::Container chinook;
+    touchgfx::TextArea title_text_1;
+    touchgfx::Container efficiency;
+    touchgfx::TextArea eff_title;
+    touchgfx::TextArea eff_value;
+    touchgfx::TextArea eff_unit;
+    touchgfx::Container batterie;
+    touchgfx::TextArea batt_title;
+    touchgfx::TextArea batt_value;
+    touchgfx::TextArea batt_unit;
+    touchgfx::Container pitch_auto_target;
+    touchgfx::TextArea pat_title;
+    touchgfx::TextArea pat_value;
+    touchgfx::TextArea pat_unit;
+    touchgfx::Container pitch_angle;
+    touchgfx::TextArea pitch_title;
+    touchgfx::TextArea pitch_value;
+    touchgfx::TextArea pitch_unit;
+    touchgfx::Container speed;
+    touchgfx::TextArea speed_title;
+    touchgfx::TextArea speed_value;
+    touchgfx::TextArea speed_unit;
+    touchgfx::Container gear;
+    touchgfx::TextArea gear_title;
+    touchgfx::TextArea gear_value;
+    touchgfx::Container gear_ratio;
+    touchgfx::TextArea g_ratio_title;
+    touchgfx::TextArea g_ratio_value;
+    touchgfx::Container wind_speed;
+    touchgfx::TextArea wind_title;
+    touchgfx::TextArea wind_value;
+    touchgfx::TextArea wind_unit;
+    touchgfx::Container wind_direction;
+    touchgfx::TextArea wind_dir_title;
+    touchgfx::TextArea wind_dir_value;
+    touchgfx::TextArea wind_dir_unit;
+    touchgfx::Container fps;
+    touchgfx::TextArea fps_title;
+    touchgfx::TextArea fps_value;
+    touchgfx::Container loadcell;
+    touchgfx::TextArea loadcell_title;
+    touchgfx::TextArea loadcell_value;
+    touchgfx::TextArea loadcell_unit;
+    touchgfx::Container power;
     touchgfx::TextArea power_title;
-    touchgfx::TextAreaWithOneWildcard power_text;
-    touchgfx::Container efficiency_container;
-    touchgfx::BoxWithBorder efficiency_box;
-    touchgfx::TextArea efficiency_title;
-    touchgfx::TextAreaWithOneWildcard efficiency_text;
-    touchgfx::Container tsr_container;
-    touchgfx::BoxWithBorder tsr_box;
-    touchgfx::TextArea tsr_title;
-    touchgfx::TextAreaWithOneWildcard tsr_text;
-    touchgfx::Container empty4_container;
-    touchgfx::BoxWithBorder empty4_box;
-    touchgfx::TextArea empty4_title;
-    touchgfx::TextArea empty4_text;
-    touchgfx::Container empty5_container;
-    touchgfx::BoxWithBorder empty5_box;
-    touchgfx::TextArea empty5_title;
-    touchgfx::TextArea empty5_text;
-    touchgfx::Container empty6_container;
-    touchgfx::BoxWithBorder empty6_box;
-    touchgfx::TextArea empty6_title;
-    touchgfx::TextArea empty6_text;
-
-    /*
-     * Wildcard Buffers
-     */
-    static const uint16_t POWER_TEXT_SIZE = 8;
-    touchgfx::Unicode::UnicodeChar power_textBuffer[POWER_TEXT_SIZE];
-    static const uint16_t EFFICIENCY_TEXT_SIZE = 8;
-    touchgfx::Unicode::UnicodeChar efficiency_textBuffer[EFFICIENCY_TEXT_SIZE];
-    static const uint16_t TSR_TEXT_SIZE = 8;
-    touchgfx::Unicode::UnicodeChar tsr_textBuffer[TSR_TEXT_SIZE];
+    touchgfx::TextArea power_value;
+    touchgfx::TextArea power_unit;
+    touchgfx::Container mast_angle;
+    touchgfx::TextArea mast_title;
+    touchgfx::TextArea mast_value;
+    touchgfx::TextArea mast_unit;
+    touchgfx::Container torque;
+    touchgfx::TextArea torque_title;
+    touchgfx::TextArea torque_value;
+    touchgfx::TextArea torque_unit;
 
 private:
-
-    /*
-     * Canvas Buffer Size
-     */
-    static const uint32_t CANVAS_BUFFER_SIZE = 12000;
-    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
 };
 
