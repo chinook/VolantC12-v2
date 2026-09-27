@@ -57,6 +57,9 @@
       <Text Id="__SingleUse_0I4K" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">@CHINOOK v3</Translation>
       </Text>
+      <Text Id="__SingleUse_V7EN" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">12</Translation>
+      </Text>
       <Text Id="__SingleUse_5AH9" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">GEAR RATIO</Translation>
       </Text>
