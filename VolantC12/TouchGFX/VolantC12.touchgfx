@@ -28,27 +28,6 @@
           },
           {
             "Type": "TextArea",
-            "Name": "change_the_name",
-            "X": 631,
-            "Y": 431,
-            "Width": 50,
-            "Height": 40,
-            "Visible": false,
-            "TextId": "__SingleUse_6XD4",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Wildcard1": {
-              "TextId": "change_the_name",
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
             "Name": "fps_counter_value",
             "X": 631,
             "Y": 421,
@@ -81,173 +60,6 @@
               "Green": 255,
               "Blue": 255
             }
-          },
-          {
-            "Type": "Container",
-            "Name": "debug_log_viewer",
-            "Y": 440,
-            "Width": 700,
-            "Height": 40,
-            "Visible": false,
-            "Components": [
-              {
-                "Type": "TextArea",
-                "Name": "debug_log_1_value",
-                "X": 1,
-                "Width": 174,
-                "Height": 40,
-                "Visible": false,
-                "TextId": "__SingleUse_C1PU",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "debug_log_1_value",
-                  "UseBuffer": true,
-                  "BufferSize": 10
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "debug_log_2_value",
-                "X": 176,
-                "Width": 174,
-                "Height": 40,
-                "Visible": false,
-                "TextId": "__SingleUse_P9LT",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "debug_log_2_value",
-                  "UseBuffer": true,
-                  "BufferSize": 10
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "debug_log_3_value",
-                "X": 351,
-                "Width": 174,
-                "Height": 40,
-                "Visible": false,
-                "TextId": "__SingleUse_WXFH",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "debug_log_3_value",
-                  "UseBuffer": true,
-                  "BufferSize": 10
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "debug_log_4_value",
-                "X": 524,
-                "Width": 174,
-                "Height": 40,
-                "Visible": false,
-                "TextId": "__SingleUse_QWDD",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "debug_log_4_value",
-                  "UseBuffer": true,
-                  "BufferSize": 10
-                }
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_3_2_2",
-                "X": 175,
-                "Width": 2,
-                "Height": 40,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "StartX": 5.0,
-                "EndX": 5.0,
-                "EndY": 45.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_3_2_2_1",
-                "X": 350,
-                "Width": 2,
-                "Height": 40,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "StartX": 5.0,
-                "EndX": 5.0,
-                "EndY": 45.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_3_2_2_1_1",
-                "X": 524,
-                "Width": 2,
-                "Height": 40,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "StartX": 5.0,
-                "EndX": 5.0,
-                "EndY": 45.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_3_2_2_1_1_1",
-                "X": 697,
-                "Width": 2,
-                "Height": 40,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "StartX": 5.0,
-                "EndX": 5.0,
-                "EndY": 45.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              }
-            ]
-          },
-          {
-            "Type": "Container",
-            "Name": "empty_container_2",
-            "X": 560,
-            "Y": 400,
-            "Width": 240,
-            "Height": 40,
-            "Components": []
           },
           {
             "Type": "Container",
@@ -429,68 +241,6 @@
             "Visible": false,
             "Components": [
               {
-                "Type": "Line",
-                "Name": "line1_3_2",
-                "Width": 2,
-                "Height": 40,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "StartX": 5.0,
-                "EndX": 5.0,
-                "EndY": 45.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_3_1_1",
-                "X": 318,
-                "Width": 2,
-                "Height": 40,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "StartX": 5.0,
-                "EndX": 5.0,
-                "EndY": 45.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_1_3_1",
-                "Y": 38,
-                "Width": 320,
-                "Height": 2,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 320.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_1_1_2_1",
-                "Width": 320,
-                "Height": 2,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 320.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
                 "Type": "TextArea",
                 "Name": "efficiency_value",
                 "X": 2,
@@ -532,54 +282,6 @@
             "Width": 240,
             "Height": 40,
             "Components": [
-              {
-                "Type": "Line",
-                "Name": "line1_2",
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "StartX": 5.0,
-                "EndX": 5.0,
-                "EndY": 45.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_1_2",
-                "Width": 240,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 240.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_1_1_1",
-                "Y": 38,
-                "Width": 240,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 240.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
               {
                 "Type": "TextArea",
                 "Name": "pitch_value_unit",
@@ -623,70 +325,6 @@
             "Width": 242,
             "Height": 40,
             "Components": [
-              {
-                "Type": "Line",
-                "Name": "line_g_vertical_1_1_1",
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_vertical_1_1_1",
-                "X": 240,
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_g_flat_1_1_1",
-                "Y": 19,
-                "Width": 12,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_flat_1_1_1",
-                "X": 229,
-                "Y": 19,
-                "Width": 12,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
               {
                 "Type": "TextArea",
                 "Name": "wind_speed_text",
@@ -799,70 +437,6 @@
             "Height": 40,
             "Components": [
               {
-                "Type": "Line",
-                "Name": "line_g_vertical_1_2",
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_vertical_1_2",
-                "X": 240,
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_g_flat_1_2",
-                "Y": 19,
-                "Width": 67,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_flat_1_2",
-                "X": 174,
-                "Y": 19,
-                "Width": 67,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
                 "Type": "TextArea",
                 "Name": "pitch_text",
                 "Width": 240,
@@ -887,11 +461,12 @@
             "Components": [
               {
                 "Type": "TextArea",
-                "Name": "wind_speed_legend_temps",
-                "Width": 240,
+                "Name": "wind_speed_legend_l",
+                "X": 144,
+                "Width": 15,
                 "Height": 40,
                 "Visible": false,
-                "TextId": "__SingleUse_OKQT",
+                "TextId": "__SingleUse_C6NF",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
@@ -901,12 +476,11 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "wind_speed_legend_l",
-                "X": 144,
-                "Width": 15,
+                "Name": "wind_speed_legend_temps",
+                "Width": 240,
                 "Height": 40,
                 "Visible": false,
-                "TextId": "__SingleUse_C6NF",
+                "TextId": "__SingleUse_OKQT",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
@@ -1011,15 +585,6 @@
           },
           {
             "Type": "Container",
-            "Name": "empty_container_1",
-            "X": -3,
-            "Y": 320,
-            "Width": 240,
-            "Height": 40,
-            "Components": []
-          },
-          {
-            "Type": "Container",
             "Name": "rotor_speed_viewer",
             "X": 236,
             "Y": 339,
@@ -1058,72 +623,6 @@
                   "Green": 255,
                   "Blue": 255
                 }
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_3",
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "StartX": 5.0,
-                "EndX": 5.0,
-                "EndY": 45.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_3_1",
-                "X": 318,
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "StartX": 5.0,
-                "EndX": 5.0,
-                "EndY": 45.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_1_3",
-                "Width": 320,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 320.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_1_1_2",
-                "Y": 38,
-                "Width": 320,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 320.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
               }
             ]
           },
@@ -1135,54 +634,6 @@
             "Width": 240,
             "Height": 40,
             "Components": [
-              {
-                "Type": "Line",
-                "Name": "line1",
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "StartX": 5.0,
-                "EndX": 5.0,
-                "EndY": 45.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_1",
-                "Width": 240,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 240.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
-              {
-                "Type": "Line",
-                "Name": "line1_1_1",
-                "Y": 38,
-                "Width": 240,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 240.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Square"
-              },
               {
                 "Type": "TextArea",
                 "Name": "gear_ratio_value",
@@ -1224,70 +675,6 @@
                   "Green": 255,
                   "Blue": 255
                 }
-              },
-              {
-                "Type": "Line",
-                "Name": "line_g_vertical_3",
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_vertical_3",
-                "X": 318,
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_g_flat_3",
-                "Y": 19,
-                "Width": 43,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_flat_3",
-                "X": 277,
-                "Y": 19,
-                "Width": 43,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
               }
             ]
           },
@@ -1299,70 +686,6 @@
             "Width": 242,
             "Height": 40,
             "Components": [
-              {
-                "Type": "Line",
-                "Name": "line_g_vertical_1_3",
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_vertical_1_3",
-                "X": 240,
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_g_flat_1_3",
-                "Y": 19,
-                "Width": 15,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_flat_1_3",
-                "X": 225,
-                "Y": 19,
-                "Width": 15,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
               {
                 "Type": "TextArea",
                 "Name": "gear_ratio_text",
@@ -1643,70 +966,6 @@
             "Height": 40,
             "Components": [
               {
-                "Type": "Line",
-                "Name": "line_g_vertical_1",
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_vertical_1",
-                "X": 240,
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_g_flat_1",
-                "Y": 19,
-                "Width": 47,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_flat_1",
-                "X": 193,
-                "Y": 19,
-                "Width": 47,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
                 "Type": "TextArea",
                 "Name": "speed_text",
                 "Width": 240,
@@ -1729,70 +988,6 @@
             "Width": 242,
             "Height": 40,
             "Components": [
-              {
-                "Type": "Line",
-                "Name": "line_g_vertical_1_1_2_1",
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_vertical_1_1_2_1",
-                "X": 240,
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_g_flat_1_1_2_1",
-                "Y": 19,
-                "Width": 23,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_flat_1_1_2_1",
-                "X": 219,
-                "Y": 19,
-                "Width": 23,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
               {
                 "Type": "TextArea",
                 "Name": "direction_text",
@@ -1831,70 +1026,6 @@
                   "Green": 255,
                   "Blue": 255
                 }
-              },
-              {
-                "Type": "Line",
-                "Name": "line_g_vertical",
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_vertical",
-                "X": 318,
-                "Width": 2,
-                "Height": 40,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndY": 40.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_g_flat",
-                "Y": 19,
-                "Width": 131,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
-              },
-              {
-                "Type": "Line",
-                "Name": "line_d_flat",
-                "X": 189,
-                "Y": 19,
-                "Width": 131,
-                "Height": 2,
-                "Visible": false,
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "EndX": 131.0,
-                "LineWidth": 10.0,
-                "LineEndingStyle": "Round"
               }
             ]
           },
@@ -1905,22 +1036,8 @@
             "Y": 422,
             "Width": 240,
             "Height": 50,
+            "LockPosition": true,
             "Components": [
-              {
-                "Type": "TextArea",
-                "Name": "version",
-                "X": 170,
-                "Width": 38,
-                "Height": 42,
-                "TextId": "__SingleUse_G2VX",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "AutoSize": true
-              },
               {
                 "Type": "TextArea",
                 "Name": "chinook",
@@ -1938,9 +1055,10 @@
           },
           {
             "Type": "Container",
-            "Name": "container1",
+            "Name": "white_lines",
             "Width": 800,
             "Height": 480,
+            "LockPosition": true,
             "Components": [
               {
                 "Type": "Line",
