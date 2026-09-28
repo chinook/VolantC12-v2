@@ -57,20 +57,41 @@ UI_page2ViewBase::UI_page2ViewBase()
 
     add(efficiency);
 
-    batterie.setPosition(0, 116, 400, 42);
-    batt_title.setXY(5, 0);
+    rotor_speed.setPosition(0, 116, 400, 42);
+    rotor_title.setXY(5, 0);
+    rotor_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    rotor_title.setLinespacing(0);
+    rotor_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_RIL3));
+    rotor_speed.add(rotor_title);
+
+    rotor_value.setXY(258, 0);
+    rotor_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    rotor_value.setLinespacing(0);
+    rotor_value.setTypedText(touchgfx::TypedText(T_ROTOR_SPEED_VALUE));
+    rotor_speed.add(rotor_value);
+
+    rotor_unit.setXY(324, 0);
+    rotor_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    rotor_unit.setLinespacing(0);
+    rotor_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PIC7));
+    rotor_speed.add(rotor_unit);
+
+    add(rotor_speed);
+
+    batterie.setPosition(415, 326, 400, 42);
+    batt_title.setXY(0, 0);
     batt_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     batt_title.setLinespacing(0);
     batt_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6JIR));
     batterie.add(batt_title);
 
-    batt_value.setXY(258, 0);
+    batt_value.setXY(266, 0);
     batt_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     batt_value.setLinespacing(0);
     batt_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_ACI0));
     batterie.add(batt_value);
 
-    batt_unit.setXY(343, 0);
+    batt_unit.setXY(328, 0);
     batt_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     batt_unit.setLinespacing(0);
     batt_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LF0D));
@@ -127,13 +148,13 @@ UI_page2ViewBase::UI_page2ViewBase()
     speed_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EU7X));
     speed.add(speed_title);
 
-    speed_value.setXY(229, 0);
+    speed_value.setXY(225, 0);
     speed_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     speed_value.setLinespacing(0);
     speed_value.setTypedText(touchgfx::TypedText(T_SPEED_VALUE));
     speed.add(speed_value);
 
-    speed_unit.setXY(343, 0);
+    speed_unit.setXY(344, -1);
     speed_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     speed_unit.setLinespacing(0);
     speed_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EFGJ));
@@ -213,14 +234,14 @@ UI_page2ViewBase::UI_page2ViewBase()
 
     add(wind_direction);
 
-    fps.setPosition(400, 326, 400, 42);
-    fps_title.setXY(15, 0);
+    fps.setPosition(395, 433, 400, 42);
+    fps_title.setXY(343, 0);
     fps_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     fps_title.setLinespacing(0);
     fps_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IXVP));
     fps.add(fps_title);
 
-    fps_value.setXY(296, 0);
+    fps_value.setXY(301, 0);
     fps_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     fps_value.setLinespacing(0);
     fps_value.setTypedText(touchgfx::TypedText(T_FPS_COUNTER_VALUE));

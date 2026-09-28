@@ -6,6 +6,12 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_PIC7" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">RPM</Translation>
+      </Text>
+      <Text Id="__SingleUse_RIL3" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">ROTOR SPEED</Translation>
+      </Text>
       <Text Id="__SingleUse_TVWU" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">FPS</Translation>
       </Text>
@@ -124,7 +130,7 @@
         <Translation Language="GB">100</Translation>
       </Text>
       <Text Id="pitch_value" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">259.321</Translation>
+        <Translation Language="GB">259.321&#10;</Translation>
       </Text>
       <Text Id="rotor_speed_value" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">666</Translation>

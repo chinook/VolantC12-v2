@@ -38,6 +38,10 @@ protected:
     touchgfx::TextArea eff_title;
     touchgfx::TextArea eff_value;
     touchgfx::TextArea eff_unit;
+    touchgfx::Container rotor_speed;
+    touchgfx::TextArea rotor_title;
+    touchgfx::TextArea rotor_value;
+    touchgfx::TextArea rotor_unit;
     touchgfx::Container batterie;
     touchgfx::TextArea batt_title;
     touchgfx::TextArea batt_value;

@@ -1317,7 +1317,7 @@
           },
           {
             "Type": "Container",
-            "Name": "batterie",
+            "Name": "rotor_speed",
             "Y": 116,
             "Width": 400,
             "Height": 42,
@@ -1325,8 +1325,66 @@
             "Components": [
               {
                 "Type": "TextArea",
-                "Name": "batt_title",
+                "Name": "rotor_title",
                 "X": 5,
+                "Width": 209,
+                "Height": 42,
+                "LockPosition": true,
+                "TextId": "__SingleUse_RIL3",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "rotor_value",
+                "X": 258,
+                "Width": 57,
+                "Height": 42,
+                "LockPosition": true,
+                "TextId": "rotor_speed_value",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "rotor_unit",
+                "X": 324,
+                "Width": 57,
+                "Height": 42,
+                "LockPosition": true,
+                "TextId": "__SingleUse_PIC7",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "batterie",
+            "X": 415,
+            "Y": 326,
+            "Width": 400,
+            "Height": 42,
+            "LockPosition": true,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "batt_title",
                 "Width": 152,
                 "Height": 42,
                 "LockPosition": true,
@@ -1342,7 +1400,7 @@
               {
                 "Type": "TextArea",
                 "Name": "batt_value",
-                "X": 258,
+                "X": 266,
                 "Width": 57,
                 "Height": 42,
                 "LockPosition": true,
@@ -1358,7 +1416,7 @@
               {
                 "Type": "TextArea",
                 "Name": "batt_unit",
-                "X": 343,
+                "X": 328,
                 "Width": 19,
                 "Height": 42,
                 "LockPosition": true,
@@ -1460,7 +1518,7 @@
                 "Name": "pitch_value",
                 "X": 248,
                 "Width": 133,
-                "Height": 42,
+                "Height": 84,
                 "LockPosition": true,
                 "TextId": "pitch_value",
                 "TextRotation": "0",
@@ -1516,7 +1574,7 @@
               {
                 "Type": "TextArea",
                 "Name": "speed_value",
-                "X": 229,
+                "X": 225,
                 "Width": 114,
                 "Height": 42,
                 "LockPosition": true,
@@ -1532,7 +1590,8 @@
               {
                 "Type": "TextArea",
                 "Name": "speed_unit",
-                "X": 343,
+                "X": 344,
+                "Y": -1,
                 "Width": 57,
                 "Height": 42,
                 "LockPosition": true,
@@ -1752,8 +1811,8 @@
           {
             "Type": "Container",
             "Name": "fps",
-            "X": 400,
-            "Y": 326,
+            "X": 395,
+            "Y": 433,
             "Width": 400,
             "Height": 42,
             "LockPosition": true,
@@ -1761,7 +1820,7 @@
               {
                 "Type": "TextArea",
                 "Name": "fps_title",
-                "X": 15,
+                "X": 343,
                 "Width": 57,
                 "Height": 42,
                 "LockPosition": true,
@@ -1777,7 +1836,7 @@
               {
                 "Type": "TextArea",
                 "Name": "fps_value",
-                "X": 296,
+                "X": 301,
                 "Width": 38,
                 "Height": 42,
                 "LockPosition": true,
