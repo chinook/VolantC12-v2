@@ -28,10 +28,11 @@ void UI_page2Presenter::change_screen(uint8_t screen)
 	view.change_screen(screen); */
 }
 
-void UI_page2Presenter::update_ui(void* screen)
+void UI_page2Presenter::update_ui(volatile void* screen)
 {
+	(void)screen;
 	/*
-	ui_t* ui = (ui_t*)screen;
+	volatile ui_t* ui = (volatile ui_t*)screen;
 	uint8_t buf;
 
 	if (osMessageQueueGet(screen2_pres_queue, &buf, NULL, 0) == osOK) {

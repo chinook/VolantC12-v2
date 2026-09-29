@@ -28,16 +28,38 @@ void UI_page1View::update_turb_dir_value(float turb_dir_value_temps)
 	turb_dir_value.invalidate();
 }
 
+/* NOTE : les widgets current_gear_value, debug_log_1..4_value et
+ * change_the_name ont ete retires de la page 1 dans le Designer : ils
+ * n'existent plus dans UI_page1ViewBase. Les fonctions ci-dessous les
+ * ecrivaient donc dans des widgets inexistants (le code ne compilait sur
+ * aucune cible). Elles sont laissees en no-op pour que le projet compile ;
+ * a recabler (et a recreer les widgets dans le Designer) si ces valeurs
+ * doivent etre affichees a nouveau. current_gear et debug_log restent
+ * appeles par UI_page1Presenter::update_ui, sans effet pour l'instant. */
 void UI_page1View::update_current_gear_value(float current_gear_value_temps)
 {
-	Unicode::snprintfFloat(current_gear_valueBuffer, CURRENT_GEAR_VALUE_SIZE, "%.0f", current_gear_value_temps);
-	current_gear_value.invalidate();
+	(void)current_gear_value_temps;
 }
 
 void UI_page1View::update_wind_dir_value(float wind_dir_value_temps)
 {
 	Unicode::snprintfFloat(wind_dir_valueBuffer, WIND_DIR_VALUE_SIZE, "%.1f", wind_dir_value_temps);
 	wind_dir_value.invalidate();
+
+	/* Aiguille de l'orientation du vent (gauge1, needle1).
+	 * Mario envoie le vent dans la plage -180..+180 deg.
+	 * gauge1 est configure dans le Designer avec la plage 0..180 et les
+	 * angles -90..+90. On compresse donc le vent (-180..+180) sur la
+	 * course de l'aiguille (-90..+90) :
+	 *     valeur_gauge = vent / 2 + 90
+	 *   vent = -180 -> 0   (aiguille a -90 deg)
+	 *   vent =    0 -> 90  (aiguille a   0 deg)
+	 *   vent = +180 -> 180 (aiguille a +90 deg)
+	 * 2e argument de updateValue = duree d'animation en ticks (0 = instantane). */
+	float wind_gauge = wind_dir_value_temps / 2.0f + 90.0f;
+	if (wind_gauge < 0.0f)   wind_gauge = 0.0f;
+	if (wind_gauge > 180.0f) wind_gauge = 180.0f;
+	gauge1.updateValue((int)(wind_gauge + 0.5f), 0);
 }
 
 void UI_page1View::update_speed_value(float speed_value_temps)
@@ -96,26 +118,22 @@ void UI_page1View::update_pitch_cmd_value(float pitch_cmd_value_temps)
 
 void UI_page1View::update_debug_log_1_value(float debug_log_1_value_temps)
 {
-	Unicode::snprintfFloat(debug_log_1_valueBuffer, DEBUG_LOG_1_VALUE_SIZE, "%.18f", debug_log_1_value_temps);
-	debug_log_1_value.invalidate();
+	(void)debug_log_1_value_temps;
 }
 
 void UI_page1View::update_debug_log_2_value(float debug_log_2_value_temps)
 {
-	Unicode::snprintfFloat(debug_log_2_valueBuffer, DEBUG_LOG_2_VALUE_SIZE, "%.18f", debug_log_2_value_temps);
-	debug_log_2_value.invalidate();
+	(void)debug_log_2_value_temps;
 }
 
 void UI_page1View::update_debug_log_3_value(float debug_log_3_value_temps)
 {
-	Unicode::snprintfFloat(debug_log_3_valueBuffer, DEBUG_LOG_3_VALUE_SIZE, "%.18f", debug_log_3_value_temps);
-	debug_log_3_value.invalidate();
+	(void)debug_log_3_value_temps;
 }
 
 void UI_page1View::update_debug_log_4_value(float debug_log_4_value_temps)
 {
-	Unicode::snprintfFloat(debug_log_4_valueBuffer, DEBUG_LOG_4_VALUE_SIZE, "%.18f", debug_log_4_value_temps);
-	debug_log_4_value.invalidate();
+	(void)debug_log_4_value_temps;
 }
 
 void UI_page1View::update_fps_counter_value(float fps_counter_value_temps)
@@ -127,8 +145,5 @@ void UI_page1View::update_fps_counter_value(float fps_counter_value_temps)
 
 void UI_page1View::update_change_the_name(float change_the_name_temps)
 {
-	Unicode::snprintfFloat(change_the_nameBuffer, CHANGE_THE_NAME_SIZE, "%.0f", change_the_name_temps);
-	change_the_name.invalidate();
-	//Unicode::snprintfFloat(change_the_nameBuffer, CHANGE_THE_NAME_SIZE, "%.1f", change_the_name);
-	//change_the_name.invalidate();
+	(void)change_the_name_temps;
 }

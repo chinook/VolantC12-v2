@@ -7,7 +7,14 @@
 using namespace touchgfx;
 
 extern "C" {
+	/* ui.h ne depend que de <stdint.h> : il fournit ui_t sur la cible ET sur
+	 * le simulateur PC. screen_tasks.h tire du RTOS/HAL STM32 (cmsis_os2.h,
+	 * main.h, fdcan.h) qui n'existe pas sur PC : on ne l'inclut donc que pour
+	 * le build cible (SIMULATOR n'est defini que par le build simulateur). */
+	#include "..\..\..\..\..\STM32CubeIDE\Application\User\application\ui.h"
+#ifndef SIMULATOR
 	#include "..\..\..\..\..\STM32CubeIDE\Application\User\application\screen_tasks.h"
+#endif
 }
 
 class UI_page2View;
@@ -33,7 +40,7 @@ public:
 
     virtual void change_screen(uint8_t screen);
 
-    virtual void update_ui(void* screen);
+    virtual void update_ui(volatile void* screen);
 
 private:
     UI_page2Presenter();

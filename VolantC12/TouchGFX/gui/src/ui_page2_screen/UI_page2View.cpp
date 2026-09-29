@@ -20,20 +20,26 @@ void UI_page2View::change_screen(uint8_t screen)
 	UI_page2ViewBase::handleKeyEvent(screen);
 }
 
+/* NOTE : la page 2 a ete redessinee dans le Designer. Les anciens widgets
+ * power_text / efficiency_text / tsr_text n'existent plus (remplaces par des
+ * TextArea statiques power_value, eff_value, tsr n'existe pas, etc., sans
+ * champ wildcard). Ces trois fonctions ecrivaient donc dans des widgets
+ * inexistants : le code ne compilait sur aucune cible et n'est jamais appele
+ * (UI_page2Presenter::update_ui est entierement commente).
+ * Elles sont laissees en no-op pour que le projet compile ; a recabler sur les
+ * vrais widgets (et rendre ces widgets "wildcard" dans le Designer) quand la
+ * page 2 recevra ses donnees. */
 void UI_page2View::update_power(float power)
 {
-	Unicode::snprintfFloat(power_textBuffer, POWER_TEXT_SIZE, "%.2f", power);
-	power_text.invalidate();
+	(void)power;
 }
 
 void UI_page2View::update_efficiency(float eff)
 {
-	Unicode::snprintfFloat(efficiency_textBuffer, EFFICIENCY_TEXT_SIZE, "%.2f", eff);
-	efficiency_text.invalidate();
+	(void)eff;
 }
 
 void UI_page2View::update_tsr(float tsr)
 {
-	Unicode::snprintfFloat(tsr_textBuffer, TSR_TEXT_SIZE, "%.2f", tsr);
-	tsr_text.invalidate();
+	(void)tsr;
 }

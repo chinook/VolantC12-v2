@@ -31,6 +31,7 @@
     <ClCompile Include="..\..\generated\gui_generated\src\containers\header_page_containerBase.cpp"/>
     <ClCompile Include="..\..\gui\src\containers\value_display_container.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\containers\value_display_containerBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\model\SimulatorData.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>

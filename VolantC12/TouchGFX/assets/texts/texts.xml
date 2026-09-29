@@ -6,6 +6,18 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_CUJ5" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">WIND</Translation>
+      </Text>
+      <Text Id="__SingleUse_IX89" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">MAST</Translation>
+      </Text>
+      <Text Id="__SingleUse_Z2SD" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">°</Translation>
+      </Text>
+      <Text Id="__SingleUse_WUAQ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">TURB</Translation>
+      </Text>
       <Text Id="__SingleUse_PIC7" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">RPM</Translation>
       </Text>
@@ -183,9 +195,6 @@
       <Text Id="__SingleUse_0Q4R" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">&lt;0&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_WZKT" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">&lt;0&gt;</Translation>
-      </Text>
       <Text Id="__SingleUse_9W31" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">WIND</Translation>
       </Text>
@@ -212,15 +221,6 @@
       </Text>
       <Text Id="__SingleUse_YIW8" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">&lt;0&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_C6NF" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">|</Translation>
-      </Text>
-      <Text Id="__SingleUse_WUAQ" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">TURB</Translation>
-      </Text>
-      <Text Id="__SingleUse_OKQT" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">TURB CMD|WIND</Translation>
       </Text>
       <Text Id="__SingleUse_EZPE" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">&lt;value&gt;</Translation>

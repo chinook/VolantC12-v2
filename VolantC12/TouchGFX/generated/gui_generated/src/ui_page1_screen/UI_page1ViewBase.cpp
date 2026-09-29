@@ -5,6 +5,7 @@
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 #include <touchgfx/Color.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
+#include <images/BitmapDatabase.hpp>
 
 UI_page1ViewBase::UI_page1ViewBase()
 {
@@ -222,21 +223,8 @@ UI_page1ViewBase::UI_page1ViewBase()
 
     add(pitch_title);
 
-    wind_speed_legend.setPosition(558, 210, 242, 40);
-    wind_speed_legend_l.setPosition(144, 0, 15, 40);
-    wind_speed_legend_l.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    wind_speed_legend_l.setLinespacing(0);
-    wind_speed_legend_l.setTypedText(touchgfx::TypedText(T___SINGLEUSE_C6NF));
-    wind_speed_legend_l.setVisible(false);
-    wind_speed_legend.add(wind_speed_legend_l);
-
-    wind_speed_legend_temps.setPosition(0, 0, 240, 40);
-    wind_speed_legend_temps.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    wind_speed_legend_temps.setLinespacing(0);
-    wind_speed_legend_temps.setTypedText(touchgfx::TypedText(T___SINGLEUSE_OKQT));
-    wind_speed_legend_temps.setVisible(false);
-    wind_speed_legend.add(wind_speed_legend_temps);
-
+    wind_speed_legend.setPosition(558, 205, 242, 45);
+    wind_speed_legend.setVisible(false);
     wind_speed_legend_wind.setPosition(153, 0, 76, 42);
     wind_speed_legend_wind.setColor(touchgfx::Color::getColorFromRGB(0, 145, 255));
     wind_speed_legend_wind.setLinespacing(0);
@@ -386,32 +374,58 @@ UI_page1ViewBase::UI_page1ViewBase()
 
     add(speed_viewer);
 
-    direction_viewer.setPosition(558, 40, 240, 175);
-    circle3.setPosition(0, 0, 240, 175);
-    circle3.setCenter(120, 90);
-    circle3.setRadius(80);
-    circle3.setLineWidth(0);
-    circle3.setArc(0, 360);
-    circle3Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    circle3.setPainter(circle3Painter);
-    direction_viewer.add(circle3);
+    angle_viewer.setPosition(549, 28, 250, 159);
+    gauge1.setBackground(touchgfx::Bitmap(BITMAP_DEMI_ID));
+    gauge1.setPosition(9, 36, 240, 123);
+    gauge1.setCenter(120, 120);
+    gauge1.setStartEndAngle(-90, 90);
+    gauge1.setRange(0, 180);
+    gauge1.setValue(0);
+    gauge1.setNeedle(BITMAP_NEEDLE1_ID, 15, 110);
+    gauge1.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    gauge1.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    angle_viewer.add(gauge1);
 
-    circle3_1.setPosition(0, 0, 240, 175);
-    circle3_1.setCenter(120, 90);
-    circle3_1.setRadius(75);
-    circle3_1.setLineWidth(0);
-    circle3_1.setArc(0, 360);
-    circle3_1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-    circle3_1.setPainter(circle3_1Painter);
-    direction_viewer.add(circle3_1);
+    gauge2.setBackground(touchgfx::Bitmap(BITMAP_TRANSPARENT_BACKGROUND_ID));
+    gauge2.setPosition(9, 36, 240, 123);
+    gauge2.setCenter(120, 120);
+    gauge2.setStartEndAngle(-90, 90);
+    gauge2.setRange(0, 180);
+    gauge2.setValue(0);
+    gauge2.setNeedle(BITMAP_NEEDLE2_ID, 15, 110);
+    gauge2.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    gauge2.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    gauge2.setVisible(false);
+    angle_viewer.add(gauge2);
 
-    direction_unit.setPosition(94, 135, 56, 40);
-    direction_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    direction_unit.setLinespacing(0);
-    direction_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6SKF));
-    direction_viewer.add(direction_unit);
+    add(angle_viewer);
 
-    wind_dir_value.setPosition(1, 100, 240, 40);
+    direction_viewer.setPosition(558, 28, 240, 195);
+    direction_unit_wind.setPosition(204, -6, 19, 38);
+    direction_unit_wind.setColor(touchgfx::Color::getColorFromRGB(0, 145, 255));
+    direction_unit_wind.setLinespacing(0);
+    direction_unit_wind.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6SKF));
+    direction_viewer.add(direction_unit_wind);
+
+    direction_unit_mast.setPosition(204, 156, 19, 38);
+    direction_unit_mast.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
+    direction_unit_mast.setLinespacing(0);
+    direction_unit_mast.setTypedText(touchgfx::TypedText(T___SINGLEUSE_Z2SD));
+    direction_viewer.add(direction_unit_mast);
+
+    direction_title_mast.setPosition(-1, 157, 80, 37);
+    direction_title_mast.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
+    direction_title_mast.setLinespacing(0);
+    direction_title_mast.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IX89));
+    direction_viewer.add(direction_title_mast);
+
+    direction_title_wind.setPosition(-8, -6, 93, 38);
+    direction_title_wind.setColor(touchgfx::Color::getColorFromRGB(0, 145, 255));
+    direction_title_wind.setLinespacing(0);
+    direction_title_wind.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CUJ5));
+    direction_viewer.add(direction_title_wind);
+
+    wind_dir_value.setPosition(79, -6, 125, 38);
     wind_dir_value.setColor(touchgfx::Color::getColorFromRGB(0, 145, 255));
     wind_dir_value.setLinespacing(0);
     Unicode::snprintf(wind_dir_valueBuffer, WIND_DIR_VALUE_SIZE, "%s", touchgfx::TypedText(T_WIND_DIR_VALUE).getText());
@@ -419,15 +433,7 @@ UI_page1ViewBase::UI_page1ViewBase()
     wind_dir_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_WEXC));
     direction_viewer.add(wind_dir_value);
 
-    turb_cmd_value.setPosition(1, 60, 240, 40);
-    turb_cmd_value.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    turb_cmd_value.setLinespacing(0);
-    Unicode::snprintf(turb_cmd_valueBuffer, TURB_CMD_VALUE_SIZE, "%s", touchgfx::TypedText(T_CURRENT_GEAR_VALUE).getText());
-    turb_cmd_value.setWildcard(turb_cmd_valueBuffer);
-    turb_cmd_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_WZKT));
-    direction_viewer.add(turb_cmd_value);
-
-    turb_dir_value.setPosition(2, 20, 240, 40);
+    turb_dir_value.setPosition(79, 157, 125, 37);
     turb_dir_value.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
     turb_dir_value.setLinespacing(0);
     Unicode::snprintf(turb_dir_valueBuffer, TURB_DIR_VALUE_SIZE, "%s", touchgfx::TypedText(T_TURB_DIR_VALUE).getText());
@@ -447,7 +453,8 @@ UI_page1ViewBase::UI_page1ViewBase()
     add(speed_title);
 
     direction_title.setPosition(558, 10, 242, 40);
-    direction_text.setPosition(0, 1, 240, 40);
+    direction_title.setVisible(false);
+    direction_text.setPosition(-1, -10, 240, 40);
     direction_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     direction_text.setLinespacing(0);
     direction_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_F7YL));

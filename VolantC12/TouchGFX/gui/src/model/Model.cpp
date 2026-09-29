@@ -6,16 +6,28 @@ extern volatile uint8_t active_screen_index;
 extern volatile struct ui screen1;
 extern volatile struct ui screen2;
 
-Model::Model() : modelListener(0)
+#ifdef SIMULATOR
+/* Definie dans SimulatorData.cpp : alimente screen1/screen2 avec des valeurs
+ * de test et fait bouger l'orientation du vent. */
+void simulator_feed_screens(void);
+#endif
+
+Model::Model() : modelListener(0), curr_screen(0)
 {
 
 }
 
 void Model::tick()
 {
-	/* Delegates the screen update operation to the proper screen instance */
-	void* active_screen;
-	active_screen = (curr_screen == 0) ? (void*)&screen1 : (void*)&screen2;
+#ifdef SIMULATOR
+	simulator_feed_screens();
+#endif
+
+	/* Delegates the screen update operation to the proper screen instance.
+	 * screen1/screen2 sont volatile (partages avec l'ISR/les taches CAN sur la
+	 * cible) : on garde le qualificatif volatile jusqu'au Presenter. */
+	volatile void* active_screen;
+	active_screen = (curr_screen == 0) ? (volatile void*)&screen1 : (volatile void*)&screen2;
 	modelListener->update_ui(active_screen);
 
 	/* Handles a page change request. This block of code

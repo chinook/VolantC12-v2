@@ -16,7 +16,7 @@ public:
     }
 
     virtual void change_screen(uint8_t screen) {};
-    virtual void update_ui(void* screen) {};
+    virtual void update_ui(volatile void* screen) {};
     
 protected:
     Model* model;

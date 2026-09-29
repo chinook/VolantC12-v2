@@ -15,6 +15,7 @@
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/canvas/Line.hpp>
 #include <touchgfx/widgets/canvas/Circle.hpp>
+#include <touchgfx/widgets/Gauge.hpp>
 
 class UI_page1ViewBase : public touchgfx::View<UI_page1Presenter>
 {
@@ -82,8 +83,6 @@ protected:
     touchgfx::Container pitch_title;
     touchgfx::TextArea pitch_text;
     touchgfx::Container wind_speed_legend;
-    touchgfx::TextArea wind_speed_legend_l;
-    touchgfx::TextArea wind_speed_legend_temps;
     touchgfx::TextArea wind_speed_legend_wind;
     touchgfx::TextArea wind_speed_legend_cmd;
     touchgfx::TextArea wind_speed_legend_turb;
@@ -111,14 +110,15 @@ protected:
     touchgfx::PainterRGB888 circle2Painter;
     touchgfx::TextArea speed_value_unit;
     touchgfx::TextAreaWithOneWildcard speed_value;
+    touchgfx::Container angle_viewer;
+    touchgfx::Gauge gauge1;
+    touchgfx::Gauge gauge2;
     touchgfx::Container direction_viewer;
-    touchgfx::Circle circle3;
-    touchgfx::PainterRGB888 circle3Painter;
-    touchgfx::Circle circle3_1;
-    touchgfx::PainterRGB888 circle3_1Painter;
-    touchgfx::TextArea direction_unit;
+    touchgfx::TextArea direction_unit_wind;
+    touchgfx::TextArea direction_unit_mast;
+    touchgfx::TextArea direction_title_mast;
+    touchgfx::TextArea direction_title_wind;
     touchgfx::TextAreaWithOneWildcard wind_dir_value;
-    touchgfx::TextAreaWithOneWildcard turb_cmd_value;
     touchgfx::TextAreaWithOneWildcard turb_dir_value;
     touchgfx::Container speed_title;
     touchgfx::TextArea speed_text;
@@ -165,8 +165,6 @@ protected:
     touchgfx::Unicode::UnicodeChar speed_valueBuffer[SPEED_VALUE_SIZE];
     static const uint16_t WIND_DIR_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar wind_dir_valueBuffer[WIND_DIR_VALUE_SIZE];
-    static const uint16_t TURB_CMD_VALUE_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar turb_cmd_valueBuffer[TURB_CMD_VALUE_SIZE];
     static const uint16_t TURB_DIR_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar turb_dir_valueBuffer[TURB_DIR_VALUE_SIZE];
 
