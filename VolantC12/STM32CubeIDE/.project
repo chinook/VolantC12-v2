@@ -700,31 +700,6 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/SVGDatabase.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_demi.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_demi.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_needle1.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_needle1.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_needle2.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_needle2.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_testchinook.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_testchinook.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_transparent_background.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_transparent_background.cpp</locationURI>
-		</link>
-		<link>
 			<name>Application/User/generated/LanguageGb.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/texts/src/LanguageGb.cpp</locationURI>

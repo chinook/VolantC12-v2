@@ -5,7 +5,6 @@
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 #include <touchgfx/Color.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
-#include <images/BitmapDatabase.hpp>
 
 UI_page1ViewBase::UI_page1ViewBase()
 {
@@ -373,32 +372,6 @@ UI_page1ViewBase::UI_page1ViewBase()
     speed_viewer.add(speed_value);
 
     add(speed_viewer);
-
-    angle_viewer.setPosition(549, 28, 250, 159);
-    gauge1.setBackground(touchgfx::Bitmap(BITMAP_DEMI_ID));
-    gauge1.setPosition(9, 36, 240, 123);
-    gauge1.setCenter(120, 120);
-    gauge1.setStartEndAngle(-90, 90);
-    gauge1.setRange(0, 180);
-    gauge1.setValue(0);
-    gauge1.setNeedle(BITMAP_NEEDLE1_ID, 15, 110);
-    gauge1.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
-    gauge1.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
-    angle_viewer.add(gauge1);
-
-    gauge2.setBackground(touchgfx::Bitmap(BITMAP_TRANSPARENT_BACKGROUND_ID));
-    gauge2.setPosition(9, 36, 240, 123);
-    gauge2.setCenter(120, 120);
-    gauge2.setStartEndAngle(-90, 90);
-    gauge2.setRange(0, 180);
-    gauge2.setValue(0);
-    gauge2.setNeedle(BITMAP_NEEDLE2_ID, 15, 110);
-    gauge2.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
-    gauge2.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
-    gauge2.setVisible(false);
-    angle_viewer.add(gauge2);
-
-    add(angle_viewer);
 
     direction_viewer.setPosition(558, 28, 240, 195);
     direction_unit_wind.setPosition(204, -6, 19, 38);

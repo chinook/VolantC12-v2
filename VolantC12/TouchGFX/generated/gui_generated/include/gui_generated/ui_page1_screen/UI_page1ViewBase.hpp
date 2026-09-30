@@ -15,7 +15,6 @@
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/canvas/Line.hpp>
 #include <touchgfx/widgets/canvas/Circle.hpp>
-#include <touchgfx/widgets/Gauge.hpp>
 
 class UI_page1ViewBase : public touchgfx::View<UI_page1Presenter>
 {
@@ -110,9 +109,6 @@ protected:
     touchgfx::PainterRGB888 circle2Painter;
     touchgfx::TextArea speed_value_unit;
     touchgfx::TextAreaWithOneWildcard speed_value;
-    touchgfx::Container angle_viewer;
-    touchgfx::Gauge gauge1;
-    touchgfx::Gauge gauge2;
     touchgfx::Container direction_viewer;
     touchgfx::TextArea direction_unit_wind;
     touchgfx::TextArea direction_unit_mast;

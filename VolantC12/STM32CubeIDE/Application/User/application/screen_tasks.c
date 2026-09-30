@@ -188,7 +188,7 @@ void screen1_task(void* arg)
 	while (1) {
 
 
-		if (timer7_1ms_flag == 1);
+		if (timer7_1ms_flag == 1){
 			timer7_1ms_flag = 0;
 
 			//keep it it's magic but it doesn't work without it : the more you add osMessageQueuePut the less the refresh rate is. One is 500FPS
@@ -267,7 +267,7 @@ void screen1_task(void* arg)
 			}
 
 
-
+		}
 	}
 }
 
@@ -323,7 +323,7 @@ static void init_screen1(void)
 void screen2_task(void* arg)
 {
 	uint8_t buf = 0;
-	float eff_power = 0.0;
+	//float eff_power = 0.0;
 	init_screen2();
 
 	while (1) {

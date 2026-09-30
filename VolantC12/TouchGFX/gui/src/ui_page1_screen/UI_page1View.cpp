@@ -46,7 +46,13 @@ void UI_page1View::update_wind_dir_value(float wind_dir_value_temps)
 	Unicode::snprintfFloat(wind_dir_valueBuffer, WIND_DIR_VALUE_SIZE, "%.1f", wind_dir_value_temps);
 	wind_dir_value.invalidate();
 
-	/* Aiguille de l'orientation du vent (gauge1, needle1).
+	/* ===== GAUGE DU VENT TEMPORAIREMENT DESACTIVEE =====
+	 * gauge1 a ete retire du Designer, donc il n'existe plus dans
+	 * UI_page1ViewBase et le code ci-dessous ne compile plus.
+	 * Bloc commente pour que le simulateur (et la carte) compilent sans les
+	 * gauges. >>> A DECOMMENTER quand gauge1 sera reajoute dans le Designer. <<<
+	 *
+	 * Aiguille de l'orientation du vent (gauge1, needle1).
 	 * Mario envoie le vent dans la plage -180..+180 deg.
 	 * gauge1 est configure dans le Designer avec la plage 0..180 et les
 	 * angles -90..+90. On compresse donc le vent (-180..+180) sur la
@@ -55,11 +61,13 @@ void UI_page1View::update_wind_dir_value(float wind_dir_value_temps)
 	 *   vent = -180 -> 0   (aiguille a -90 deg)
 	 *   vent =    0 -> 90  (aiguille a   0 deg)
 	 *   vent = +180 -> 180 (aiguille a +90 deg)
-	 * 2e argument de updateValue = duree d'animation en ticks (0 = instantane). */
-	float wind_gauge = wind_dir_value_temps / 2.0f + 90.0f;
-	if (wind_gauge < 0.0f)   wind_gauge = 0.0f;
-	if (wind_gauge > 180.0f) wind_gauge = 180.0f;
-	gauge1.updateValue((int)(wind_gauge + 0.5f), 0);
+	 * 2e argument de updateValue = duree d'animation en ticks (0 = instantane).
+	 *
+	 * float wind_gauge = wind_dir_value_temps / 2.0f + 90.0f;
+	 * if (wind_gauge < 0.0f)   wind_gauge = 0.0f;
+	 * if (wind_gauge > 180.0f) wind_gauge = 180.0f;
+	 * gauge1.updateValue((int)(wind_gauge + 0.5f), 0);
+	 */
 }
 
 void UI_page1View::update_speed_value(float speed_value_temps)
