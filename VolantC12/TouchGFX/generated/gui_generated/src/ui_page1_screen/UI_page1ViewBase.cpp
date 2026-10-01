@@ -5,6 +5,7 @@
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 #include <touchgfx/Color.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
+#include <images/BitmapDatabase.hpp>
 
 UI_page1ViewBase::UI_page1ViewBase()
 {
@@ -500,6 +501,17 @@ UI_page1ViewBase::UI_page1ViewBase()
     white_lines.add(line3_2_1);
 
     add(white_lines);
+
+    gauge1.setBackground(touchgfx::Bitmap(BITMAP_DEMI_ID));
+    gauge1.setPosition(556, 66, 240, 119);
+    gauge1.setCenter(120, 120);
+    gauge1.setStartEndAngle(-113, 112);
+    gauge1.setRange(0, 100);
+    gauge1.setValue(50);
+    gauge1.setNeedle(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_GAUGE_MEDIUM_NEEDLES_SMOOTH_ID, 7, 67);
+    gauge1.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    gauge1.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    add(gauge1);
 }
 
 UI_page1ViewBase::~UI_page1ViewBase()

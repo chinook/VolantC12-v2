@@ -15,6 +15,7 @@
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/canvas/Line.hpp>
 #include <touchgfx/widgets/canvas/Circle.hpp>
+#include <touchgfx/widgets/Gauge.hpp>
 
 class UI_page1ViewBase : public touchgfx::View<UI_page1Presenter>
 {
@@ -135,6 +136,7 @@ protected:
     touchgfx::PainterRGB888 line3_2Painter;
     touchgfx::Line line3_2_1;
     touchgfx::PainterRGB888 line3_2_1Painter;
+    touchgfx::Gauge gauge1;
 
     /*
      * Wildcard Buffers
